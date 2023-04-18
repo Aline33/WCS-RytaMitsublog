@@ -1,8 +1,10 @@
 .col {
+    padding: 0;
     position: relative;
     text-align: center;
     color: white;
     border-right: solid 5px black;
+    overflow: hidden;
 }
 
 .row {
@@ -30,6 +32,10 @@
     transform: translate(-50%, -50%);
 }
 
-.col {
-    padding: 0;
+img {
+    transition: transform .2s ease ;
+}
+
+img:hover {
+    transform: scale(1.2);
 }
