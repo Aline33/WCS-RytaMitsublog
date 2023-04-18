@@ -1,3 +1,22 @@
+@import url('modules/variables.css');
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/Rajdhani-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Regular.ttf');
+    font-weight: normal;
+}
 body {
     color: #f76c6c;
 }
