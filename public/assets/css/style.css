@@ -1,5 +1,7 @@
 @import "modules/grid_articles.css";
 
+@import "modules/sticky_aside.css";
+
 * {
     margin: 0;
     padding: 0;
