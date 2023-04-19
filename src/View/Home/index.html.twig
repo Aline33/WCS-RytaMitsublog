@@ -1,6 +1,44 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p>
+    <!-- <h1>Hello Wilder !</h1>
+    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p> -->
+    {# ressource : https://twig.symfony.com/doc/3.x/tags/embed.html #}
+    {% embed '_includes/grid_articles.html.twig' %}
+        {# Article 1 : custom title then custom img #}
+        {% block mosaic_article_title_big_left %}
+            Test 1
+        {% endblock %}
+        {% block mosaic_article_img_big_left %}
+            https://placehold.co/727x400
+        {% endblock %}
+        {# Article 2 : custom title then custom img #}
+        {% block mosaic_article_title_big_right %}
+            Test 2
+        {% endblock %}
+        {% block mosaic_article_img_big_right %}
+            {{ parent() }}
+        {% endblock %}
+        {# Article 3 : custom title then custom img #}
+        {% block mosaic_article_title_small_left %}
+            Test 3
+        {% endblock %}
+        {% block mosaic_article_img_small_left %}
+            {{ parent() }}
+        {% endblock %}
+        {# Article 4 : custom title then custom img #}
+        {% block mosaic_article_title_small_mid %}
+            Test 4
+        {% endblock %}
+        {% block mosaic_article_img_small_mid %}
+            {{ parent() }}
+        {% endblock %}
+        {# Article 5 : custom title then custom img #}
+        {% block mosaic_article_title_small_right %}
+            Test 5
+        {% endblock %}
+        {% block mosaic_article_img_small_right %}
+            {{ parent() }}
+        {% endblock %}
+    {% endembed %}
 {% endblock %}
