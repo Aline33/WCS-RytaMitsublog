@@ -1,5 +1,7 @@
 @import url('modules/variables.css');
 
+@import "modules/grid_articles.css";
+
 @font-face {
     font-family: 'Rajdhani';
     src: url('../fonts/Rajdhani/Rajdhani-Regular.ttf');
@@ -17,6 +19,16 @@
     src: url('../fonts/Raleway/static/Raleway-Regular.ttf');
     font-weight: normal;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     color: #f76c6c;
 }
+
+
+
