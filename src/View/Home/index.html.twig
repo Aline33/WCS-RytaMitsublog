@@ -86,6 +86,31 @@
                 {% include '_includes/second_section_articles.html.twig' %}
             </div>
             <div class="col-md-auto">
+                {% embed '_includes/sticky_aside.html.twig' %}
+                    {# sticky aside style customization #}
+                    {% block sticky_aside_header_style %}
+                        darkred
+                    {% endblock %}
+                    {% block sticky_aside_first_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_second_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_third_article_style %}
+                        red
+                    {% endblock %}
+                    {# sticky aside article titles customization #}
+                    {% block sticky_first_article_title %}
+                        Article 1
+                    {% endblock %}
+                    {% block sticky_second_article_title %}
+                        Article 2
+                    {% endblock %}
+                    {% block sticky_third_article_title %}
+                        Article 3
+                    {% endblock %}
+                {% endembed %}
             </div>
         </div>
     </div>
