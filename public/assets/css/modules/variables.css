@@ -5,6 +5,7 @@
     --bt-main-bg-color: #002d2bff;
     --bt-bg-card-light_green: #0a9a93ff;
     --bt-bg-card-red: #e8241aff;
+    --bt-bg-card-darkred: #9C1009;
     --bt-bg-cards-orange: #e89102ff;
     /* Gradients */
     --bt-main-gradient: linear-gradient(90deg, #002d2bff 0%, #0a9a93ff 50%, #002d2bff 100%);
