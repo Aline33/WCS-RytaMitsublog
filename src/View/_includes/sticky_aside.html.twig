@@ -1,18 +1,25 @@
 <aside>
     <div class="bt-sticky-aside card rounded-4" style="width: 18rem;">
-        <div class="card-header rounded-top-4">
-            <h4>Articles les plus populaires</h4>
+        <div class="card-header rounded-top-4" style="{% block sticky_aside_header_style %}background-color: red{% endblock %}">
+            <h4>Les plus populaires</h4>
         </div>
-        <ul class=" list-group-flush">
-            <li class="list-group-item">Article 1</li>
-        </ul>
+        <a href="" style="{% block sticky_aside_first_article_style %}background-color: red{% endblock %}">
+            <ul class=" list-group-flush">
+                <li class="list-group-item">{% block sticky_first_article_title %}Article 1{% endblock %}</li>
+            </ul>
+
+        </a>
+        <div class="bt-sticky-aside-line"></div>
+        <a href="" style="{% block sticky_aside_second_article_style %}background-color: red{% endblock %}">
+            <ul class=" list-group-flush">
+                <li class="list-group-item">{% block sticky_second_article_title %}Article 2{% endblock %}</li>
+            </ul>
+        </a>
             <div class="bt-sticky-aside-line"></div>
-        <ul class=" list-group-flush">
-            <li class="list-group-item">Article 2</li>
-        </ul>
-            <div class="bt-sticky-aside-line"></div>
-        <ul class=" list-group-flush rounded-bottom-4">
-            <li class="list-group-item">Article 3</li>
-        </ul>
+        <a class="rounded-bottom-4" href="" style="{% block sticky_aside_third_article_style %}background-color: red{% endblock %}">
+            <ul class=" list-group-flush">
+                <li class="list-group-item">{% block sticky_third_article_title %}Article 3{% endblock %}</li>
+            </ul>
+        </a>
     </div>
 </aside>
