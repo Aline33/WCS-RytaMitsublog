@@ -32,10 +32,20 @@
     transform: translate(-50%, -50%);
 }
 
+.bt-main-mosaic a {
+    text-decoration: none;
+}
+
 .bt-main-mosaic img {
     transition: transform .2s ease ;
 }
 
 .bt-main-mosaic img:hover {
     transform: scale(1.2);
+}
+
+.bt-main-mosaic h2 {
+    color: var(--bt-main-white);
+    font-family: var(--bt-main-font);
+    font-size: 3rem;
 }
