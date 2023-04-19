@@ -2,23 +2,24 @@ aside {
     position: -webkit-sticky;
     position: sticky;
     top: 3vh;
+
 }
 
-.bt-sticky-aside ul{
+.bt-sticky-aside {
+    border: none;
+    position: relative;
+}
+
+.bt-sticky-aside a{
     height: auto;
-    background: red;
+    text-decoration: none;
 }
 
 .bt-sticky-aside .card-header {
+    width: 100%;
     margin: auto;
     color: white;
-    background: darkred;
     text-align: center;
-
-}
-
-.bt-sticky-aside .rounded-top {
-
 }
 
 .bt-sticky-aside ul {
@@ -31,9 +32,10 @@ aside {
 }
 
 .bt-sticky-aside-line {
-    height: 1px;
+    position: absolute;
+    height: 10px;
     background-color: white;
-    width: 90%;
+    width: 20px;
     margin: 0 auto;
 }
 
