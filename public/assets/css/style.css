@@ -1,4 +1,24 @@
+@import url('modules/variables.css');
 @import "modules/grid_articles.css";
+@import "modules/sticky_aside.css";
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('../fonts/Rajdhani/Rajdhani-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Libre Baskerville';
+    src: url('../fonts/Libre_Baskerville/LibreBaskerville-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Regular.ttf');
+    font-weight: normal;
+}
 
 * {
     margin: 0;
@@ -9,5 +29,12 @@
 body {
     color: #f76c6c;
 }
+/* WIP
+.container .col{
+    margin-right: 5vw;
 
-
+.container {
+    width: 95vw;
+    margin-right: 2vw;
+}
+*/

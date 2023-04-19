@@ -1,4 +1,4 @@
-.col {
+.bt-main-mosaic .row .col {
     padding: 0;
     position: relative;
     text-align: center;
@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-.row {
+.bt-main-mosaic .row {
     border-bottom: solid 5px black
 }
 
@@ -32,10 +32,10 @@
     transform: translate(-50%, -50%);
 }
 
-img {
+.bt-main-mosaic img {
     transition: transform .2s ease ;
 }
 
-img:hover {
+.bt-main-mosaic img:hover {
     transform: scale(1.2);
 }
