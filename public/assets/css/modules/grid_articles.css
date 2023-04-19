@@ -1,0 +1,41 @@
+.col {
+    padding: 0;
+    position: relative;
+    text-align: center;
+    color: white;
+    border-right: solid 5px black;
+    overflow: hidden;
+}
+
+.row {
+    border-bottom: solid 5px black
+}
+
+.bt-mosaic-title-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bt-mosaic-title-top {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bt-mosaic-title-bottom {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img {
+    transition: transform .2s ease ;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
