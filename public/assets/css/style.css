@@ -2,6 +2,7 @@
 @import url('modules/first-article-section.css');
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
+@import "modules/second_article_section.css";
 
 
 @font-face {
