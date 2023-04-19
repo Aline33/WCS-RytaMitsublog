@@ -21,3 +21,45 @@ footer div a  {
     --bs-gutter-x: 3rem;
     --bs-gutter-y: 3rem;
 }
+
+
+@media screen and (max-width: 1000px) {
+
+
+    footer  {
+        padding: 0;
+    }
+    svg {
+        width: 25px;
+    }
+
+    ul  {
+        padding-inline-start: 0;
+    }
+
+    ol, ul  {
+        padding-left: 0!important;
+    }
+
+    footer div a   {
+        font-size: 10px;
+    }
+
+    footer .text-center.p-3    {
+        font-size: 10px;
+    }
+
+    .col-3.d-flex.align-items-center    {
+        margin-top: 75px;
+    }
+
+    .row #bt-footer-social-media-icons {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+
+}
