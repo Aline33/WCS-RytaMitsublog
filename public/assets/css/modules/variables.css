@@ -1,22 +1,22 @@
 :root {
     /* Colours */
-    --main-text-article-color: #000000;
-    --main-white: #fdfff5;
-    --main-bg-color: #002d2bff;
-    --bg-card-light_green: #0a9a93ff;
-    --bg-card-red: #e8241aff;
-    --bg-cards-orange: #e89102ff;
+    --bt-main-text-article-color: #000000;
+    --bt-main-white: #fdfff5;
+    --bt-main-bg-color: #002d2bff;
+    --bt-bg-card-light_green: #0a9a93ff;
+    --bt-bg-card-red: #e8241aff;
+    --bt-bg-cards-orange: #e89102ff;
     /* Gradients */
-    --main-gradient: linear-gradient(90deg, #002d2bff 0%, #0a9a93ff 50%, #002d2bff 100%);
+    --bt-main-gradient: linear-gradient(90deg, #002d2bff 0%, #0a9a93ff 50%, #002d2bff 100%);
     /* Fonts */
-    --article-text-font: 'Libre Baskerville', serif;
-    --main-font: 'Raleway', sans-serif;
-    --logo-font: 'Rajdhani', sans-serif;
+    --bt-article-text-font: 'Libre Baskerville', serif;
+    --bt-main-font: 'Raleway', sans-serif;
+    --bt-logo-font: 'Rajdhani', sans-serif;
     /* Styles */
-    --main_box_shadow: 5px 5px 18px 3px rgba(0, 0, 0, 0.5);
-    --main-border-radius: 0.625rem;
-    --sticky-border-radius: 1.25rem;
+    --bt-main_box_shadow: 5px 5px 18px 3px rgba(0, 0, 0, 0.5);
+    --bt-main-border-radius: 0.625rem;
+    --bt-sticky-border-radius: 1.25rem;
     /* Spacings */
-    --main-section-spacing: 3rem;
-    --article-spacing-horizon: 1rem;
+    --bt-main-section-spacing: 3rem;
+    --bt-article-spacing-horizon: 1rem;
 }
