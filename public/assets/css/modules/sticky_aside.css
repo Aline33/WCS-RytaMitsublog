@@ -7,12 +7,12 @@ aside {
 
 .bt-sticky-aside {
     border: none;
-    position: relative;
 }
 
 .bt-sticky-aside a{
     height: auto;
     text-decoration: none;
+    position: relative;
 }
 
 .bt-sticky-aside .card-header {
@@ -20,6 +20,8 @@ aside {
     margin: auto;
     color: white;
     text-align: center;
+    position: relative;
+    border: none;
 }
 
 .bt-sticky-aside ul {
@@ -33,9 +35,17 @@ aside {
 
 .bt-sticky-aside-line {
     position: absolute;
+    top: 99%;
+    border: 1px solid white;
+    width: 90%;
+    left: 5%;
+    z-index: 1;
+    box-shadow: 1px 2px 5px black;
+    border-radius: 2px;
+    /*
     height: 10px;
     background-color: white;
     width: 20px;
-    margin: 0 auto;
+    margin: 0 auto;*/
 }
 
