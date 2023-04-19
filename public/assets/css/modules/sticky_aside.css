@@ -36,7 +36,7 @@ aside {
 .bt-sticky-aside-line {
     position: absolute;
     top: 99%;
-    border: 1px solid white;
+    border: 1px solid var(--bt-main-white);
     width: 90%;
     left: 5%;
     z-index: 1;
@@ -44,10 +44,15 @@ aside {
     border-radius: 2px;
 }
 
+.bt-sticky-aside h4, .bt-sticky-aside a{
+    color: var(--bt-main-white);
+    font-family: var(--bt-main-font);
+}
+
 .darkred {
-    background: darkred;
+    background: var(--bt-bg-card-darkred);
 }
 
 .red {
-    background: red;
+    background: var(--bt-bg-card-red);
 }
