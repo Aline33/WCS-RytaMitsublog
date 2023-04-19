@@ -1,30 +1,39 @@
+.bt-second-section-article {
+    text-decoration: none;
+}
+
 .bt-card {
     display: flex;
     align-items: center;
     width: 25vw;
     height: 40vh;
     max-width: 650px;
-    padding: 50px 30px 50px 20px;
-    background: yellow;
+    padding: 50px 20px 50px 20px;
     border-radius: 24px;
     margin: 7vh 0;
     text-align: center;
     flex-direction: column;
+    transition: transform .2s ease ;
+}
+
+.bt-card:hover {
+    transform: scale(1.1);
 }
 
 .bt-card img {
-    height: 300px;
+    height: 240px;
     object-fit: cover;
     border-radius: inherit;
     box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
     margin: -100px 0 10px 0;
-    width: 100%;
+    width: 330px;
     max-width: 1000px;
 }
 
 .bt-card h2 {
     margin-right: 0;
     font-size: 1.5rem;
+    color: var(--bt-main-white);
 }
 
 .bt-card h3 {
