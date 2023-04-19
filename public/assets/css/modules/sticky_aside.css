@@ -5,10 +5,6 @@ aside {
 
 }
 
-.darkred {
-    background: darkred;
-}
-
 .bt-sticky-aside {
     border: none;
 }
@@ -48,3 +44,10 @@ aside {
     border-radius: 2px;
 }
 
+.darkred {
+    background: darkred;
+}
+
+.red {
+    background: red;
+}
