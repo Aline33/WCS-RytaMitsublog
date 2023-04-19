@@ -1,0 +1,23 @@
+footer  {
+    background-color: #002d2bff;
+    color: #FDFFF5;
+    padding: 3.125rem 0;
+}
+
+ul  {
+    list-style: none;
+}
+
+li  {
+    padding: 0.3rem;
+}
+
+footer div a  {
+    text-decoration: none;
+    color: #FDFFF5;
+}
+
+.row #bt-footer-social-media-icons    {
+    --bs-gutter-x: 3rem;
+    --bs-gutter-y: 3rem;
+}
