@@ -1,4 +1,4 @@
-.bt-mosaic .row .col {
+.bt-main-mosaic .row .col {
     padding: 0;
     position: relative;
     text-align: center;
@@ -7,35 +7,35 @@
     overflow: hidden;
 }
 
-.bt-mosaic .row {
+.bt-main-mosaic .row {
     border-bottom: solid 5px black
 }
 
-.bt-mosaic-title-centered {
+.bt-main-mosaic-title-centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.bt-mosaic-title-top {
+.bt-main-mosaic-title-top {
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.bt-mosaic-title-bottom {
+.bt-main-mosaic-title-bottom {
     position: absolute;
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.bt-mosaic img {
+.bt-main-mosaic img {
     transition: transform .2s ease ;
 }
 
-.bt-mosaic img:hover {
+.bt-main-mosaic img:hover {
     transform: scale(1.2);
 }
