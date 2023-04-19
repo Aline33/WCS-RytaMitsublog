@@ -1,5 +1,7 @@
 @import "modules/grid_articles.css";
 
+@import "modules/sticky_aside.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -9,5 +11,13 @@
 body {
     color: #f76c6c;
 }
+/* WIP
+.container .col{
+    margin-right: 5vw;
+}
 
-
+.container {
+    width: 95vw;
+    margin-right: 2vw;
+}
+*/

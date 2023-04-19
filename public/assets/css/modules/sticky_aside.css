@@ -1,0 +1,53 @@
+aside {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 3vh;
+
+}
+
+.bt-sticky-aside {
+    border: none;
+}
+
+.bt-sticky-aside a{
+    height: auto;
+    text-decoration: none;
+    position: relative;
+}
+
+.bt-sticky-aside .card-header {
+    width: 100%;
+    margin: auto;
+    color: white;
+    text-align: center;
+    position: relative;
+    border: none;
+}
+
+.bt-sticky-aside ul {
+    margin: 0;
+}
+
+.bt-sticky-aside li {
+    margin: calc(60%/3) 0;
+    color: white;
+}
+
+.bt-sticky-aside-line {
+    position: absolute;
+    top: 99%;
+    border: 1px solid white;
+    width: 90%;
+    left: 5%;
+    z-index: 1;
+    box-shadow: 1px 2px 5px black;
+    border-radius: 2px;
+}
+
+.darkred {
+    background: darkred;
+}
+
+.red {
+    background: red;
+}
