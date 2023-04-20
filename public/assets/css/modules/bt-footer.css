@@ -1,7 +1,8 @@
 footer  {
-    background-color: #002d2bff;
-    color: #FDFFF5;
+    background-color: var(--bt-main-bg-color);
+    color: var(--bt-main-white);
     padding: 3.125rem 0;
+    font-family: var(--bt-main-font);
 }
 
 ul  {
@@ -14,7 +15,7 @@ li  {
 
 footer div a  {
     text-decoration: none;
-    color: #FDFFF5;
+    color: var(--bt-main-white);
 }
 
 .row #bt-footer-social-media-icons    {
