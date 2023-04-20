@@ -1,11 +1,10 @@
 @import url('modules/variables.css');
-@import url('modules/first-article-section.css');
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
-@import "modules/first-article-section.css";
 @import "modules/second_article_section.css";
 @import "modules/second_article_section_card.css";
 @import "modules/article-head.css";
+@import "modules/article_section_card.css";
 
 
 
