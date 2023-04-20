@@ -1,26 +1,53 @@
 <aside>
     <div class="bt-sticky-aside card rounded-4" style="width: 18rem;">
-        <div class="card-header rounded-top-4{% block sticky_aside_header_style %}{% endblock %}">
+        <div class="card-header rounded-top-4
+            {# custom class to apply style on header #}
+            {% block sticky_aside_header_style %}{% endblock %}
+            ">
             <h4>Les plus populaires</h4>
             <div class="bt-sticky-aside-line"></div>
         </div>
-        <a class="{% block sticky_aside_first_article_style %}{% endblock %}" href="" >
+        <a class="
+            {# custom class to apply style on first article #}
+            {% block sticky_aside_first_article_style %}
+            {% endblock %}
+            "
+            href="" >
             <ul class=" list-group-flush">
-                <li class="list-group-item">{% block sticky_first_article_title %}Article 1{% endblock %}</li>
+                <li class="list-group-item">
+                    {# custom title for first article #}
+                    {% block sticky_first_article_title %}Article 1{% endblock %}
+                </li>
             </ul>
             <div class="bt-sticky-aside-line"></div>
         </a>
 
-        <a class="{% block sticky_aside_second_article_style %}{% endblock %}" href="" >
+        <a class="
+            {# custom class to apply style on second article #}
+            {% block sticky_aside_second_article_style %}
+            {% endblock %}
+            "
+            href="" >
             <ul class=" list-group-flush">
-                <li class="list-group-item">{% block sticky_second_article_title %}Article 2{% endblock %}</li>
+                <li class="list-group-item">
+                    {# custom title for second article #}
+                    {% block sticky_second_article_title %}Article 2{% endblock %}
+                </li>
             </ul>
             <div class="bt-sticky-aside-line"></div>
         </a>
 
-        <a class="rounded-bottom-4 {% block sticky_aside_third_article_style %}{% endblock %}" href="">
+        <a class="rounded-bottom-4
+            {# custom class to apply style on third article #}
+            {% block sticky_aside_third_article_style %}
+            {% endblock %}
+            "
+            href="">
             <ul class=" list-group-flush">
-                <li class="list-group-item">{% block sticky_third_article_title %}Article 3{% endblock %}</li>
+                <li class="list-group-item">
+                    {# custom title for third article #}
+                    {% block sticky_third_article_title %}Article 3{% endblock %}
+                </li>
             </ul>
         </a>
     </div>
