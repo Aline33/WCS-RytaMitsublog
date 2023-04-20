@@ -35,4 +35,16 @@ body {
     background: var(--bt-main-bg-color);
 }
 
+.container {
+    margin: 10vh 8vw;
 
+}
+
+.container>.row {
+    gap: 5vw;
+}
+
+.col .row {
+    gap: 10.8vw;
+    margin-bottom: 5vh
+}

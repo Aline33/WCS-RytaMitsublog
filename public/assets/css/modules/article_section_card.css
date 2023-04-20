@@ -8,7 +8,6 @@
 
 .bt-card-section1 {
     display: flex;
-    margin-left: 4rem;
     margin-bottom: var(--bt-article-spacing-horizon);
     padding: 2rem 1.8rem 2rem 1.2rem;
     border-radius: var(--bt-main-border-radius);
@@ -143,4 +142,12 @@ Second section of articles
 
 .bt-card-section2 button {
     display: none;
+}
+
+.bt-card-section2 {
+    transition: transform .2s ease;
+}
+
+.bt-card-section2:hover {
+    transform: scale(1.2);
 }
