@@ -1,24 +1,127 @@
 <div class="row">
-    <div class="col">
-        {% include '_includes/second_section_article_card.html.twig' %}
+    <div class="col-5">
+        {# Include, custom content and style for row : 1 article : 1 #}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {% block second_section_article_style %}
+                bt-bg-light-green
+            {% endblock %}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 1
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
     </div>
-    <div class="col">
-        Column
+    <div class="col-5">
+        {# Include, custom content and style for row : 1 article : 2 #}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 2
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 1 article : 2 #}
     </div>
 </div>
 <div class="row">
-    <div class="col">
-        Column
+    <div class="col-5">
+        {# Include, custom content and style for row : 2 article : 1 #}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 3
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 2 article : 1 #}
     </div>
-    <div class="col">
-        Column
+    <div class="col-5">
+        {# Include, custom content and style for row : 2 article : 2 #}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {% block second_section_article_style %}
+                bt-bg-orange
+            {% endblock %}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 4
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 2 article : 2 #}
     </div>
 </div>
 <div class="row">
-    <div class="col">
-        Column
+    <div class="col-5">
+        {# Include, custom content and style for row : 3 article : 1 #}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {% block second_section_article_style %}
+                bt-bg-red
+            {% endblock %}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 5
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 3 article : 1 #}
     </div>
-    <div class="col">
-        Column
+    <div class="col-5">
+        {# Include, custom content and style for row : 3 article : 2#}
+        {% embed '_includes/second_section_article_card.html.twig' %}
+            {# Custom style for card article #}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, title then image #}
+            {% block second_section_article_link %}
+            {% endblock %}
+            {% block second_section_article_title %}
+                Titre article 6
+            {% endblock %}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+        {# -- END OF -- Include, custom content and style for row : 3 article : 2 #}
     </div>
 </div>

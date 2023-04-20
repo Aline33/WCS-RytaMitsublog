@@ -2,6 +2,10 @@
 @import url('modules/first-article-section.css');
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
+@import "modules/first-article-section.css";
+@import "modules/second_article_section.css";
+@import "modules/second_article_section_card.css";
+
 
 
 @font-face {
@@ -30,15 +34,7 @@
 
 body {
     color: #f76c6c;
+    background: var(--bt-main-bg-color);
 }
 
-/* WIP
-.container .col{
-    margin-right: 5vw;
-
-.container {
-    width: 95vw;
-    margin-right: 2vw;
-}
-*/
 

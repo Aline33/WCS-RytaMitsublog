@@ -1,12 +1,22 @@
-<div class="bt-card">
-    <img src="https://placehold.co/483x300" />
-    <div>
-        <h2>Invest in Valby's sparkling new construction</h2>
-        <h3>Type: Residential rental</h3>
-        <p>
-            Soon you can invest in Sid Harman's new attractive property, set in
-            the heart of Athens.
-        </p>
-        <button>Show the property project</button>
+<a class="bt-second-section-article" href="
+    {# Custom link for card article #}
+    {% block second_section_article_link %}
+    {% endblock %}">
+    <div class="bt-card
+        {# Custom style for card article #}
+        {% block second_section_article_style %}
+        {% endblock %}">
+        <img src="
+            {# Custom image for card article #}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}" />
+        <div>
+            <h2>
+                {# Custom title for card article #}
+                {% block second_section_article_title %}
+                    Invest in Valby's sparkling new construction
+                {% endblock %}</h2>
+        </div>
     </div>
-</div>
+</a>
