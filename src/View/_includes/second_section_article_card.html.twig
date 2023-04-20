@@ -1,8 +1,22 @@
-<a class="bt-second-section-article" href="{% block second_section_article_link %}{% endblock %}">
-    <div class="bt-card {% block second_section_article_style %}{% endblock %}">
-        <img src="{% block second_section_article_img %}https://placehold.co/240x330{% endblock %}" />
+<a class="bt-second-section-article" href="
+    {# Custom link for card article #}
+    {% block second_section_article_link %}
+    {% endblock %}">
+    <div class="bt-card
+        {# Custom style for card article #}
+        {% block second_section_article_style %}
+        {% endblock %}">
+        <img src="
+            {# Custom image for card article #}
+            {% block second_section_article_img %}
+                https://placehold.co/240x330
+            {% endblock %}" />
         <div>
-            <h2>{% block second_section_article_title %}Invest in Valby's sparkling new construction{% endblock %}</h2>
+            <h2>
+                {# Custom title for card article #}
+                {% block second_section_article_title %}
+                    Invest in Valby's sparkling new construction
+                {% endblock %}</h2>
         </div>
     </div>
 </a>
