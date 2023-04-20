@@ -1,20 +1,29 @@
 <div class="row">
     <div class="col-5">
         {# Include, custom content and style for row : 1 article : 1 #}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
-            {% block second_section_article_style %}
+            {% block section_article_card_style %}
+                bt-card-section2
                 bt-bg-light-green
             {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+                bt-date
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 1
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
+                Auteur 01/01/2023
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -22,18 +31,27 @@
     </div>
     <div class="col-5">
         {# Include, custom content and style for row : 1 article : 2 #}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
+            {% block section_article_card_style %}
+                bt-card-section2
+            {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+                bt-date
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {# -- END OF -- Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 2
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -43,18 +61,36 @@
 <div class="row">
     <div class="col-5">
         {# Include, custom content and style for row : 2 article : 1 #}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
+            {% block section_article_card_style %}
+                bt-card-section2
+            {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+                bt-date
+            {% endblock %}
+            {% block section_article_h3_style %}
+            {% endblock %}
+            {% block section_article_description_style %}
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {# -- END OF -- Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 3
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
+            {% endblock %}
+            {% block section_article_h3_content %}
+            {% endblock %}
+            {% block section_article_description_content %}
+                Lorem ipsum dolor sit amer, consectetur adipiscing elit. Sel dapibus, orci at maximus consequat, nune tellus facilisis.
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -62,21 +98,38 @@
     </div>
     <div class="col-5">
         {# Include, custom content and style for row : 2 article : 2 #}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
-            {% block second_section_article_style %}
+            {% block section_article_card_style %}
+                bt-card-section2
                 bt-bg-orange
             {% endblock %}
+            {% block section_article_img_style %}
+            {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+            {% endblock %}
+            {% block section_article_h3_style %}
+            {% endblock %}
+            {% block section_article_description_style %}
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {# -- END OF -- Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 4
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
+            {% endblock %}
+            {% block section_article_h3_content %}
+            {% endblock %}
+            {% block section_article_description_content %}
+                Lorem ipsum dolor sit amer, consectetur adipiscing elit. Sel dapibus, orci at maximus consequat, nune tellus facilisis.
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -86,21 +139,38 @@
 <div class="row">
     <div class="col-5">
         {# Include, custom content and style for row : 3 article : 1 #}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
-            {% block second_section_article_style %}
+            {% block section_article_card_style %}
+                bt-card-section2
                 bt-bg-red
             {% endblock %}
+            {% block section_article_img_style %}
+            {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+            {% endblock %}
+            {% block section_article_h3_style %}
+            {% endblock %}
+            {% block section_article_description_style %}
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {# -- END OF -- Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 5
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
+            {% endblock %}
+            {% block section_article_h3_content %}
+            {% endblock %}
+            {% block section_article_description_content %}
+                Lorem ipsum dolor sit amer, consectetur adipiscing elit. Sel dapibus, orci at maximus consequat, nune tellus facilisis.
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -108,17 +178,37 @@
     </div>
     <div class="col-5">
         {# Include, custom content and style for row : 3 article : 2#}
-        {% embed '_includes/second_section_article_card.html.twig' %}
+        {% embed '_includes/section_article_card.html.twig' %}
             {# Custom style for card article #}
+            {% block section_article_card_style %}
+                bt-card-section2
+            {% endblock %}
+            {% block section_article_img_style %}
+            {% endblock %}
+            {% block section_article_h2_style %}
+            {% endblock %}
+            {% block section_article_date_style %}
+            {% endblock %}
+            {% block section_article_h3_style %}
+            {% endblock %}
+            {% block section_article_description_style %}
+            {% endblock %}
             {# -- END OF -- Custom style for card article #}
-            {# Custom content for card article, link, title then image #}
-            {% block second_section_article_link %}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
             {% endblock %}
-            {% block second_section_article_title %}
-                Titre article 6
+            {% block section_article_h2_content %}
+                Titre article
             {% endblock %}
-            {% block second_section_article_img %}
+            {% block section_article_img_content %}
                 https://placehold.co/240x330
+            {% endblock %}
+            {% block section_article_author_date_content %}
+            {% endblock %}
+            {% block section_article_h3_content %}
+            {% endblock %}
+            {% block section_article_description_content %}
+                Lorem ipsum dolor sit amer, consectetur adipiscing elit. Sel dapibus, orci at maximus consequat, nune tellus facilisis.
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
