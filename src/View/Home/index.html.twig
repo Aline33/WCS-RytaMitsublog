@@ -1,44 +1,129 @@
 {% extends 'layout.html.twig' %}
+{# Custom title on the index #}
+{% block title %}
+    {{ parent() }} - Home
+{% endblock %}
 
 {% block content %}
-    <!-- <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p> -->
+    {# Include, custom content and style for Mosaic #}
     {# ressource : https://twig.symfony.com/doc/3.x/tags/embed.html #}
     {% embed '_includes/grid_articles.html.twig' %}
-        {# Article 1 : custom title then custom img #}
+        {# Articles : custom title then custom img #}
+        {# Article 1 : #}
         {% block mosaic_article_title_big_left %}
             Test 1
         {% endblock %}
         {% block mosaic_article_img_big_left %}
             https://placehold.co/727x400
         {% endblock %}
-        {# Article 2 : custom title then custom img #}
+        {# Article 2 : #}
         {% block mosaic_article_title_big_right %}
             Test 2
         {% endblock %}
         {% block mosaic_article_img_big_right %}
             {{ parent() }}
         {% endblock %}
-        {# Article 3 : custom title then custom img #}
+        {# Article 3 : #}
         {% block mosaic_article_title_small_left %}
             Test 3
         {% endblock %}
         {% block mosaic_article_img_small_left %}
             {{ parent() }}
         {% endblock %}
-        {# Article 4 : custom title then custom img #}
+        {# Article 4 : #}
         {% block mosaic_article_title_small_mid %}
             Test 4
         {% endblock %}
         {% block mosaic_article_img_small_mid %}
             {{ parent() }}
         {% endblock %}
-        {# Article 5 : custom title then custom img #}
+        {# Article 5 : #}
         {% block mosaic_article_title_small_right %}
             Test 5
         {% endblock %}
         {% block mosaic_article_img_small_right %}
             {{ parent() }}
         {% endblock %}
+        {# -- END OF -- Articles : custom title then custom img #}
     {% endembed %}
+    {# --END OF -- {# Include, custom content and style for Mosaic #}
+
+
+    <div class="container">
+        <div class="row bt-second-section-article-row">
+            <div class="col">
+                {% include '_includes/first_section_articles.html.twig' %}
+            </div>
+            <div class="col-md-auto">
+                {# Include, custom content and style for the first sticky aside on main page #}
+                {% embed '_includes/sticky_aside.html.twig' %}
+                    {# sticky aside style customization #}
+                    {% block sticky_aside_header_style %}
+                        darkred
+                    {% endblock %}
+                    {% block sticky_aside_first_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_second_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_third_article_style %}
+                        red
+                    {% endblock %}
+                    {# --END OF -- sticky aside style customization #}
+                    {# sticky aside article titles customization #}
+                    {% block sticky_first_article_title %}
+                        La robotique, fléau de demain ?
+                    {% endblock %}
+                    {% block sticky_second_article_title %}
+                        J'aime les pommes et vous ? Faîtes le test
+                    {% endblock %}
+                    {% block sticky_third_article_title %}
+                        Du gloubiboulga pour Rattata
+                    {% endblock %}
+                    {# --END OF -- sticky aside article titles customization #}
+                {% endembed %}
+                {# -- END OF --Include, custom content and style for the first sticky aside on main page #}
+            </div>
+        </div>
+    </div>
+    <div class="bt-second-section-article container ">
+        <div class="row ">
+            <div class="col">
+                {# Include for second section of articles, cutom content and style in this file : second_section_articles.html.twig #}
+                {% include '_includes/second_section_articles.html.twig' %}
+            </div>
+            <div class="col-md-auto">
+                {# Include, custom content and style for the second aside sticky on main page #}
+                {% embed '_includes/sticky_aside.html.twig' %}
+                    {# sticky aside style customization #}
+                    {% block sticky_aside_header_style %}
+                        darkred
+                    {% endblock %}
+                    {% block sticky_aside_first_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_second_article_style %}
+                        red
+                    {% endblock %}
+                    {% block sticky_aside_third_article_style %}
+                        red
+                    {% endblock %}
+                    {# -- END OF -- sticky aside style customization #}
+                    {# sticky aside article titles customization #}
+                    {% block sticky_first_article_title %}
+                        Article 1
+                    {% endblock %}
+                    {% block sticky_second_article_title %}
+                        Article 2
+                    {% endblock %}
+                    {% block sticky_third_article_title %}
+                        Article 3
+                    {% endblock %}
+                    {# --END OF -- sticky aside article titles customization #}
+                {% endembed %}
+                {# -- END OF -- Include, custom content and style for the second aside sticky on main page #}
+            </div>
+        </div>
+    </div>
 {% endblock %}
