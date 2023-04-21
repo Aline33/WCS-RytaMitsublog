@@ -34,7 +34,7 @@
 }
 
 body {
-    background: #B8E6E3;
+    background: var(--bt-main-bg); /*#6B9996*/ /*D0E3CA*/
 }
 
 h2, h3, h4 {
