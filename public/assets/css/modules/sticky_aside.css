@@ -2,7 +2,7 @@ aside {
     position: -webkit-sticky;
     position: sticky;
     top: 3vh;
-
+    bottom: 3vh
 }
 
 .bt-sticky-aside {
@@ -45,9 +45,9 @@ aside {
 }
 
 .darkred {
-    background: darkred;
+    background: var(--bt-bg-card-darkred);
 }
 
 .red {
-    background: red;
+    background: var(--bt-bg-card-red);
 }
