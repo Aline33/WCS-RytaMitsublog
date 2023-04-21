@@ -48,11 +48,21 @@ aside {
     box-shadow: 1px 2px 5px black;
     border-radius: 2px;
 }
-
-.darkred {
-    background: var(--bt-bg-card-darkred);
+/*
+.bt-sticky-aside-line:first-of-type {
+    width: 90%;
+}
+*/
+.lighter {
+    background: var(--bt-bg-card-light-orange); /*#9C6001*/
 }
 
 .red {
-    background: var(--bt-bg-card-red);
+    background: var(--bt-bg-card-orange); /*FFA81C*/
+}
+
+@media screen and (max-width: 400px) {
+    .bt-sticky-aside {
+        display: none;
+    }
 }

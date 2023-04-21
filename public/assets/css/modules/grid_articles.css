@@ -45,3 +45,9 @@
 .bt-main-mosaic img:hover {
     transform: scale(1.2);
 }
+
+@media screen and (max-width: 400px) {
+    .bt-main-mosaic {
+        display: none;
+    }
+}
