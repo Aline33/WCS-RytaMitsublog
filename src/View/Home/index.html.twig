@@ -50,7 +50,7 @@
 
 
     <div class="container">
-        <div class="row bt-second-section-article-row">
+        <div class="row bt-first-section-article">
             <div class="col">
                 {% include '_includes/first_section_articles.html.twig' %}
             </div>
@@ -59,7 +59,7 @@
                 {% embed '_includes/sticky_aside.html.twig' %}
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
-                        darkred
+                        lighter
                     {% endblock %}
                     {% block sticky_aside_first_article_style %}
                         red
@@ -88,7 +88,7 @@
         </div>
     </div>
     {% include '_includes/bt-bar-newsletter.html.twig' %}
-    <div class="bt-second-section-article container ">
+    <div class="container bt-second-section-article">
         <div class="row ">
             <div class="col">
                 {# Include for second section of articles, cutom content and style in this file : second_section_articles.html.twig #}
@@ -99,7 +99,7 @@
                 {% embed '_includes/sticky_aside.html.twig' %}
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
-                        darkred
+                        lighter
                     {% endblock %}
                     {% block sticky_aside_first_article_style %}
                         red

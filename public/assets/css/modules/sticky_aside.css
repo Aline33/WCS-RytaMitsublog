@@ -2,7 +2,7 @@ aside {
     position: -webkit-sticky;
     position: sticky;
     top: 3vh;
-
+    box-shadow: var(--bt-main-box-shadow);
 }
 
 .bt-sticky-aside {
@@ -26,6 +26,11 @@ aside {
 
 .bt-sticky-aside ul {
     margin: 0;
+    width: 90%;
+}
+
+.bt-sticky-aside a:hover {
+    box-shadow: inset var(--bt-main-box-shadow);
 }
 
 .bt-sticky-aside li {
@@ -43,11 +48,21 @@ aside {
     box-shadow: 1px 2px 5px black;
     border-radius: 2px;
 }
-
-.darkred {
-    background: darkred;
+/*
+.bt-sticky-aside-line:first-of-type {
+    width: 90%;
+}
+*/
+.lighter {
+    background: var(--bt-bg-card-light-orange); /*#9C6001*/
 }
 
 .red {
-    background: red;
+    background: var(--bt-bg-card-orange); /*FFA81C*/
+}
+
+@media screen and (max-width: 400px) {
+    .bt-sticky-aside {
+        display: none;
+    }
 }

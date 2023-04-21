@@ -2,7 +2,12 @@
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
 @import "modules/second_article_section.css";
+@import "modules/article-head.css";
 @import "modules/article_section_card.css";
+@import "modules/bt-bar-next-article.css";
+@import "modules/bt-footer.css";
+@import "modules/bt-bar-newsletter.css";
+
 
 
 
@@ -34,4 +39,35 @@ body {
     background: var(--bt-main-white);
 }
 
+h2, h3, h4 {
+    font-family: var(--bt-main-font);
+}
 
+h2 {
+    font-size: 3rem;
+}
+
+p {
+    font-family: var(--bt-main-font);
+}
+
+.bt-article {
+    font-family: var(--bt-article-text-font);
+}
+
+.bt-description {
+    font-style: italic;
+}
+
+.container {
+    margin: 10vh 8vw;
+}
+
+.container>.row {
+    gap: 5vw;
+}
+
+.col .row {
+    justify-content: space-between;
+    margin-bottom: 5vh
+}
