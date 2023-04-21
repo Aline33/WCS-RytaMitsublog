@@ -50,7 +50,7 @@
 
 
     <div class="container">
-        <div class="row bt-second-section-article-row">
+        <div class="row bt-first-section-article">
             <div class="col">
                 {% include '_includes/first_section_articles.html.twig' %}
             </div>
@@ -87,7 +87,8 @@
             </div>
         </div>
     </div>
-    <div class="bt-second-section-article container ">
+    {% include '_includes/bt-bar-newsletter.html.twig' %}
+    <div class="container bt-second-section-article">
         <div class="row ">
             <div class="col">
                 {# Include for second section of articles, cutom content and style in this file : second_section_articles.html.twig #}
