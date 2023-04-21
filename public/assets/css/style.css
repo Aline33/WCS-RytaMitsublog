@@ -31,8 +31,7 @@
 }
 
 body {
-    color: #f76c6c;
-    background: var(--bt-main-bg-color);
+    background: var(--bt-main-white);
 }
 
 
