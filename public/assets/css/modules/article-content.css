@@ -1,0 +1,32 @@
+p {
+    font-family: var(--bt-article-text-font);
+}
+
+.bt-article-contain {
+    width: 80%;
+    text-align: justify;
+}
+
+.bt-article-contain p {
+    width: 80%;
+    margin: 3rem auto;
+}
+
+.bt-article-contain div {
+    text-align: center;
+    margin: auto;
+}
+
+.bt-article-img-1 {
+    max-width: 900px;
+}
+
+.bt-article-img {
+    max-width: 600px;
+}
+
+@media screen and (max-width: 700px){
+
+}
+
+
