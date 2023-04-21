@@ -1,16 +1,17 @@
 #bt-newsletter-total-bar {
     background: linear-gradient(270deg, #002D2B 0%, #0A9A93 49.84%, #002D2B 100%);
-    color: #FDFFF5;
+    color: var(--bt-main-white);
     height: 16.875rem;
+    font-family: var(--bt-main-font);
 }
 
 #bt-newsletter-total-bar a {
     text-decoration: none;
-    color: #FDFFF5;
+    color: var(--bt-main-white);
 }
 
 #bt-newsletter-left-bar    {
-    background-color: #FDFFF5;
+    background-color: var(--bt-main-white);
     height: 0.25rem;
     width: 35%;
     margin-top: 1.688rem;
@@ -18,7 +19,7 @@
 }
 
 #bt-newsletter-right-bar {
-    background-color: #FDFFF5;
+    background-color: var(--bt-main-white);
     height: 0.25rem;
     width: 35%;
     margin-top: 1.688rem;
@@ -41,14 +42,15 @@
 
 
     #bt-newsletter-left-bar    {
-        background-color: #FDFFF5;
+        background-color: var(--bt-main-white);
         height: 0.15rem;
         width: 35%;
     }
 
     #bt-newsletter-right-bar {
-        background-color: #FDFFF5;
+        background-color: var(--bt-main-white);
         height: 0.15rem;
+        width: 35%;
     }
 
     #bt-newsletter-total-bar h1 {
