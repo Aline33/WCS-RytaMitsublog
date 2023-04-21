@@ -39,6 +39,7 @@
 }
 
 .bt-main-mosaic img {
+    width: auto;
     transition: transform .2s ease ;
 }
 

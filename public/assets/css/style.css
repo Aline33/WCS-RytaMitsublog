@@ -36,7 +36,7 @@
 }
 
 body {
-    background: var(--bt-main-bg); /*#6B9996*/ /*D0E3CA*/
+    background: var(--bt-main-white); /*#6B9996*/ /*D0E3CA*/
 }
 
 h2, h3, h4 {
