@@ -3,10 +3,14 @@
     --bt-main-text-article-color: #000000;
     --bt-main-white: #fdfff5;
     --bt-main-bg-color: #002d2bff;
-    --bt-bg-card-light_green: #0a9a93ff;
+    --bt-bg-card-light-green: #0a9a93ff;
     --bt-bg-card-red: #e8241aff;
     --bt-bg-card-darkred: #9C1009;
+<<<<<<< HEAD
     --bt-bg-cards-orange: #e89102ff;
+=======
+    --bt-bg-card-orange: #e89102ff;
+>>>>>>> 3475472d08b986927075f886b599d4741ded0691
     /* Gradients */
     --bt-main-gradient: linear-gradient(90deg, #002d2bff 0%, #0a9a93ff 50%, #002d2bff 100%);
     /* Fonts */
@@ -14,7 +18,7 @@
     --bt-main-font: 'Raleway', sans-serif;
     --bt-logo-font: 'Rajdhani', sans-serif;
     /* Styles */
-    --bt-main_box_shadow: 5px 5px 18px 3px rgba(0, 0, 0, 0.5);
+    --bt-main-box-shadow: 5px 5px 18px 3px rgba(0, 0, 0, 0.5);
     --bt-main-border-radius: 0.625rem;
     --bt-sticky-border-radius: 1.25rem;
     /* Spacings */
