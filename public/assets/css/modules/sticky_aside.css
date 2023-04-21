@@ -2,7 +2,7 @@ aside {
     position: -webkit-sticky;
     position: sticky;
     top: 3vh;
-    bottom: 3vh
+    box-shadow: var(--bt-main-box-shadow);
 }
 
 .bt-sticky-aside {
@@ -26,6 +26,11 @@ aside {
 
 .bt-sticky-aside ul {
     margin: 0;
+    width: 90%;
+}
+
+.bt-sticky-aside a:hover {
+    box-shadow: inset var(--bt-main-box-shadow);
 }
 
 .bt-sticky-aside li {

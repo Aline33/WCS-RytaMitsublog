@@ -1,6 +1,12 @@
 .bt-card {
     transition: transform .2s ease;
+    /*box-shadow: var(--bt-main-box-shadow);*/
 }
+
+.bt-card-colored {
+    box-shadow: var(--bt-main-box-shadow);
+}
+
 
 .bt-card:hover {
     transform: scale(1.1);
@@ -14,14 +20,6 @@
     margin-bottom: 0;
 }
 
-.bt-card-section1 {
-    display: flex;
-    margin-bottom: var(--bt-article-spacing-horizon);
-    padding: 2rem 1.8rem 2rem 1.2rem;
-    border-radius: var(--bt-main-border-radius);
-    color: var(--bt-main-white);
-}
-
 .bt-bg-light-green{
     background: var(--bt-bg-card-light-green);
 }
@@ -32,6 +30,14 @@
 
 .bt-bg-red{
     background: var(--bt-bg-card-red);
+}
+
+.bt-card-section1 {
+    display: flex;
+    margin-bottom: var(--bt-article-spacing-horizon);
+    padding: 2rem 1.8rem 2rem 1.2rem;
+    border-radius: var(--bt-main-border-radius);
+    color: var(--bt-main-white);
 }
 
 .bt-card-section1-right{
@@ -120,6 +126,7 @@ Second section of articles
     text-align: center;
     flex-direction: column;
     transition: transform .2s ease ;
+
 }
 
 .bt-card-section2:hover {
@@ -139,8 +146,15 @@ Second section of articles
 .bt-card-section2 h2 {
     font-size: 1.5rem;
     margin-top: 1rem;
-    color: var(--bt-main-white);
     font-family: var(--bt-main-font);
+}
+
+.bt-card-colored {
+    color: var(--bt-main-white) !important;
+}
+
+.bt-card-section2 {
+    color: black
 }
 
 .bt-card-section2 h3 {

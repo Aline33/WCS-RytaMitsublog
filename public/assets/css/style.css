@@ -2,7 +2,6 @@
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
 @import "modules/second_article_section.css";
-@import "modules/second_article_section_card.css";
 @import "modules/article-head.css";
 @import "modules/article_section_card.css";
 @import "modules/bt-bar-newsletter.css";
@@ -31,6 +30,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background: #B8E6E3;
 }
 
 h2, h3, h4 {
