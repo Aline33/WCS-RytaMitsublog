@@ -2,10 +2,10 @@
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
 @import "modules/second_article_section.css";
-@import "modules/second_article_section_card.css";
 @import "modules/article-head.css";
 @import "modules/article_section_card.css";
 @import "modules/bt-bar-next-article.css";
+@import "modules/bt-footer.css";
 @import "modules/bt-bar-newsletter.css";
 
 
@@ -35,6 +35,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #B8E6E3;
+}
+
 h2, h3, h4 {
     font-family: var(--bt-main-font);
 }
@@ -55,5 +59,15 @@ p {
     font-style: italic;
 }
 
+.container {
+    margin: 10vh 8vw;
+}
 
+.container>.row {
+    gap: 5vw;
+}
 
+.col .row {
+    justify-content: space-between;
+    margin-bottom: 5vh
+}
