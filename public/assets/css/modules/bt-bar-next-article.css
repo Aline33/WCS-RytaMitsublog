@@ -1,0 +1,21 @@
+#bt-Article-Prev-Next-bar   {
+    height: 200px;
+    font-size: 15px;
+}
+
+#bt-Article-Previous-Article a  {
+    display: flex;
+    text-decoration: none;
+    color: #FDFFF5;
+}
+
+#bt-Article-Next-Article a  {
+    display: flex;
+    text-decoration: none;
+    color: #FDFFF5;
+    text-align: right;
+}
+
+#bt-Article-Previous-Article h5, #bt-Article-Next-Article h5    {
+    margin: 0 10px;
+}
