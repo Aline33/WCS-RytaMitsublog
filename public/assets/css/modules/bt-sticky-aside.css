@@ -1,7 +1,7 @@
 aside {
     position: -webkit-sticky;
     position: sticky;
-    top: 3vh;
+    top: 10vh;
     box-shadow: var(--bt-main-box-shadow);
 }
 
