@@ -4,11 +4,15 @@
     text-align: center;
     /*border-right: solid 5px black;*/
     overflow: hidden;
+
+    height: fit-content;
 }
 
 .bt-main-mosaic .row {
     margin-right: 0;
     margin-left: 0;
+    height: 45vh;
+    height: fit-content;
     /*border-bottom: solid 5px black*/
 }
 
@@ -44,6 +48,8 @@
 
 .bt-main-mosaic img {
     transition: transform .2s ease ;
+    width: 100%;
+    height: 100%;
 }
 
 .bt-main-mosaic img:hover {

@@ -60,7 +60,7 @@ p {
 }
 
 .container {
-    margin: 10vh 8vw;
+    margin: 10vh auto;
 }
 
 .container>.row {
