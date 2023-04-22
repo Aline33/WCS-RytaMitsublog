@@ -63,7 +63,15 @@
         }
 
 @media screen and (max-width: 400px) {
-    .bt-main-mosaic {
+    .bt-main-mosaic .row .col{
         display: none;
+    }
+
+    .bt-main-mosaic .row:first-of-type .col:first-of-type, .bt-main-mosaic .row:first-of-type .col:nth-of-type(2) {
+        display: initial;
+    }
+
+    .bt-main-mosaic .row {
+        flex-direction: column;
     }
 }
