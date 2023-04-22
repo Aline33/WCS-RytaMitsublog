@@ -128,11 +128,11 @@ Second section of articles
 
 .bt-card-section2 {
     display: flex;
-    margin-bottom: var(--bt-article-spacing-horizon);
     padding: 2rem 1.8rem 2rem 1.2rem;
     border-radius: var(--bt-main-border-radius);
     color: var(--bt-main-white);
     flex-direction: column;
+    margin-bottom: 0;
 }
 /*
 .bt-card-section2 {
