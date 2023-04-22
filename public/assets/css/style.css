@@ -1,15 +1,15 @@
-@import url('modules/variables.css');
+@import "modules/variables.css";
 @import "modules/grid_articles.css";
 @import "modules/sticky_aside.css";
 @import "modules/second_article_section.css";
 @import "modules/article-head.css";
 @import "modules/article_section_card.css";
+@import "modules/article-content.css";
+@import "modules/article-head.css";
 @import "modules/bt-bar-next-article.css";
 @import "modules/bt-footer.css";
 @import "modules/bt-bar-newsletter.css";
 @import "modules/bt_navbar.css";
-
-
 
 @font-face {
     font-family: 'Rajdhani';
