@@ -3,7 +3,7 @@
 @import "modules/sticky_aside.css";
 @import "modules/second_article_section.css";
 @import "modules/article-head.css";
-@import "modules/article_section_card.css";
+@import "modules/first_article_section.css";
 @import "modules/bt-bar-next-article.css";
 @import "modules/bt-footer.css";
 @import "modules/bt-bar-newsletter.css";
@@ -69,5 +69,11 @@ p {
 
 .col .row {
     justify-content: space-between;
-    margin-bottom: 5vh
+    margin-bottom: var(--bt-spacing);
+}
+
+@media screen and (max-width: 750px) {
+    .container>.row {
+        gap: 0;
+    }
 }
