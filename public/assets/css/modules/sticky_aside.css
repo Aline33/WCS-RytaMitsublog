@@ -25,8 +25,9 @@ aside {
 }
 
 .bt-sticky-aside ul {
-    margin: 0;
+    margin: auto;
     width: 90%;
+    padding: 0;
 }
 
 .bt-sticky-aside a:hover {
@@ -64,6 +65,6 @@ aside {
 
 @media screen and (max-width: 400px) {
     .bt-sticky-aside {
-        display: none;
+        width: 100% !important;
     }
 }
