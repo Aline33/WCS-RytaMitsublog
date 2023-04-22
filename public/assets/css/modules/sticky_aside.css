@@ -54,10 +54,16 @@ aside {
     font-family: var(--bt-main-font);
 }
 
-.darkred {
-    background: var(--bt-bg-card-darkred);
+.lighter {
+    background: var(--bt-bg-card-light-orange);
 }
 
-.red {
-    background: var(--bt-bg-card-red);
+.orange {
+    background: var(--bt-bg-card-orange);
+}
+
+@media screen and (max-width: 400px) {
+    .bt-sticky-aside {
+        display: none;
+    }
 }

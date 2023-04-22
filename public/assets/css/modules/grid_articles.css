@@ -51,7 +51,13 @@
 }
 
 .bt-main-mosaic h2 {
-    color: var(--bt-main-white);
-    font-family: var(--bt-main-font);
-    font-size: 3rem;
+            color: var(--bt-main-white);
+            font-family: var(--bt-main-font);
+            font-size: 3rem;
+        }
+
+@media screen and (max-width: 400px) {
+    .bt-main-mosaic {
+        display: none;
+    }
 }
