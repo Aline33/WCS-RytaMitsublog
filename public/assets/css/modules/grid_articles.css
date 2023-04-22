@@ -74,4 +74,8 @@
     .bt-main-mosaic .row {
         flex-direction: column;
     }
+
+    .bt-main-mosaic .row .col h2 {
+        font-size: 2rem;
+    }
 }
