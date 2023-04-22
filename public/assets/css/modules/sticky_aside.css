@@ -41,24 +41,25 @@ aside {
 .bt-sticky-aside-line {
     position: absolute;
     top: 99%;
-    border: 1px solid white;
+    border: 1px solid var(--bt-main-white);
     width: 90%;
     left: 5%;
     z-index: 1;
     box-shadow: 1px 2px 5px black;
     border-radius: 2px;
 }
-/*
-.bt-sticky-aside-line:first-of-type {
-    width: 90%;
-}
-*/
-.lighter {
-    background: var(--bt-bg-card-light-orange); /*#9C6001*/
+
+.bt-sticky-aside h4, .bt-sticky-aside a{
+    color: var(--bt-main-white);
+    font-family: var(--bt-main-font);
 }
 
-.red {
-    background: var(--bt-bg-card-orange); /*FFA81C*/
+.lighter {
+    background: var(--bt-bg-card-light-orange);
+}
+
+.orange {
+    background: var(--bt-bg-card-orange);
 }
 
 @media screen and (max-width: 400px) {
