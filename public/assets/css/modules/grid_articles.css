@@ -4,16 +4,21 @@
     text-align: center;
     /*border-right: solid 5px black;*/
     overflow: hidden;
-
-    height: fit-content;
 }
 
 .bt-main-mosaic .row {
     margin-right: 0;
     margin-left: 0;
     height: 45vh;
-    height: fit-content;
     /*border-bottom: solid 5px black*/
+}
+
+.bt-main-mosaic:first-child {
+    height: 55vh;
+}
+
+.bt-main-mosaic:last-child {
+    height: 42vh;
 }
 
 .bt-main-mosaic h2 {
@@ -63,6 +68,14 @@
         }
 
 @media screen and (max-width: 400px) {
+    .bt-main-mosaic:first-child {
+        height: initial;
+    }
+
+    .bt-main-mosaic:last-child {
+        height: initial;
+    }
+
     .bt-main-mosaic .row .col{
         display: none;
     }
@@ -73,9 +86,14 @@
 
     .bt-main-mosaic .row {
         flex-direction: column;
+        height: initial;
     }
 
     .bt-main-mosaic .row .col h2 {
         font-size: 2rem;
+    }
+
+    .bt-main-mosaic img {
+        height: 59vh;
     }
 }
