@@ -1,7 +1,7 @@
 aside {
     position: -webkit-sticky;
     position: sticky;
-    top: 3vh;
+    top: 10vh;
     box-shadow: var(--bt-main-box-shadow);
 }
 
@@ -30,7 +30,7 @@ aside {
 }
 
 .bt-sticky-aside a:hover {
-    box-shadow: inset var(--bt-main-box-shadow);
+    box-shadow: inset 5px 5px 18px 3px rgba(128, 128, 128, 0.7);
 }
 
 .bt-sticky-aside li {
