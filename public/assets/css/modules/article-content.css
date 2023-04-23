@@ -1,31 +1,20 @@
 p {
     font-family: var(--bt-article-text-font);
-}
-
-.bt-article-contain {
-    width: 80%;
-    text-align: justify;
-}
-
-.bt-article-contain p {
-    width: 80%;
-    margin: 3rem auto;
-}
-
-.bt-article-contain div {
-    text-align: center;
-    margin: auto;
+    width: 70%;
 }
 
 .bt-article-img-1 {
-    max-width: 900px;
+    width: 70%;
 }
 
 .bt-article-img {
-    max-width: 600px;
+    width: 50%;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 780px){
+    .bt-article-img-1, .bt-article-img, .bt-article {
+        width: 100%;
+    }
 
 }
 
