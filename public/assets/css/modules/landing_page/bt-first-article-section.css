@@ -81,7 +81,7 @@
     font-style: italic;
 }
 
-.bt-card-section1 .bt-date, .bt-card-section2 .bt-date {
+.bt-card-section1 .bt-date {
     font-family: var(--bt-main-font);
     margin-bottom: 1.5rem;
 }

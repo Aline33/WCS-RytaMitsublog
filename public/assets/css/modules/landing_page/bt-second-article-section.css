@@ -86,6 +86,10 @@
     transform: scale(1.2);
 }
 
+.bt-card-section2 .bt-date {
+    font-family: var(--bt-main-font);
+    margin-bottom: 1.5rem;
+}
 
 @media (width <= 740px) {
     .bt-card-section2 {
