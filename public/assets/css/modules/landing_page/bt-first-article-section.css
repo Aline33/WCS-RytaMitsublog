@@ -40,7 +40,9 @@
     color: var(--bt-main-white);
 }
 
-
+.bt-card-section1-right {
+    flex-direction: row-reverse;
+}
 
 .bt-card-section1 .bt-img-right{
     max-width: 18rem;
@@ -79,99 +81,20 @@
     font-style: italic;
 }
 
-.bt-card-section1 .bt-date, .bt-card-section2 .bt-date {
+.bt-card-section1 .bt-date {
     font-family: var(--bt-main-font);
     margin-bottom: 1.5rem;
 }
 
-
-/*
-Second section of articles
- */
-
-.bt-section-article {
-    text-decoration: none;
-    color: var(--bt-main-white);
-    font-family: var(--bt-main-font);
-}
-
-.bt-card-section2 {
-    display: flex;
-    align-items: center;
-    width: 25vw;
-    height: 40vh;
-    max-width: 650px;
-    padding: 50px 20px 50px 20px;
-    border-radius: 24px;
-    margin: 7vh 0;
-    text-align: center;
-    flex-direction: column;
-    transition: transform .2s ease ;
-
-}
-
-.bt-card-section2:hover {
-    transform: scale(1.1);
-}
-
-.bt-card-section2 img {
-    height: 240px;
-    object-fit: cover;
-    border-radius: inherit;
-    box-shadow: var(--bt-main-box-shadow)/*10px 60px 40px rgb(0 0 0 / 30%)*/;
-    margin: -100px 0 10px 0;
-    width: 330px;
-    max-width: 1000px;
-}
-
-.bt-card-section2 h2 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    font-family: var(--bt-main-font);
-}
-
-.bt-card-colored {
-    color: var(--bt-main-white) !important;
-}
-
-.bt-card-section2 {
-    color: black
-}
-
-.bt-card-section2 h3 {
-    display: none;
-}
-
-.bt-card-section2 p:last-of-type {
-    display: none;
-}
-
-.bt-card-section2 button {
-    display: none;
-}
-
-.bt-card-section2 {
-    transition: transform .2s ease;
-}
-
-.bt-card-section2:hover {
-    transform: scale(1.2);
-}
-
-
 @media (width <= 740px) {
-
-    .bt-first-section-article, .bt-second-section-article{
+    .bt-first-section-article {
         flex-direction: column-reverse;
     }
-
-    .bt-first-section-article .col .row {
-        margin: 15vh auto;
-    }
-
     .bt-card-section1 {
+        margin-top: 3rem;
         width: 100%;
         flex-direction: column;
+        margin-bottom: 0;
     }
 
     .bt-card-section1 .bt-img-right {
@@ -183,5 +106,5 @@ Second section of articles
         margin: -5rem 0 0.5rem 0;
         width: 100%;
     }
-
 }
+
