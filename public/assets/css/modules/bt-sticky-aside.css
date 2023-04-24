@@ -1,7 +1,7 @@
 aside {
     position: -webkit-sticky;
     position: sticky;
-    top: 3vh;
+    top: 10vh;
     box-shadow: var(--bt-main-box-shadow);
 }
 
@@ -30,7 +30,7 @@ aside {
 }
 
 .bt-sticky-aside a:hover {
-    box-shadow: inset var(--bt-main-box-shadow);
+    box-shadow: inset 5px 5px 18px 3px rgba(128, 128, 128, 0.7);
 }
 
 .bt-sticky-aside li {
@@ -41,24 +41,25 @@ aside {
 .bt-sticky-aside-line {
     position: absolute;
     top: 99%;
-    border: 1px solid white;
+    border: 1px solid var(--bt-main-white);
     width: 90%;
     left: 5%;
     z-index: 1;
     box-shadow: 1px 2px 5px black;
     border-radius: 2px;
 }
-/*
-.bt-sticky-aside-line:first-of-type {
-    width: 90%;
-}
-*/
-.lighter {
-    background: var(--bt-bg-card-light-orange); /*#9C6001*/
+
+.bt-sticky-aside h4, .bt-sticky-aside a{
+    color: var(--bt-main-white);
+    font-family: var(--bt-main-font);
 }
 
-.red {
-    background: var(--bt-bg-card-orange); /*FFA81C*/
+.lighter {
+    background: var(--bt-bg-card-light-orange);
+}
+
+.orange {
+    background: var(--bt-bg-card-orange);
 }
 
 @media screen and (max-width: 400px) {

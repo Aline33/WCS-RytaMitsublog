@@ -6,6 +6,7 @@
     --bt-bg-card-light-green: #0a9a93ff;
     --bt-bg-card-red: #e8241aff;
     --bt-bg-card-darkred: #9C1009;
+    --bt-bg-cards-orange: #e89102ff;
     --bt-bg-card-orange: #e89102ff;
     --bt-bg-card-light-orange: #FFA81C;
     --bt-main-bg : #faf0e6;
@@ -22,4 +23,5 @@
     /* Spacings */
     --bt-main-section-spacing: 3rem;
     --bt-article-spacing-horizon: 1rem;
+    --bt-spacing: 10vh;
 }

@@ -7,42 +7,42 @@
 {% block content %}
     {# Include, custom content and style for Mosaic #}
     {# ressource : https://twig.symfony.com/doc/3.x/tags/embed.html #}
-    {% embed '_includes/grid_articles.html.twig' %}
+    {% embed '_includes/landing_page/bt-grid-articles.html.twig' %}
         {# Articles : custom title then custom img #}
         {# Article 1 : #}
         {% block mosaic_article_title_big_left %}
             Test 1
         {% endblock %}
         {% block mosaic_article_img_big_left %}
-            https://placehold.co/727x400
+            https://picsum.photos/id/84/2800/1200
         {% endblock %}
         {# Article 2 : #}
         {% block mosaic_article_title_big_right %}
             Test 2
         {% endblock %}
         {% block mosaic_article_img_big_right %}
-            {{ parent() }}
+            https://picsum.photos/id/129/2800/1200
         {% endblock %}
         {# Article 3 : #}
         {% block mosaic_article_title_small_left %}
             Test 3
         {% endblock %}
         {% block mosaic_article_img_small_left %}
-            {{ parent() }}
+            https://picsum.photos/483/300
         {% endblock %}
         {# Article 4 : #}
         {% block mosaic_article_title_small_mid %}
             Test 4
         {% endblock %}
         {% block mosaic_article_img_small_mid %}
-            {{ parent() }}
+            https://picsum.photos/483/300
         {% endblock %}
         {# Article 5 : #}
         {% block mosaic_article_title_small_right %}
             Test 5
         {% endblock %}
         {% block mosaic_article_img_small_right %}
-            {{ parent() }}
+            https://picsum.photos/483/300
         {% endblock %}
         {# -- END OF -- Articles : custom title then custom img #}
     {% endembed %}
@@ -52,23 +52,23 @@
     <div class="container">
         <div class="row bt-first-section-article">
             <div class="col">
-                {% include '_includes/first_section_articles.html.twig' %}
+                {% include '_includes/landing_page/bt-first-section-articles.html.twig' %}
             </div>
             <div class="col-md-auto">
                 {# Include, custom content and style for the first sticky aside on main page #}
-                {% embed '_includes/sticky_aside.html.twig' %}
+                {% embed '_includes/bt-sticky-aside.html.twig' %}
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
                         lighter
                     {% endblock %}
                     {% block sticky_aside_first_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {% block sticky_aside_second_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {% block sticky_aside_third_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {# --END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
@@ -87,28 +87,28 @@
             </div>
         </div>
     </div>
-    {% include '_includes/bt-bar-newsletter.html.twig' %}
+    {% include '_includes/landing_page/bt-bar-newsletter.html.twig' %}
     <div class="container bt-second-section-article">
         <div class="row ">
             <div class="col">
-                {# Include for second section of articles, cutom content and style in this file : second_section_articles.html.twig #}
-                {% include '_includes/second_section_articles.html.twig' %}
+                {# Include for second section of articles, cutom content and style in this file : bt-second-section-articles.html.twig #}
+                {% include '_includes/landing_page/bt-second-section-articles.html.twig' %}
             </div>
             <div class="col-md-auto">
                 {# Include, custom content and style for the second aside sticky on main page #}
-                {% embed '_includes/sticky_aside.html.twig' %}
+                {% embed '_includes/bt-sticky-aside.html.twig' %}
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
                         lighter
                     {% endblock %}
                     {% block sticky_aside_first_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {% block sticky_aside_second_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {% block sticky_aside_third_article_style %}
-                        red
+                        orange
                     {% endblock %}
                     {# -- END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
