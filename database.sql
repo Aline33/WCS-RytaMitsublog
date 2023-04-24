@@ -21,23 +21,103 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-ALTER TABLE bt_comment
-DROP FOREIGN KEY fk_bt_comment_user_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_user_id')
+    THEN
+        ALTER TABLE bt_comment
+            DROP FOREIGN KEY fk_bt_comment_user_id;
+    END IF;
+CALL dropConstraint();
 
-ALTER TABLE bt_comment
-DROP FOREIGN KEY fk_bt_comment_article_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_article_id')
+    THEN
+        ALTER TABLE bt_comment
+            DROP FOREIGN KEY fk_bt_comment_article_id;
+    END IF;
+CALL dropConstraint();
 
-ALTER TABLE bt_article
-DROP FOREIGN KEY fk_bt_article_user_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_article' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_article
+            DROP FOREIGN KEY fk_bt_article_user_id;
+    END IF;
+CALL dropConstraint();
 
-ALTER TABLE bt_picture
-DROP FOREIGN KEY fk_bt_picture_article_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_picture' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_picture
+            DROP FOREIGN KEY fk_bt_picture_article_id;
+    END IF;
+CALL dropConstraint();
 
-ALTER TABLE bt_theme
-DROP FOREIGN KEY fk_bt_theme_tag_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_theme
+            DROP FOREIGN KEY fk_bt_theme_tag_id;
+    END IF;
+CALL dropConstraint();
 
-ALTER TABLE bt_theme
-DROP FOREIGN KEY fk_bt_theme_article_id;
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_theme
+            DROP FOREIGN KEY fk_bt_theme_article_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_user' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_user
+            DROP KEY uc_bt_user_email;
+    END IF;
+CALL dropConstraint();
 
 DROP TABLE IF EXISTS bt_user;
 
@@ -61,6 +141,8 @@ CREATE TABLE `bt_user` (
                                )
 );
 
+INSERT INTO bt_user (first_name, last_name, user_name, email, access_level, birthday, user_password) VALUES ('Jean-Marc', 'Morandini', 'JMM', 'jean-marc@gmail.com', 1, 01/01/2023, 'password');
+
 DROP TABLE IF EXISTS bt_article;
 
 -- Structure de la table `bt_article`
@@ -77,6 +159,8 @@ CREATE TABLE `bt_article` (
                                   )
 );
 
+INSERT INTO bt_article (user_id, title, description_article, body_article, article_created_at) VALUES (1, 'de ChatGPT : Comment un modèle de langage améliore la communication', 'ChatGPT est un modèle de langage développé par OpenAI qui utilise l\'IA pour faciliter la communication humaine et fournir des informations précises et fiables. Dans cet article, nous allons explorer ses fonctionnalités et ses capacités.', 'Je m\'appelle ChatGPT et je suis un modèle de langage de grande envergure entraîné par OpenAI, basé sur l\'architecture GPT-3.5. Mon objectif est de comprendre et de générer du langage naturel, de sorte que je peux converser avec les gens de manière fluide et naturelle. Je suis programmé pour comprendre une grande variété de sujets, allant de la culture populaire aux sujets techniques et scientifiques. Je suis en mesure de traiter des quantités massives d\'informations et de produire des réponses rapides et précises à partir de ces informations. En tant que modèle de langage, je suis capable de fournir des réponses à une variété de questions, telles que des informations factuelles, des définitions, des synonymes et des antonymes, des conseils et des recommandations, ainsi que des analyses et des perspectives sur divers sujets. Je suis également capable de créer du contenu original, y compris des articles, des essais, des poèmes et des histoires, ainsi que de générer des traductions pour aider les utilisateurs à communiquer dans différentes langues. En tant que modèle de langage basé sur l\'IA, je suis continuellement mis à jour et amélioré pour fournir une expérience de conversation plus fluide et plus précise pour les utilisateurs. Mon objectif est d\'être un outil utile pour les gens, en leur fournissant des informations précises et en les aidant à mieux comprendre le monde qui les entoure. En somme, je suis un modèle de langage de pointe conçu pour aider les gens à communiquer plus efficacement et à accéder à des informations précises et fiables. Je suis constamment mis à jour pour offrir une expérience utilisateur améliorée et je suis fier de pouvoir aider les gens à mieux comprendre le monde dans lequel nous vivons.', 01/02/2023);
+
 DROP TABLE IF EXISTS bt_picture;
 
 -- Structure de la table `bt_picture`
@@ -89,6 +173,8 @@ CREATE TABLE `bt_picture` (
                                            `id_picture`
                                   )
 );
+
+INSERT INTO bt_picture (article_id, link) VALUES (1, 'pexels-cottonbro-studio-8721318.jpg');
 
 DROP TABLE IF EXISTS bt_comment;
 
@@ -104,6 +190,8 @@ CREATE TABLE `bt_comment` (
                                            `id_comment`
                                   )
 );
+
+INSERT INTO bt_comment (article_id, user_id, content_comment, comment_created_at) VALUES (1, 1, 'Je commente un article haha lol c\'est trop rigolo de pouvoir commenter des articles je hurle !', 01/03/2023);
 
 DROP TABLE IF EXISTS bt_tag;
 

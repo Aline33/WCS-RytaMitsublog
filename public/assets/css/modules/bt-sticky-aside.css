@@ -2,7 +2,6 @@ aside {
     position: -webkit-sticky;
     position: sticky;
     top: 10vh;
-    margin-bottom: var(--bt-spacing);
     box-shadow: var(--bt-main-box-shadow);
 }
 
@@ -65,6 +64,10 @@ aside {
 }
 
 @media screen and (max-width: 400px) {
+    aside {
+        margin-bottom: var(--bt-spacing);
+    }
+
     .bt-sticky-aside {
         width: 100% !important;
     }
