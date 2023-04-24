@@ -10,6 +10,7 @@ class ArticleController extends AbstractController
     {
         $articleManager = new ArticleManager();
         $article = $articleManager->selectOneById($id);
+
         return $this->twig->render('Article/show.html.twig', ['article' => $article]);
     }
 }
