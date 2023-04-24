@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleManager;
+
 class ArticleController extends AbstractController
 {
-    public function show(): string
+    public function show(int $id): string
     {
-        return $this->twig->render('Article/show.html.twig');
+        $articleManager = new ArticleManager();
+        $article = $articleManager->selectOneById($id);
+        return $this->twig->render('Article/show.html.twig', ['article' => $article]);
     }
 }
