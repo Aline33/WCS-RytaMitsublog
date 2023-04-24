@@ -1,3 +1,7 @@
+.bt-main-mosaic {
+    height: 100vh;
+}
+
 .bt-main-mosaic .row .col {
     padding: 0;
     position: relative;
@@ -9,16 +13,15 @@
 .bt-main-mosaic .row {
     margin-right: 0;
     margin-left: 0;
-    height: 45vh;
     /*border-bottom: solid 5px black*/
 }
 
-.bt-main-mosaic:first-child {
-    height: 55vh;
+.bt-main-mosaic .row:first-of-type {
+    height: 50%;
 }
 
-.bt-main-mosaic:last-child {
-    height: 42vh;
+.bt-main-mosaic .row:last-of-type {
+    height: 50%;
 }
 
 .bt-main-mosaic h2 {
@@ -68,12 +71,12 @@
         }
 
 @media screen and (max-width: 400px) {
-    .bt-main-mosaic:first-child {
-        height: initial;
+    .bt-main-mosaic {
+        height: 103vh;
     }
 
-    .bt-main-mosaic:last-child {
-        height: initial;
+    .bt-main-mosaic .row:first-of-type {
+        height: 100%;
     }
 
     .bt-main-mosaic .row .col{
@@ -91,9 +94,5 @@
 
     .bt-main-mosaic .row .col h2 {
         font-size: 2rem;
-    }
-
-    .bt-main-mosaic img {
-        height: 59vh;
     }
 }
