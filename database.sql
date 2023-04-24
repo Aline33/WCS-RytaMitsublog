@@ -21,9 +21,110 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_user_id')
+    THEN
+        ALTER TABLE bt_comment
+            DROP FOREIGN KEY fk_bt_comment_user_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_article_id')
+    THEN
+        ALTER TABLE bt_comment
+            DROP FOREIGN KEY fk_bt_comment_article_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_article' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_article
+            DROP FOREIGN KEY fk_bt_article_user_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_picture' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_picture
+            DROP FOREIGN KEY fk_bt_picture_article_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_theme
+            DROP FOREIGN KEY fk_bt_theme_tag_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_theme
+            DROP FOREIGN KEY fk_bt_theme_article_id;
+    END IF;
+CALL dropConstraint();
+
+DROP PROCEDURE IF EXISTS dropConstraint;
+CREATE PROCEDURE dropConstraint()
+    IF EXISTS(SELECT
+                  TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME,
+                  REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME
+              FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+              WHERE
+                      TABLE_NAME = 'bt_user' AND CONSTRAINT_NAME != 'PRIMARY')
+    THEN
+        ALTER TABLE bt_user
+            DROP KEY uc_bt_user_email;
+    END IF;
+CALL dropConstraint();
+
+DROP TABLE IF EXISTS bt_user;
 
 CREATE TABLE `bt_user` (
-                           `id_user` INT  NOT NULL AUTO_INCREMENT,
+
+                           `id_user` INT AUTO_INCREMENT NOT NULL ,
+
                            `first_name` VARCHAR(100)  NULL ,
                            `last_name` VARCHAR(100)  NULL ,
                            `user_name` VARCHAR(25)  NOT NULL ,
@@ -39,8 +140,14 @@ CREATE TABLE `bt_user` (
                                )
 );
 
+
+
+DROP TABLE IF EXISTS bt_article;
+
+-- Structure de la table `bt_article`
+--
 CREATE TABLE `bt_article` (
-                              `id_article` INT  NOT NULL AUTO_INCREMENT,
+                              `id_article` INT AUTO_INCREMENT NOT NULL ,
                               `user_id` INT  NOT NULL ,
                               `title` VARCHAR(100)  NOT NULL ,
                               `description_article` VARCHAR(255)  NOT NULL ,
@@ -51,9 +158,13 @@ CREATE TABLE `bt_article` (
                                   )
 );
 
+DROP TABLE IF EXISTS bt_picture;
+
+-- Structure de la table `bt_picture`
+--
 
 CREATE TABLE `bt_picture` (
-                              `id_picture` INT  NOT NULL ,
+                              `id_picture` INT AUTO_INCREMENT NOT NULL ,
                               `article_id` INT  NOT NULL ,
                               `link` VARCHAR(300)  NOT NULL ,
                               PRIMARY KEY (
@@ -61,9 +172,13 @@ CREATE TABLE `bt_picture` (
                                   )
 );
 
+DROP TABLE IF EXISTS bt_comment;
+
+-- Structure de la table `bt_comment`
+--
 
 CREATE TABLE `bt_comment` (
-                              `id_comment` INT  NOT NULL ,
+                              `id_comment` INT AUTO_INCREMENT NOT NULL ,
                               `article_id` INT  NOT NULL ,
                               `user_id` INT  NOT NULL ,
                               `content_comment` VARCHAR(600)  NOT NULL ,
@@ -73,27 +188,35 @@ CREATE TABLE `bt_comment` (
                                   )
 );
 
+DROP TABLE IF EXISTS bt_tag;
+
+-- Structure de la table `bt_tag`
+--
 
 CREATE TABLE `bt_tag` (
-                          `id_tag` INT  NOT NULL ,
+                          `id_tag` INT AUTO_INCREMENT NOT NULL ,
                           `name_tag` VARCHAR(15)  NOT NULL ,
                           PRIMARY KEY (
                                        `id_tag`
                               )
 );
 
+DROP TABLE IF EXISTS bt_theme;
+
+-- Structure de la table `bt_theme`
+--
 
 CREATE TABLE `bt_theme` (
                             `article_id` INT  NOT NULL ,
                             `tag_id` INT  NOT NULL
 );
 
+ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_user_id` FOREIGN KEY(`user_id`)
+    REFERENCES `bt_user` (`id_user`);
 
-ALTER TABLE `bt_user` ADD CONSTRAINT `fk_bt_user_id_user` FOREIGN KEY(`id_user`)
-    REFERENCES `bt_comment` (`user_id`);
 
-ALTER TABLE `bt_article` ADD CONSTRAINT `fk_bt_article_id_article` FOREIGN KEY(`id_article`)
-    REFERENCES `bt_comment` (`article_id`);
+ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_article_id` FOREIGN KEY(`article_id`)
+    REFERENCES `bt_article` (`id_article`);
 
 ALTER TABLE `bt_article` ADD CONSTRAINT `fk_bt_article_user_id` FOREIGN KEY(`user_id`)
     REFERENCES `bt_user` (`id_user`);
@@ -101,11 +224,18 @@ ALTER TABLE `bt_article` ADD CONSTRAINT `fk_bt_article_user_id` FOREIGN KEY(`use
 ALTER TABLE `bt_picture` ADD CONSTRAINT `fk_bt_picture_article_id` FOREIGN KEY(`article_id`)
     REFERENCES `bt_article` (`id_article`);
 
-ALTER TABLE `bt_tag` ADD CONSTRAINT `fk_bt_tag_id_tag` FOREIGN KEY(`id_tag`)
-    REFERENCES `bt_theme` (`tag_id`);
+ALTER TABLE `bt_theme` ADD CONSTRAINT `fk_bt_theme_tag_id` FOREIGN KEY(`tag_id`)
+    REFERENCES `bt_tag` (`id_tag`);
 
 ALTER TABLE `bt_theme` ADD CONSTRAINT `fk_bt_theme_article_id` FOREIGN KEY(`article_id`)
     REFERENCES `bt_article` (`id_article`);
+
+INSERT INTO bt_user (first_name, last_name, user_name, email, access_level, birthday, user_password)
+values
+    ('Jean', 'Marc', 'JM', 'jean.marc@gmail.com', '1', '1990-04-01', 'jm'),
+    ('Ben ', 'Johnson', 'Big ben', 'ben.john@gmail.com', '2', '2000-01-01', 'bj'),
+    ('Karim', 'Waly', 'wk', 'karim@gmail.com', '2', '1995-08-15', 'wc'),
+    ('Paul', 'Newman', 'popol', 'paul@gmail.com', '3', '1998-06-12', 'pn');
 
 INSERT INTO bt_article ( user_id, title, description_article, body_article, article_created_at)
 values
@@ -143,9 +273,4 @@ Cependant, malgré ses avantages, PHP a été critiqué pour sa sécurité. Il e
 
 En conclusion, PHP reste un langage de programmation essentiel pour le développement web. Il offre une grande flexibilité et est utilisé par de nombreux sites web et applications populaires. Les développeurs devraient s''assurer qu''ils connaissent bien les bonnes pratiques de sécurité et utiliser les outils appropriés pour garantir la fiabilité et la sécurité de leurs projets.', '2021-12-25');
 
-INSERT INTO bt_user (first_name, last_name, user_name, email, access_level, birthday, user_password)
-values
-('Jean', 'Marc', 'JM', 'jean.marc@gmail.com', '1', '1990-04-01', 'jm'),
-('Ben ', 'Johnson', 'Big ben', 'ben.john@gmail.com', '2', '2000-01-01', 'bj'),
-('Karim', 'Waly', 'wk', 'karim@gmail.com', '2', '1995-08-15', 'wc'),
-('Paul', 'Newman', 'popol', 'paul@gmail.com', '3', '1998-06-12', 'pn');
+

@@ -1,6 +1,130 @@
 {% extends 'layout.html.twig' %}
+{# Custom title on the index #}
+{% block title %}
+    {{ parent() }} - Home
+{% endblock %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
-    <p>Find a complete CRUD example on <a href="/items">/items</a> page.</p>
+    {# Include, custom content and style for Mosaic #}
+    {# ressource : https://twig.symfony.com/doc/3.x/tags/embed.html #}
+    {% embed '_includes/landing_page/bt-grid-articles.html.twig' %}
+        {# Articles : custom title then custom img #}
+        {# Article 1 : #}
+        {% block mosaic_article_title_big_left %}
+            Test 1
+        {% endblock %}
+        {% block mosaic_article_img_big_left %}
+            https://picsum.photos/id/84/2800/1200
+        {% endblock %}
+        {# Article 2 : #}
+        {% block mosaic_article_title_big_right %}
+            Test 2
+        {% endblock %}
+        {% block mosaic_article_img_big_right %}
+            https://picsum.photos/id/129/2800/1200
+        {% endblock %}
+        {# Article 3 : #}
+        {% block mosaic_article_title_small_left %}
+            Test 3
+        {% endblock %}
+        {% block mosaic_article_img_small_left %}
+            https://picsum.photos/483/300
+        {% endblock %}
+        {# Article 4 : #}
+        {% block mosaic_article_title_small_mid %}
+            Test 4
+        {% endblock %}
+        {% block mosaic_article_img_small_mid %}
+            https://picsum.photos/483/300
+        {% endblock %}
+        {# Article 5 : #}
+        {% block mosaic_article_title_small_right %}
+            Test 5
+        {% endblock %}
+        {% block mosaic_article_img_small_right %}
+            https://picsum.photos/483/300
+        {% endblock %}
+        {# -- END OF -- Articles : custom title then custom img #}
+    {% endembed %}
+    {# --END OF -- {# Include, custom content and style for Mosaic #}
+
+
+    <div class="container">
+        <div class="row bt-first-section-article">
+            <div class="col">
+                {% include '_includes/landing_page/bt-first-section-articles.html.twig' %}
+            </div>
+            <div class="col-md-auto">
+                {# Include, custom content and style for the first sticky aside on main page #}
+                {% embed '_includes/bt-sticky-aside.html.twig' %}
+                    {# sticky aside style customization #}
+                    {% block sticky_aside_header_style %}
+                        lighter
+                    {% endblock %}
+                    {% block sticky_aside_first_article_style %}
+                        orange
+                    {% endblock %}
+                    {% block sticky_aside_second_article_style %}
+                        orange
+                    {% endblock %}
+                    {% block sticky_aside_third_article_style %}
+                        orange
+                    {% endblock %}
+                    {# --END OF -- sticky aside style customization #}
+                    {# sticky aside article titles customization #}
+                    {% block sticky_first_article_title %}
+                        La robotique, fléau de demain ?
+                    {% endblock %}
+                    {% block sticky_second_article_title %}
+                        J'aime les pommes et vous ? Faîtes le test
+                    {% endblock %}
+                    {% block sticky_third_article_title %}
+                        Du gloubiboulga pour Rattata
+                    {% endblock %}
+                    {# --END OF -- sticky aside article titles customization #}
+                {% endembed %}
+                {# -- END OF --Include, custom content and style for the first sticky aside on main page #}
+            </div>
+        </div>
+    </div>
+    {% include '_includes/landing_page/bt-bar-newsletter.html.twig' %}
+    <div class="container">
+        <div class="row bt-second-section-article">
+            <div class="col">
+                {# Include for second section of articles, cutom content and style in this file : bt-second-section-articles.html.twig #}
+                {% include '_includes/landing_page/bt-second-section-articles.html.twig' %}
+            </div>
+            <div class="col-md-auto">
+                {# Include, custom content and style for the second aside sticky on main page #}
+                {% embed '_includes/bt-sticky-aside.html.twig' %}
+                    {# sticky aside style customization #}
+                    {% block sticky_aside_header_style %}
+                        lighter
+                    {% endblock %}
+                    {% block sticky_aside_first_article_style %}
+                        orange
+                    {% endblock %}
+                    {% block sticky_aside_second_article_style %}
+                        orange
+                    {% endblock %}
+                    {% block sticky_aside_third_article_style %}
+                        orange
+                    {% endblock %}
+                    {# -- END OF -- sticky aside style customization #}
+                    {# sticky aside article titles customization #}
+                    {% block sticky_first_article_title %}
+                        Article 1
+                    {% endblock %}
+                    {% block sticky_second_article_title %}
+                        Article 2
+                    {% endblock %}
+                    {% block sticky_third_article_title %}
+                        Article 3
+                    {% endblock %}
+                    {# --END OF -- sticky aside article titles customization #}
+                {% endembed %}
+                {# -- END OF -- Include, custom content and style for the second aside sticky on main page #}
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Titre article
+{% endblock %}
+
+{% block content %}
+    {% include '_includes/Article/bt-article-head.html.twig' %}
+    {% include '_includes/article-content.html.twig' %}
+{% endblock %}
