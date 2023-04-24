@@ -78,7 +78,12 @@ p {
     margin-bottom: var(--bt-spacing);
 }
 
+
+
 @media screen and (max-width: 750px) {
+    .row {
+        --bs-gutter-x: 0;
+    }
     .container .bt-first-section-article, .container .bt-second-section-article {
         gap: 0;
     }
