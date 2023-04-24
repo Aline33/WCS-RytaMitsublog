@@ -1,13 +1,19 @@
 @import url('modules/variables.css');
-@import "modules/landing_page/bt-grid-articles.css";
-@import "modules/bt-sticky-aside.css";
-@import "modules/landing_page/bt-second-article-section.css";
-@import "modules/article/bt-article-head.css";
-@import "modules/landing_page/bt-first-article-section.css";
-@import "modules/article/bt-bar-next-article.css";
-@import "modules/bt-footer.css";
-@import "modules/landing_page/bt-bar-newsletter.css";
 @import "modules/bt-navbar.css";
+@import "modules/bt-sticky-aside.css";
+@import "modules/bt-footer.css";
+
+@import "modules/landing_page/bt-grid-articles.css";
+@import "modules/landing_page/bt-first-article-section.css";
+@import "modules/landing_page/bt-bar-newsletter.css";
+@import "modules/landing_page/bt-second-article-section.css";
+
+@import "modules/article/bt-article-head.css";
+@import "modules/article/bt-article-content.css";
+@import "modules/article/bt-bar-next-article.css";
+
+
+
 
 
 
