@@ -96,6 +96,9 @@
 }
 
 @media (width <= 740px) {
+    .bt-second-section-article {
+        flex-direction: column-reverse;
+    }
     .bt-card-section2 {
         width: 100%;
         flex-direction: column;
