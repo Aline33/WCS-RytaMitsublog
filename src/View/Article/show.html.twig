@@ -8,19 +8,15 @@
     {% include '_includes/Article/bt-article-head.html.twig' %}
     {# Article custom content, images then text #}
     {% embed '_includes/Article/bt-article-content.html.twig' %}
-        {% block article_main_img %}{{ picture.link }}{% endblock %}
+        {% block article_main_img %}{{ picture.pictureMain.link }}{% endblock %}
         {% block article_content_part1 %}
-            {{ dump(picture) }}
-            {{ dump(article) }}
             {{ bodyArticleSplit.0 }}
         {% endblock %}
-        {% block article_second_img %}
-        {% endblock %}
+        {% block article_second_img %}{{ picture.picture2.link }}{% endblock %}
         {% block article_content_part2 %}
             {{ bodyArticleSplit.1 }}
         {% endblock %}
-        {% block article_third_img %}
-        {% endblock %}
+        {% block article_third_img %}{{ picture.picture3.link }}{% endblock %}
         {% block article_content_part3 %}
             {{ bodyArticleSplit.2 }}
         {% endblock %}
