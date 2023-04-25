@@ -24,16 +24,16 @@ class ArticleController extends AbstractController
 
     public function organisePictures(array $pictures): array
     {
-        $i = 1;
+        $iterator = 1;
         foreach ($pictures as $key => $picture) {
             if ($key === 0) {
                 $pictures['pictureMain'] = $pictures[$key];
                 unset($pictures[$key]);
             } else {
-                $pictures['picture' . $i] = $pictures[$key];
+                $pictures['picture' . $iterator] = $pictures[$key];
                 unset($pictures[$key]);
             }
-            $i++;
+            $iterator++;
         }
         return $pictures;
     }
