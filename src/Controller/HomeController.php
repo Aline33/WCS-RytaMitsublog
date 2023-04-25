@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleSectionManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -9,6 +11,9 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('Home/index.html.twig');
+        $articleSectionManager = new ArticleSectionManager();
+        $articles = $articleSectionManager->selectFirstNineArticleByDate();
+
+        return $this->twig->render('Home/index.html.twig', ['articles' => $articles]);
     }
 }

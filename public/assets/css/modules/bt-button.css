@@ -1,0 +1,9 @@
+.bt-button {
+    border-radius: initial;
+    background: var(--bt-main-bg-color);
+    box-shadow: var(--bt-main-box-shadow);
+}
+
+.bt-button:hover {
+    background : var(--bt-bg-card-light-green);
+}
