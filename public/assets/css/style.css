@@ -2,6 +2,7 @@
 @import "modules/bt-navbar.css";
 @import "modules/bt-sticky-aside.css";
 @import "modules/bt-footer.css";
+@import "modules/bt-button.css";
 
 @import "modules/landing_page/bt-grid-articles.css";
 @import "modules/landing_page/bt-first-article-section.css";
@@ -11,7 +12,9 @@
 @import "modules/article/bt-article-head.css";
 @import "modules/article/bt-article-content.css";
 @import "modules/article/bt-bar-next-article.css";
+
 @import "modules/article/bt-edit-article.css";
+
 
 
 
@@ -69,17 +72,22 @@ p {
     margin: var(--bt-spacing) auto;
 }
 
-.container>.row {
+.container .bt-first-section-article, .container .bt-second-section-article {
     gap: 5vw;
 }
 
-.col .row {
+.bt-first-section-article .col .row, .bt-second-section-article .col .row{
     justify-content: space-between;
     margin-bottom: var(--bt-spacing);
 }
 
+
+
 @media screen and (max-width: 750px) {
-    .container>.row {
+    .row {
+        --bs-gutter-x: 0;
+    }
+    .container .bt-first-section-article, .container .bt-second-section-article {
         gap: 0;
     }
 }
