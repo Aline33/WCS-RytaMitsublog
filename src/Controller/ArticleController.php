@@ -10,11 +10,19 @@ class ArticleController extends AbstractController
     {
         $articleManager = new ArticleManager();
         $article = $articleManager->selectOneById($id);
+
         $bodyArticleSplit = $this->splitArticleText($article['body_article']);
+
         $pictures = $articleManager->getPictures($id);
         $pictures = $this->organisePictures($pictures);
 
-        return $this->twig->render('Article/show.html.twig', ['article' => $article, 'bodyArticleSplit' => $bodyArticleSplit, 'picture' => $pictures]);
+        $author = $articleManager->getAuthor($id);
+
+        return $this->twig->render('Article/show.html.twig', [
+            'article' => $article,
+            'bodyArticleSplit' => $bodyArticleSplit,
+            'pictures' => $pictures,
+            'author' => $author]);
     }
 
     public function splitArticleText(string $bodyArticle): array
