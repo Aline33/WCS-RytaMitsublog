@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/show.html.twig', [
             'article' => $article,
             'bodyArticleSplit' => $bodyArticleSplit,
-            'picture' => $pictures,
+            'pictures' => $pictures,
             'author' => $author
         ]);
     }
