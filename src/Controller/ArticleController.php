@@ -8,4 +8,9 @@ class ArticleController extends AbstractController
     {
         return $this->twig->render('Article/show.html.twig');
     }
+
+    public function add(): string
+    {
+        return $this->twig->render('Article/add.html.twig');
+    }
 }
