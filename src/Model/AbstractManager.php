@@ -13,6 +13,7 @@ abstract class AbstractManager
     protected PDO $pdo;
 
     public const TABLE = '';
+    public const TABLE_ID = '';
 
     public function __construct()
     {
@@ -39,7 +40,7 @@ abstract class AbstractManager
     public function selectOneById(int $id): array|false
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE id=:id");
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
@@ -52,8 +53,46 @@ abstract class AbstractManager
     public function delete(int $id): void
     {
         // prepared request
-        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");
+        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function getPrimaryKeyName(): string
+    {
+        $tableName = static::TABLE;
+        return preg_replace('/bt/', 'id', $tableName);
+    }
+
+    public function getForeignKeyName(string $foreignTable): string
+    {
+        return preg_replace('/bt_/', '', $foreignTable) . '_id';
+    }
 }
+
+/*
+ *
+ * TODO: replace id by regexp to find the right column
+SELECT *
+FROM bt_article
+WHERE (SELECT 'id_' REGEXP 'id') = 1;
+
+SELECT REGEXP_INSTR('🍣🍣b', 'b');
+
+SELECT *
+FROM bt_article
+WHERE (SELECT REGEXP_REPLACE('id_', '_', '')) = 1;
+
+SELECT REGEXP_REPLACE('id_', '_', '');
+FROM bt_user;
+
+SELECT REGEXP_REPLACE("stackoverflow", "(stack)(over)(flow)", '\\2 - \\1 - \\3');
+
+SELECT REGEXP_SUBSTR('id_', 'id');
+
+SELECT REGEXP_LIKE('CamelCase', 'CAMELCASE');
+
+SELECT 'Michael!' REGEXP '.*';
+
+SELECT REGEXP_REPLACE('a b c', 'b', 'X');
+ */
