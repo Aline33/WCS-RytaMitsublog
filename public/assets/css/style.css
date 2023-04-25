@@ -1,11 +1,19 @@
 @import url('modules/variables.css');
-@import "modules/grid_articles.css";
-@import "modules/sticky_aside.css";
-@import "modules/second_article_section.css";
-@import "modules/second_article_section_card.css";
-@import "modules/article-head.css";
-@import "modules/article_section_card.css";
-@import "modules/bt-bar-newsletter.css";
+@import "modules/bt-navbar.css";
+@import "modules/bt-sticky-aside.css";
+@import "modules/bt-footer.css";
+
+@import "modules/landing_page/bt-grid-articles.css";
+@import "modules/landing_page/bt-first-article-section.css";
+@import "modules/landing_page/bt-bar-newsletter.css";
+@import "modules/landing_page/bt-second-article-section.css";
+
+@import "modules/article/bt-article-head.css";
+@import "modules/article/bt-article-content.css";
+@import "modules/article/bt-bar-next-article.css";
+
+
+
 
 
 
@@ -33,6 +41,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: var(--bt-main-white);
+}
+
 h2, h3, h4 {
     font-family: var(--bt-main-font);
 }
@@ -53,5 +65,21 @@ p {
     font-style: italic;
 }
 
+.container {
+    margin: var(--bt-spacing) auto;
+}
 
+.container>.row {
+    gap: 5vw;
+}
 
+.col .row {
+    justify-content: space-between;
+    margin-bottom: var(--bt-spacing);
+}
+
+@media screen and (max-width: 750px) {
+    .container>.row {
+        gap: 0;
+    }
+}
