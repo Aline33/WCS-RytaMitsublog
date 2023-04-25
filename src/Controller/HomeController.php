@@ -11,8 +11,8 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        $firstArtSectManager = new ArticleSectionManager();
-        $articles = $firstArtSectManager->selectFirstFiveArticleByDate();
+        $articleSectionManager = new ArticleSectionManager();
+        $articles = $articleSectionManager->selectFirstNineArticleByDate();
 
         return $this->twig->render('Home/index.html.twig', ['articles' => $articles]);
     }
