@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Modifications article {{ article.title }}</h1>
+    {% include 'Article/_form.html.twig' %}<br>
+
+   <div class="back-link"> <a href="/article/show?id={{ article.id }}">Retour</a>
+   </div>
+{% endblock %}
