@@ -1,0 +1,37 @@
+.bt-container-form {
+    width: 60%;
+}
+
+.bt-form-h1 {
+    width: 50%;
+}
+
+.bt-form-input {
+    border-radius: initial;
+    border-left: solid #002D2B;
+    border-bottom: solid #002D2B;
+}
+
+.bt-button-green {
+    border: none;
+}
+
+.bt-button-red {
+    background: var(--bt-bg-card-red);
+    border: none;
+}
+
+.bt-button-orange {
+    background: var(--bt-bg-cards-orange);
+    border: none;
+}
+
+@media screen and (max-width: 767px ){
+    .bt-container-form {
+        width: 100%;
+    }
+
+    .bt-form-h1 {
+        width: 100%;
+    }
+}
