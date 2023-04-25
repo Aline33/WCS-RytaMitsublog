@@ -46,4 +46,9 @@ class ArticleController extends AbstractController
         }
         return $pictures;
     }
+
+    public function add(): string
+    {
+        return $this->twig->render('Article/add.html.twig');
+    }
 }
