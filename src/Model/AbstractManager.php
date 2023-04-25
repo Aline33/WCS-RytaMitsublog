@@ -40,7 +40,7 @@ abstract class AbstractManager
     public function selectOneById(int $id): array|false
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyNameFromTable() . "=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
@@ -53,18 +53,20 @@ abstract class AbstractManager
     public function delete(int $id): void
     {
         // prepared request
-        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
+        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyNameFromTable() . "=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
 
-    public function getPrimaryKeyName(): string
+    public function getPrimaryKeyNameFromTable(string $tableName = ''): string
     {
-        $tableName = static::TABLE;
+        if (empty($tableName)) {
+            $tableName = static::TABLE;
+        }
         return preg_replace('/bt/', 'id', $tableName);
     }
 
-    public function getForeignKeyName(string $foreignTable): string
+    public function getForeignKeyNameFromTable(string $foreignTable): string
     {
         return preg_replace('/bt_/', '', $foreignTable) . '_id';
     }
