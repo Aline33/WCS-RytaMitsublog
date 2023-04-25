@@ -31,7 +31,7 @@ class ArticleManager extends AbstractManager
                     FROM bt_user u
                         INNER JOIN " . static::TABLE . " ba
                         ON u." . $this->getPrimaryKeyNameFromTable('bt_user') . " = ba." . $this->getForeignKeyNameFromTable('bt_user') . "
-                        WHERE ba." . $this->getPrimaryKeyNameFromTable('bt_article') . "= :id"
+                        WHERE ba." . $this->getPrimaryKeyNameFromTable('bt_article') . " = :id"
         );
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
