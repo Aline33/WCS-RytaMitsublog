@@ -54,7 +54,7 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/add.html.twig');
     }
 
-    public function edit()
+    public function edit(): string
     {
         return $this->twig->render('Article/edit.html.twig');
     }
