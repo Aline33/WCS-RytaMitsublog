@@ -6,6 +6,14 @@ use PDO;
 
 class UserManager extends AbstractManager
 {
+    public const FIELDS = [
+      'first_name' => 'string',
+        'last_name' => 'string',
+        'user_name' => 'string',
+        'email' => 'email',
+        'birthday' => 'date',
+        'user_password' => 'string'
+    ];
     public const TABLE = 'bt_user';
     // TODO : create methods to get user info depending on one field, (email and username would be good)
     public function selectOneByEmail(string $email): array
