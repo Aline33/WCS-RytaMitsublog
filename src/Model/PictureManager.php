@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class PictureManager
+class PictureManager extends AbstractManager
 {
-
+    public const TABLE = 'bt_picture';
 }
