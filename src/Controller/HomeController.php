@@ -14,6 +14,9 @@ class HomeController extends AbstractController
         $articleSectionManager = new ArticleSectionManager();
         $articles = $articleSectionManager->selectFirstNineArticleByDate();
 
+        $userController = new UserController();
+        $userController->login();
+
         return $this->twig->render('Home/index.html.twig', ['articles' => $articles]);
     }
 }
