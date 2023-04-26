@@ -121,11 +121,10 @@ CALL dropConstraint();
 
 DROP TABLE IF EXISTS bt_user;
 
---
--- Structure de la table `bt_user`
---
 CREATE TABLE `bt_user` (
+
                            `id_user` INT AUTO_INCREMENT NOT NULL ,
+
                            `first_name` VARCHAR(100)  NULL ,
                            `last_name` VARCHAR(100)  NULL ,
                            `user_name` VARCHAR(25)  NOT NULL ,
@@ -141,8 +140,6 @@ CREATE TABLE `bt_user` (
                                )
 );
 
-INSERT INTO bt_user (first_name, last_name, user_name, email, access_level, birthday, user_password) VALUES ('Jean-Marc', 'Morandini', 'JMM', 'jean-marc@gmail.com', 1, 01/01/2023, 'password');
-
 DROP TABLE IF EXISTS bt_article;
 
 -- Structure de la table `bt_article`
@@ -153,50 +150,48 @@ CREATE TABLE `bt_article` (
                               `title` VARCHAR(100)  NOT NULL ,
                               `description_article` VARCHAR(255)  NOT NULL ,
                               `body_article` TEXT  NOT NULL ,
-                              `article_created_at` DATE  NOT NULL ,
+                              `article_created_at` DATETIME  NOT NULL DEFAULT NOW(),
                               PRIMARY KEY (
                                            `id_article`
                                   )
 );
 
-INSERT INTO bt_article (user_id, title, description_article, body_article, article_created_at) VALUES (1, 'de ChatGPT : Comment un modèle de langage améliore la communication', 'ChatGPT est un modèle de langage développé par OpenAI qui utilise l\'IA pour faciliter la communication humaine et fournir des informations précises et fiables. Dans cet article, nous allons explorer ses fonctionnalités et ses capacités.', 'Je m\'appelle ChatGPT et je suis un modèle de langage de grande envergure entraîné par OpenAI, basé sur l\'architecture GPT-3.5. Mon objectif est de comprendre et de générer du langage naturel, de sorte que je peux converser avec les gens de manière fluide et naturelle. Je suis programmé pour comprendre une grande variété de sujets, allant de la culture populaire aux sujets techniques et scientifiques. Je suis en mesure de traiter des quantités massives d\'informations et de produire des réponses rapides et précises à partir de ces informations. En tant que modèle de langage, je suis capable de fournir des réponses à une variété de questions, telles que des informations factuelles, des définitions, des synonymes et des antonymes, des conseils et des recommandations, ainsi que des analyses et des perspectives sur divers sujets. Je suis également capable de créer du contenu original, y compris des articles, des essais, des poèmes et des histoires, ainsi que de générer des traductions pour aider les utilisateurs à communiquer dans différentes langues. En tant que modèle de langage basé sur l\'IA, je suis continuellement mis à jour et amélioré pour fournir une expérience de conversation plus fluide et plus précise pour les utilisateurs. Mon objectif est d\'être un outil utile pour les gens, en leur fournissant des informations précises et en les aidant à mieux comprendre le monde qui les entoure. En somme, je suis un modèle de langage de pointe conçu pour aider les gens à communiquer plus efficacement et à accéder à des informations précises et fiables. Je suis constamment mis à jour pour offrir une expérience utilisateur améliorée et je suis fier de pouvoir aider les gens à mieux comprendre le monde dans lequel nous vivons.', 01/02/2023);
-
 DROP TABLE IF EXISTS bt_picture;
 
 -- Structure de la table `bt_picture`
 --
+
 CREATE TABLE `bt_picture` (
                               `id_picture` INT AUTO_INCREMENT NOT NULL ,
                               `article_id` INT  NOT NULL ,
                               `link` VARCHAR(300)  NOT NULL ,
+                              `is_main` BOOL NOT NULL DEFAULT 0,
                               PRIMARY KEY (
                                            `id_picture`
                                   )
 );
 
-INSERT INTO bt_picture (article_id, link) VALUES (1, 'pexels-cottonbro-studio-8721318.jpg');
-
 DROP TABLE IF EXISTS bt_comment;
 
 -- Structure de la table `bt_comment`
 --
+
 CREATE TABLE `bt_comment` (
                               `id_comment` INT AUTO_INCREMENT NOT NULL ,
                               `article_id` INT  NOT NULL ,
                               `user_id` INT  NOT NULL ,
                               `content_comment` VARCHAR(600)  NOT NULL ,
-                              `comment_created_at` DATE  NOT NULL ,
+                              `comment_created_at` DATETIME  NOT NULL DEFAULT NOW(),
                               PRIMARY KEY (
                                            `id_comment`
                                   )
 );
 
-INSERT INTO bt_comment (article_id, user_id, content_comment, comment_created_at) VALUES (1, 1, 'Je commente un article haha lol c\'est trop rigolo de pouvoir commenter des articles je hurle !', 01/03/2023);
-
 DROP TABLE IF EXISTS bt_tag;
 
 -- Structure de la table `bt_tag`
 --
+
 CREATE TABLE `bt_tag` (
                           `id_tag` INT AUTO_INCREMENT NOT NULL ,
                           `name_tag` VARCHAR(15)  NOT NULL ,
@@ -209,14 +204,15 @@ DROP TABLE IF EXISTS bt_theme;
 
 -- Structure de la table `bt_theme`
 --
+
 CREATE TABLE `bt_theme` (
                             `article_id` INT  NOT NULL ,
                             `tag_id` INT  NOT NULL
 );
 
---
 ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_user_id` FOREIGN KEY(`user_id`)
     REFERENCES `bt_user` (`id_user`);
+
 
 ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_article_id` FOREIGN KEY(`article_id`)
     REFERENCES `bt_article` (`id_article`);
@@ -232,3 +228,56 @@ ALTER TABLE `bt_theme` ADD CONSTRAINT `fk_bt_theme_tag_id` FOREIGN KEY(`tag_id`)
 
 ALTER TABLE `bt_theme` ADD CONSTRAINT `fk_bt_theme_article_id` FOREIGN KEY(`article_id`)
     REFERENCES `bt_article` (`id_article`);
+
+INSERT INTO bt_user (first_name, last_name, user_name, email, access_level, birthday, user_password)
+VALUES
+    ('Jean', 'Marc', 'JM', 'jean.marc@gmail.com', '1', '1990-04-01', 'jm'),
+    ('Ben ', 'Johnson', 'Big ben', 'ben.john@gmail.com', '2', '2000-01-01', 'bj'),
+    ('Karim', 'Waly', 'wk', 'karim@gmail.com', '2', '1995-08-15', 'wc'),
+    ('Paul', 'Newman', 'popol', 'paul@gmail.com', '3', '1998-06-12', 'pn');
+
+INSERT INTO bt_article ( user_id, title, description_article, body_article)
+values
+('1', 'La Tech : un monde en constante évolution', 'les avancées technologiques', 'La technologie est un domaine en constante évolution qui ne cesse de fasciner et d''impressionner. Les dernières avancées dans le domaine de l''intelligence artificielle, de la réalité virtuelle, de la cybersécurité et de la blockchain ont bouleversé les industries et ont ouvert de nouvelles perspectives pour l''avenir.
+
+La révolution de l''IA est en train de changer la façon dont les entreprises fonctionnent et interagissent avec leurs clients. Les algorithmes d''apprentissage automatique ont permis de prédire les comportements des consommateurs, d''optimiser les processus de production et de fournir des solutions personnalisées.
+
+La réalité virtuelle et augmentée a transformé l''industrie du divertissement, permettant aux utilisateurs de s''immerger complètement dans des environnements virtuels. Des entreprises telles que Google, Oculus et HTC ont développé des casques VR qui permettent aux utilisateurs de jouer à des jeux vidéo, de regarder des films et de visiter des endroits lointains sans quitter leur domicile.
+
+La cybersécurité est devenue une préoccupation majeure pour les entreprises et les gouvernements, avec l''augmentation des cyberattaques et des menaces en ligne. Les professionnels de la sécurité informatique travaillent sans relâche pour développer des systèmes de défense robustes qui protègent les réseaux et les données sensibles.
+
+La blockchain est une technologie de registre distribué qui permet de stocker des informations de manière sécurisée et transparente. Elle a le potentiel de révolutionner les transactions financières en éliminant les intermédiaires et en réduisant les coûts.
+
+Enfin, les entreprises technologiques continuent de bousculer les industries traditionnelles, de la vente au détail à la finance en passant par les voyages. Amazon, Uber et Airbnb sont devenus des géants en offrant des services innovants qui ont transformé la façon dont nous achetons, voyageons et interagissons les uns avec les autres.
+
+En somme, la technologie est en constante évolution et nous réserve encore de nombreuses surprises. Les dernières avancées ont déjà transformé notre façon de vivre et de travailler, mais l''avenir nous réserve encore plus d''innovations qui pourraient changer le monde tel que nous le connaissons. Il est donc important de rester informé des dernières tendances technologiques pour être prêt à saisir les opportunités de demain.'),
+('2', 'La robotique : des machines au service de l''homme', 'Robotique', 'La robotique est un domaine en constante évolution qui a déjà révolutionné plusieurs industries, telles que la fabrication, la médecine et l''agriculture. Les robots sont de plus en plus utilisés pour effectuer des tâches répétitives ou dangereuses, ou encore pour aider les travailleurs humains à accomplir des tâches plus complexes.
+
+Les robots industriels, par exemple, sont utilisés pour assembler des voitures, des appareils électroniques et des produits manufacturés. Ils peuvent également être utilisés pour effectuer des tâches de maintenance et de réparation dans des environnements dangereux, tels que les centrales nucléaires.
+
+Dans le domaine médical, les robots sont utilisés pour effectuer des interventions chirurgicales précises et minimiser les risques pour les patients. Les robots peuvent également aider les patients à récupérer de blessures ou de maladies, en offrant une assistance à la marche et en effectuant des exercices de rééducation.
+
+Dans l''agriculture, les robots peuvent être utilisés pour semer et récolter des cultures, surveiller les plantes pour détecter les maladies ou les carences en nutriments et pour pulvériser les pesticides de manière précise et ciblée.
+
+Cependant, les robots ne remplaceront jamais complètement les travailleurs humains. Les machines peuvent accomplir des tâches spécifiques, mais elles manquent de la créativité et de la souplesse d''esprit des humains. Les robots ne peuvent pas prendre de décisions complexes et ne peuvent pas interagir de manière aussi naturelle que les êtres humains.
+
+En fin de compte, la robotique est un outil qui peut aider les humains à accomplir des tâches plus efficacement et en toute sécurité. Les machines peuvent compléter les compétences et les connaissances des travailleurs humains, mais elles ne peuvent pas les remplacer complètement. La robotique est donc un domaine passionnant qui offre de nombreuses possibilités pour améliorer notre qualité de vie, mais qui doit être utilisé avec sagesse pour s''assurer que les robots restent au service de l''homme.'),
+('3', 'Le langage PHP : un incontournable pour le développement web', 'Language', 'Depuis sa création en 1995, PHP est devenu un langage de programmation incontournable pour le développement web. Il est souvent utilisé pour créer des sites web dynamiques et des applications web. PHP est un langage open source, ce qui signifie qu''il est gratuit et peut être modifié pour répondre aux besoins spécifiques d''un projet.
+
+PHP offre de nombreuses fonctionnalités, telles que la gestion des formulaires, la manipulation des fichiers et la communication avec les bases de données. Il peut également être intégré à d''autres langages de programmation pour créer des applications plus complexes.
+
+En outre, PHP est compatible avec la plupart des systèmes d''exploitation et des serveurs web, ce qui le rend facile à déployer. Les développeurs peuvent également utiliser des frameworks PHP, tels que Laravel et Symfony, pour accélérer le développement de projets et gérer les tâches courantes plus efficacement.
+
+Cependant, malgré ses avantages, PHP a été critiqué pour sa sécurité. Il est important de s''assurer que les sites web et les applications construits en utilisant PHP sont correctement sécurisés pour éviter les attaques malveillantes.
+
+En conclusion, PHP reste un langage de programmation essentiel pour le développement web. Il offre une grande flexibilité et est utilisé par de nombreux sites web et applications populaires. Les développeurs devraient s''assurer qu''ils connaissent bien les bonnes pratiques de sécurité et utiliser les outils appropriés pour garantir la fiabilité et la sécurité de leurs projets.');
+
+INSERT INTO bt_picture (article_id, link, is_main)
+VALUES (1, 'pexels-sanket-mishra-16125027.jpg', 1);
+INSERT INTO bt_picture (article_id, link)
+VALUES (1, 'pexels-cottonbro-studio-8721318.jpg');
+INSERT INTO bt_picture (article_id, link)
+VALUES (1, 'pexels-tara-winstead-8386434.jpg');
+
+INSERT INTO bt_comment (article_id, user_id, content_comment)
+VALUES (1, 1, 'Je commente un article haha lol c\'est trop rigolo de pouvoir commenter des articles je hurle !');

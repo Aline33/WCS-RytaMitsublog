@@ -12,8 +12,8 @@
     transform: scale(1.1);
 }
 
-.col .row:last-of-type {
-    margin-bottom: 0;
+.bt-last-row{
+    margin-bottom: 0 !important;
 }
 
 .col .row:last-of-type .bt-card {
