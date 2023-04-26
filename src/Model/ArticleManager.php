@@ -22,9 +22,11 @@ class ArticleManager extends AbstractManager
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function insert(array $article) : int
+    public function insert(array $article): int
     {
-        $query = "INSERT INTO " . self::TABLE . "(user_id, title, description_article, body_article) VALUES (:user_id, :title, :description, :body)";
+        $query = "INSERT INTO " . self::TABLE .
+            "(user_id, title, description_article, body_article)
+            VALUES (:user_id, :title, :description, :body)";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue('user_id', 1, PDO::PARAM_INT); // TODO: change user_id value
         $statement->bindValue(':title', $article['title'], PDO::PARAM_STR);
@@ -34,5 +36,4 @@ class ArticleManager extends AbstractManager
 
         return (int)$this->pdo->lastInsertId();
     }
-
 }
