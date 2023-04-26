@@ -40,7 +40,8 @@ abstract class AbstractManager
     public function selectOneById(int $id): array|false
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
+        $query = "SELECT * FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id";
+        $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
 
@@ -53,7 +54,8 @@ abstract class AbstractManager
     public function delete(int $id): void
     {
         // prepared request
-        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id");
+        $query = "DELETE FROM " . static::TABLE . " WHERE " . $this->getPrimaryKeyName() . "=:id";
+        $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
