@@ -28,13 +28,14 @@ class ArticleController extends AbstractController
 
     public function splitArticleText(string $bodyArticle): array
     {
-        return str_split($bodyArticle, strlen($bodyArticle) / 3);
+        return str_split($bodyArticle, (strlen($bodyArticle) - strlen($bodyArticle) % 3) / 3);
     }
 
     public function organisePictures(array $pictures): array
     {
         $iterator = 1;
         foreach ($pictures as $key => $picture) {
+            $picture = $picture;
             if ($key === 0) {
                 $pictures['pictureMain'] = $pictures[$key];
                 unset($pictures[$key]);
