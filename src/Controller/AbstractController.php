@@ -35,10 +35,9 @@ abstract class AbstractController
             'filter' => FILTER_SANITIZE_NUMBER_FLOAT,
             'flags' => FILTER_REQUIRE_ARRAY
         ],
-        'url' => FILTER_SANITIZE_URL
+        'date' => FILTER_UNSAFE_RAW
     ];
     public const FIELDS = [];
-    public const OPTIONS = [];
     protected Environment $twig;
     protected array | false $user;
 
@@ -59,9 +58,32 @@ abstract class AbstractController
         $this->twig->addGlobal('user', $this->user);
     }
 
-    /*public function sanitizeData(array $inputs, array $fields, array $filters = self::FILTERS): array
+    public function arrayTrim(array $inputs): array
     {
-        $options = array_map(fn($field) => static::FILTERS[$field], $fields);
-        return filter_var_array($inputs, $options);
-    }*/
+        return array_map(function ($input) {
+            if (is_string($input)) {
+                return trim($input);
+            } elseif (is_array($input)) {
+                return $this->arrayTrim($input);
+            } else {
+                return $input;
+            }
+        }, $inputs);
+    }
+
+    public function sanitizeData(
+        array $inputs,
+        array $fields = [],
+        int $defaultFilter = FILTER_UNSAFE_RAW,
+        array $filters = self::FILTERS
+    ): array {
+        if ($fields) {
+            $options = array_map(fn($field) => $filters[$field], $fields);
+            $data = filter_var_array($inputs, $options);
+        } else {
+            $data = filter_var_array($inputs, $defaultFilter);
+        }
+
+        return $data;
+    }
 }
