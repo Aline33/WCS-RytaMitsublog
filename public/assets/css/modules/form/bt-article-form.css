@@ -12,6 +12,10 @@
     border-bottom: solid #002D2B;
 }
 
+.bt-input-file {
+    display: none;
+}
+
 .bt-button-green {
     border: none;
 }
