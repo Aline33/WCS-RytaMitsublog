@@ -14,7 +14,7 @@ class ArticleController extends AbstractController
         $bodyArticleSplit = $this->splitArticleText($article['body_article']);
 
         $pictures = $articleManager->getPictures($id);
-        $pictures = $this->organisePictures($pictures);
+       /* $pictures = $this->organisePictures($pictures);*/
 
         $author = $articleManager->getAuthor($id);
 
@@ -31,7 +31,7 @@ class ArticleController extends AbstractController
         return str_split($bodyArticle, strlen($bodyArticle) / 3);
     }
 
-    public function organisePictures(array $pictures): array
+    /*public function organisePictures(array $pictures): array
     {
         $iterator = 1;
         foreach ($pictures as $key => $picture) {
@@ -45,10 +45,25 @@ class ArticleController extends AbstractController
             $iterator++;
         }
         return $pictures;
-    }
+    }*/
 
     public function add(): string
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $article = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, insert and redirection
+            $articleManager = new ArticleManager();
+            $id = $articleManager->insert($article);
+
+            $pictureController = new PictureController();
+            $pictureController->add($id);
+            $this->show($id);
+            //header('Location:/article/show?id=' . $id);
+        }
         return $this->twig->render('Article/add.html.twig');
     }
 }
