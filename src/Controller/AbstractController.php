@@ -37,6 +37,31 @@ abstract class AbstractController
         ],
         'date' => FILTER_UNSAFE_RAW
     ];
+    public const VALIDATERS = [
+        'string' => FILTER_UNSAFE_RAW,
+        'string[]' => [
+            'filter' => FILTER_UNSAFE_RAW,
+            'flag' => FILTER_REQUIRE_ARRAY
+        ],
+        'email' => FILTER_VALIDATE_EMAIL,
+        'int' => [
+            'filter' => FILTER_VALIDATE_INT,
+            'flag' => FILTER_REQUIRE_SCALAR
+        ],
+        'int[]' => [
+            'filter' => FILTER_VALIDATE_INT,
+            'flag' => FILTER_REQUIRE_ARRAY
+            ],
+        'float' => [
+            'filter' => FILTER_VALIDATE_FLOAT,
+            'flags' => FILTER_FLAG_ALLOW_FRACTION
+        ],
+        'float[]' => [
+            'filter' => FILTER_VALIDATE_FLOAT,
+            'flags' => FILTER_REQUIRE_ARRAY
+        ],
+        'date' => FILTER_UNSAFE_RAW
+    ];
     public const FIELDS = [];
     protected Environment $twig;
     protected array | false $user;
@@ -79,11 +104,27 @@ abstract class AbstractController
     ): array {
         if ($fields) {
             $options = array_map(fn($field) => $filters[$field], $fields);
+            var_dump($options);
             $data = filter_var_array($inputs, $options);
+            var_dump($data);
         } else {
             $data = filter_var_array($inputs, $defaultFilter);
         }
 
+        return $data;
+    }
+    public function validateData(
+        array $inputs,
+        array $fields = [],
+        int $defaultFilter = FILTER_UNSAFE_RAW,
+        array $validaters = self::VALIDATERS
+    ): array {
+        if ($fields) {
+            $options = array_map(fn($field) => $validaters[$field], $fields);
+            $data = filter_var_array($inputs, $options);
+        } else {
+            $data = filter_var_array($inputs, $defaultFilter);
+        }
         return $data;
     }
 }
