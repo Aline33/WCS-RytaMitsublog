@@ -38,14 +38,14 @@
 
 .bt-main-mosaic-title-top {
     position: absolute;
-    top: 15%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .bt-main-mosaic-title-bottom {
     position: absolute;
-    top: 85%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
