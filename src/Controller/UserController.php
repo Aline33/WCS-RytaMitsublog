@@ -22,7 +22,7 @@ class UserController extends AbstractController
     // TODO :  set global $user used to test when the user is connected or not
     public function login(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
             $userLogin = $this->sanitizeData($_POST, self::FIELDS);
 
             $password = $userLogin['password'];
