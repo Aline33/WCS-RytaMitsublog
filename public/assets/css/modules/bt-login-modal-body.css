@@ -1,0 +1,102 @@
+.modal-body {
+    padding: 0;
+    color: #FDFFF5;
+}
+
+#bt-login-modal-body, #bt-login-modal-header    {
+    background-color: #002d2bff;
+}
+
+#bt-button-close-modal   {
+    width: 800px;
+    background-color: #002d2bff;
+    color: #FDFFF5;
+}
+
+#bt-login-modal-body    {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 800px;
+}
+
+
+.modal-content   {
+    display: flex !important;
+    flex-direction: column;
+}
+
+#bt-Login input   {
+    max-width: fit-content;
+    margin: 10px 0;
+    background-color: #002d2bff;
+    border: none;
+    border-bottom: 1px solid #fdfff5;
+}
+
+#bt-Login button    {
+    margin: 10px 0;
+    padding: 5px;
+    align-self: center;
+    background-color: #002d2bff;
+    border: 1px solid #FDFFF5;
+}
+
+#bt-login-seperation-bar {
+    background-color: #FDFFF5;
+    width: 2px;
+    margin: 0 29px 0 25px;
+}
+
+.modal  {
+    --bs-modal-header-border-color: unset !important;
+    --bs-modal-border-color: unset !important;
+}
+
+#bt-login-logo  {
+    width: 800px;
+    background-color: #002d2bff;
+}
+
+#bt-login-logo img  {
+    margin-left: -15px;
+    margin-bottom: 10px ;
+}
+
+#bt-firstVisit h1  {
+    margin-bottom: 45px;
+}
+
+#bt-firstVisit a {
+    text-align: center;
+    max-width: fit-content;
+    margin-left: 52px;
+}
+
+.modal a{
+    color: #FDFFF5;
+    text-decoration: none;
+}
+
+.modal button   {
+    color: #FDFFF5;
+}
+
+#bt-firstVisit  {
+    align-content: center;
+}
+
+#bt-firstVisit button  {
+    background-color: #002d2bff;
+    border: 1px solid #FDFFF5;
+    padding: 5px;
+}
+
+#bt-firstVisit input {
+    max-width: fit-content;
+    margin: 10px 0;
+    background-color: #002d2bff;
+    border: none;
+    border-bottom: 1px solid #fdfff5;
+}

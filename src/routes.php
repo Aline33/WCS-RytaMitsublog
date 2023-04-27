@@ -18,5 +18,6 @@ return [
     'article/add' => ['ArticleController', 'add',],
     'contact' => ['ContactController', 'index',],
     'article/show' => ['ArticleController', 'show', ['id']],
-    'article/add' => ['ArticleController', 'add']
+    'article/add' => ['ArticleController', 'add',],
+    'contact' => ['ContactController', 'index',],
 ];
