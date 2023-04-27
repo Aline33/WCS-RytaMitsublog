@@ -43,7 +43,7 @@ abstract class AbstractController
             'filter' => FILTER_UNSAFE_RAW,
             'flag' => FILTER_REQUIRE_ARRAY
         ],
-        'email' => FILTER_VALIDATE_EMAIL,
+        'email' => 'validateEmail',
         'int' => [
             'filter' => FILTER_VALIDATE_INT,
             'flag' => FILTER_REQUIRE_SCALAR
@@ -103,10 +103,15 @@ abstract class AbstractController
         array $filters = self::FILTERS
     ): array {
         if ($fields) {
+            echo 'inputs: ';
+            var_dump($inputs);
             $options = array_map(fn($field) => $filters[$field], $fields);
+            echo '$options: ';
             var_dump($options);
             $data = filter_var_array($inputs, $options);
+            echo '$data: ';
             var_dump($data);
+            $data = $this->arrayTrim($data);
         } else {
             $data = filter_var_array($inputs, $defaultFilter);
         }
@@ -116,15 +121,42 @@ abstract class AbstractController
     public function validateData(
         array $inputs,
         array $fields = [],
-        int $defaultFilter = FILTER_UNSAFE_RAW,
         array $validaters = self::VALIDATERS
-    ): array {
+    ): array | false {
         if ($fields) {
-            $options = array_map(fn($field) => $validaters[$field], $fields);
-            $data = filter_var_array($inputs, $options);
-        } else {
-            $data = filter_var_array($inputs, $defaultFilter);
+            $errors = [];
+            //$options = array_map(fn($validater) => $validaters[$validater], $validaters);
+            //echo 'options validate: ';
+            //var_dump($options);
+            foreach ($inputs as $keyInputs => $input) {
+                foreach ($fields as $keyFields => $field) {
+                    if ($keyFields === $keyInputs) {
+                        echo 'test2 ';
+                        foreach ($validaters as $keyValidaters => $validater) {
+                            if ($field === $keyValidaters) {
+                                echo 'test1 ';
+                                $errors[] = $this->$validater($input);
+                            }
+                        }
+                    }
+                }
+            }
+            return $errors;
         }
-        return $data;
+        return false;
+    }
+
+    public function validateEmail(string $email): array
+    {
+        $errors = [];
+        if (empty($email) || filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Veuillez entrer une adresse email valide";
+        } elseif (strlen($email) >= 50) {
+            $errors[] = "Votre adresse email est trop longue";
+        } elseif (strlen($email) <= 5) {
+            $errors[] = "Votre adresse email est trop courte";
+        }
+
+        return $errors;
     }
 }
