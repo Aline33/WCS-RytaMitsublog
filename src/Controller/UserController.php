@@ -34,7 +34,7 @@ class UserController extends AbstractController
     public function login(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
-            $userLogin = $this->sanitizeData($_POST, self::FIELDS);
+            $userLogin = $this->sanitizeData($_POST, self::FIELDS_LOGIN);
 
             $password = $userLogin['password'];
 
@@ -51,13 +51,15 @@ class UserController extends AbstractController
             }
         }
     }
-    /*public function register(): void
+    public function register(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registerSubmit'])) {
-            $userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
+            echo 'POST: ';
+            var_dump($_POST);
+            //$userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
 
-            $errors = [];
-
+            $errors = $this->validateData($_POST, self::FIELDS_REGISTER);
+            /*
             if (empty($userRegister['new-email']) || filter_var($userRegister['new-email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = "Votre adresse email est invalide";
             } elseif (strlen($userRegister['new-email']) >= 50) {
@@ -81,11 +83,13 @@ class UserController extends AbstractController
             } elseif (strlen($userRegister['new-password']) <= 5) {
                 $errors[] = "Votre mot de passe est trop court";
             }
-
+            */
             if (empty($errors)) {
-                $userManager = new UserManager();
-                $userManager->add($userRegister);
+                echo 'gagné';
+            } else {
+                echo '$errors: ';
+                var_dump($errors);
             }
         }
-    }*/
+    }
 }
