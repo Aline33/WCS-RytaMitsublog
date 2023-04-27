@@ -38,4 +38,14 @@ class ArticleManager extends AbstractManager
 
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+    public function update($article): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title, `description_article` = :description, `body_article` = :content  WHERE id=:id");
+        $statement->bindValue(':id', $article['id'], PDO::PARAM_INT);
+        $statement->bindValue(':title', $article['title'], PDO::PARAM_STR);
+        $statement->bindValue(':description', $article['description_article'], PDO::PARAM_STR);
+        $statement->bindValue(':content', $article['body_article'], PDO::PARAM_STR);
+
+        return $statement->execute();
+    }
 }
