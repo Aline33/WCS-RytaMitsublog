@@ -16,6 +16,7 @@ class HomeController extends AbstractController
 
         $userController = new UserController();
         $userController->login();
+        $userController->register();
 
         return $this->twig->render('Home/index.html.twig', ['articles' => $articles]);
     }
