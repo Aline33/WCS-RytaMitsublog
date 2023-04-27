@@ -44,7 +44,7 @@ class UserController extends AbstractController
             $username = $user['user_name'];
             $hashPassword = $user['user_password'];
 
-            if ($password === $hashPassword) { // password_verify($password, $hashPassword)
+            if (password_verify($password, $hashPassword)) { // password_verify($password, $hashPassword) $password === $hashPassword
                 $_SESSION['user_id'] = $user['id_user'];
                 $_SESSION['username'] = $username;
                 header('Location: /article/show?id=1');
@@ -54,38 +54,12 @@ class UserController extends AbstractController
     public function register(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registerSubmit'])) {
-            echo 'POST: ';
-            var_dump($_POST);
-            //$userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
+            $userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
+            $errors = $this->validateData($userRegister, self::FIELDS_REGISTER);
 
-            $errors = $this->validateData($_POST, self::FIELDS_REGISTER);
-            /*
-            if (empty($userRegister['new-email']) || filter_var($userRegister['new-email'], FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "Votre adresse email est invalide";
-            } elseif (strlen($userRegister['new-email']) >= 50) {
-                $errors[] = "Votre adresse email est trop longue";
-            } elseif (strlen($userRegister['new-email']) <= 5) {
-                $errors[] = "Votre adresse email est trop courte";
-            }
-
-            if (empty($userRegister['new-pseudo'])) {
-                $errors[] = "Veuillez renseigner un pseudo";
-            } elseif (strlen($userRegister['new-pseudo']) >= 50) {
-                $errors[] = "Votre pseudo est trop long";
-            } elseif (strlen($userRegister['new-pseudo']) <= 5) {
-                $errors[] = "Votre pseudo est trop court";
-            }
-
-            if (empty($userRegister['new-password'])) {
-                $errors[] = "Veuillez renseigner un mot de passe";
-            } elseif (strlen($userRegister['new-password']) >= 50) {
-                $errors[] = "Votre mot de passe est trop long";
-            } elseif (strlen($userRegister['new-password']) <= 5) {
-                $errors[] = "Votre mot de passe est trop court";
-            }
-            */
             if (empty($errors)) {
-                echo 'gagné';
+                $userManager = new UserManager();
+                $userManager->insert($userRegister);
             } else {
                 echo '$errors: ';
                 var_dump($errors);
