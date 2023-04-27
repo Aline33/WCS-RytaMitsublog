@@ -59,10 +59,11 @@ class ArticleController extends AbstractController
             $articleManager = new ArticleManager();
             $id = $articleManager->insert($article);
 
+            $pictureController = new PictureController();
+            $pictureController->add($id);
             $this->show($id);
             //header('Location:/article/show?id=' . $id);
         }
         return $this->twig->render('Article/add.html.twig');
     }
-    //TODO: function addPicture
 }
