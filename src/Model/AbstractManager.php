@@ -77,30 +77,3 @@ abstract class AbstractManager
         return preg_replace('/bt_/', '', $foreignTable) . '_id';
     }
 }
-
-/*
- *
- * TODO: replace id by regexp to find the right column
-SELECT *
-FROM bt_article
-WHERE (SELECT 'id_' REGEXP 'id') = 1;
-
-SELECT REGEXP_INSTR('🍣🍣b', 'b');
-
-SELECT *
-FROM bt_article
-WHERE (SELECT REGEXP_REPLACE('id_', '_', '')) = 1;
-
-SELECT REGEXP_REPLACE('id_', '_', '');
-FROM bt_user;
-
-SELECT REGEXP_REPLACE("stackoverflow", "(stack)(over)(flow)", '\\2 - \\1 - \\3');
-
-SELECT REGEXP_SUBSTR('id_', 'id');
-
-SELECT REGEXP_LIKE('CamelCase', 'CAMELCASE');
-
-SELECT 'Michael!' REGEXP '.*';
-
-SELECT REGEXP_REPLACE('a b c', 'b', 'X');
- */
