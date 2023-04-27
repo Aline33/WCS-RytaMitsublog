@@ -82,3 +82,22 @@
 .modal button   {
     color: #FDFFF5;
 }
+
+#bt-firstVisit  {
+    align-content: center;
+}
+
+#bt-firstVisit button  {
+    background-color: #002d2bff;
+    border: 1px solid #FDFFF5;
+    padding: 5px;
+}
+
+#bt-firstVisit input {
+    max-width: fit-content;
+    margin: 10px 0;
+    background-color: #002d2bff;
+    border: none;
+    border-bottom: 1px solid #fdfff5;
+}
+
