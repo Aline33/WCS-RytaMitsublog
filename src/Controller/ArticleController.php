@@ -31,7 +31,7 @@ class ArticleController extends AbstractController
         return str_split($bodyArticle, (strlen($bodyArticle) - strlen($bodyArticle) % 3) / 3);
     }
 
-    /*public function organisePictures(array $pictures): array
+    public function organisePictures(array $pictures): array
     {
         $iterator = 1;
         foreach ($pictures as $key => $picture) {
@@ -46,7 +46,7 @@ class ArticleController extends AbstractController
             $iterator++;
         }
         return $pictures;
-    }*/
+    }
 
     public function add(): string
     {
