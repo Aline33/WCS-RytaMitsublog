@@ -8,8 +8,9 @@
     {# Include, custom content and style for Mosaic #}
     {# ressource : https://twig.symfony.com/doc/3.x/tags/embed.html #}
     {% embed '_includes/landing_page/bt-grid-articles.html.twig' %}
-        {# Articles : custom title then custom img #}
+        {# Articles : custom link then title then img #}
         {# Article 1 : #}
+        {% block mosaic_article_link_big_left %}{% endblock %}
         {% block mosaic_article_title_big_left %}
             Réalité Virtuelle Immersive
         {% endblock %}
@@ -17,6 +18,7 @@
             /assets/images/barbara-zandoval-Dz5j0QKVUGY-unsplash.jpg
         {% endblock %}
         {# Article 2 : #}
+        {% block mosaic_article_link_big_right %}{% endblock %}
         {% block mosaic_article_title_big_right %}
             Intelligence Artificielle : Évolution
         {% endblock %}
@@ -24,6 +26,7 @@
             /assets/images/pexels-tara-winstead-8386434.jpg
         {% endblock %}
         {# Article 3 : #}
+        {% block mosaic_article_link_small_left %}{% endblock %}
         {% block mosaic_article_title_small_left %}
             Robotique : L'avenir Travaillé
         {% endblock %}
@@ -31,6 +34,7 @@
             /assets/images/eli-alvarez-cNqDk50X6TA-unsplash.jpg
         {% endblock %}
         {# Article 4 : #}
+        {% block mosaic_article_link_small_mid %}{% endblock %}
         {% block mosaic_article_title_small_mid %}
             La 5G Arrive Bientôt
         {% endblock %}
@@ -38,6 +42,7 @@
             /assets/images/ar-pUnhtLa27PY-unsplash.jpg
         {% endblock %}
         {# Article 5 : #}
+        {% block mosaic_article_link_small_right %}{% endblock %}
         {% block mosaic_article_title_small_right %}
             Objets Connectés Quotidiens
         {% endblock %}
