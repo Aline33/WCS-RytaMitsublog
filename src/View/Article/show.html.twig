@@ -31,7 +31,7 @@
         {% endblock %}
         {% block show_article_third_img %}{{ pictures.picture3.link }}{% endblock %}
         {% block show_article_content_part3 %}
-            {{ bodyArticleSplit.2 }}
+            {{ bodyArticleSplit.2 ~bodyArticleSplit.3 }}
         {% endblock %}
     {% endembed %}
     {# -- END OF -- Article custom content, images then text #}
