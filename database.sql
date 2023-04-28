@@ -129,7 +129,7 @@ CREATE TABLE `bt_user` (
                            `last_name` VARCHAR(100)  NULL ,
                            `user_name` VARCHAR(25)  NOT NULL ,
                            `email` VARCHAR(255)  NOT NULL ,
-                           `access_level` INT  NOT NULL ,
+                           `access_level` INT  NOT NULL DEFAULT 3,
                            `birthday` DATE  NULL ,
                            `user_password` VARCHAR(255)  NOT NULL ,
                            PRIMARY KEY (
@@ -238,9 +238,9 @@ VALUES
 
 INSERT INTO bt_article ( user_id, title, description_article, body_article)
 values
-('1', 'La Tech : un monde en constante évolution', 'les avancées technologiques', 'La technologie est un domaine en constante évolution qui ne cesse de fasciner et d''impressionner. Les dernières avancées dans le domaine de l''intelligence artificielle, de la réalité virtuelle, de la cybersécurité et de la blockchain ont bouleversé les industries et ont ouvert de nouvelles perspectives pour l''avenir.
+    (1, 'La Tech : un monde en constante évolution', 'Cet article explore les dernières tendances et innovations dans le monde de la technologie, de l''intelligence artificielle et de la réalité virtuelle aux objets connectés et à la cybersécurité. ', 'La technologie est un domaine en constante évolution qui ne cesse de fasciner et d''impressionner. Les dernières avancées dans le domaine de l''intelligence artificielle, de la réalité virtuelle, de la cybersécurité et de la blockchain ont bouleversé les industries et ont ouvert de nouvelles perspectives pour l''avenir.
 
-La révolution de l''IA est en train de changer la façon dont les entreprises fonctionnent et interagissent avec leurs clients. Les algorithmes d''apprentissage automatique ont permis de prédire les comportements des consommateurs, d''optimiser les processus de production et de fournir des solutions personnalisées.
+La révolution de ''IA est en train de changer la façon dont les entreprises fonctionnent et interagissent avec leurs clients. Les algorithmes d''apprentissage automatique ont permis de prédire les comportements des consommateurs, d''optimiser les processus de production et de fournir des solutions personnalisées.
 
 La réalité virtuelle et augmentée a transformé l''industrie du divertissement, permettant aux utilisateurs de s''immerger complètement dans des environnements virtuels. Des entreprises telles que Google, Oculus et HTC ont développé des casques VR qui permettent aux utilisateurs de jouer à des jeux vidéo, de regarder des films et de visiter des endroits lointains sans quitter leur domicile.
 
@@ -251,7 +251,7 @@ La blockchain est une technologie de registre distribué qui permet de stocker d
 Enfin, les entreprises technologiques continuent de bousculer les industries traditionnelles, de la vente au détail à la finance en passant par les voyages. Amazon, Uber et Airbnb sont devenus des géants en offrant des services innovants qui ont transformé la façon dont nous achetons, voyageons et interagissons les uns avec les autres.
 
 En somme, la technologie est en constante évolution et nous réserve encore de nombreuses surprises. Les dernières avancées ont déjà transformé notre façon de vivre et de travailler, mais l''avenir nous réserve encore plus d''innovations qui pourraient changer le monde tel que nous le connaissons. Il est donc important de rester informé des dernières tendances technologiques pour être prêt à saisir les opportunités de demain.'),
-('2', 'La robotique : des machines au service de l''homme', 'Robotique', 'La robotique est un domaine en constante évolution qui a déjà révolutionné plusieurs industries, telles que la fabrication, la médecine et l''agriculture. Les robots sont de plus en plus utilisés pour effectuer des tâches répétitives ou dangereuses, ou encore pour aider les travailleurs humains à accomplir des tâches plus complexes.
+    (2, 'La robotique : des machines au service de l''homme', 'Robotique', 'La robotique est un domaine en constante évolution qui a déjà révolutionné plusieurs industries, telles que la fabrication, la médecine et l''agriculture. Les robots sont de plus en plus utilisés pour effectuer des tâches répétitives ou dangereuses, ou encore pour aider les travailleurs humains à accomplir des tâches plus complexes.
 
 Les robots industriels, par exemple, sont utilisés pour assembler des voitures, des appareils électroniques et des produits manufacturés. Ils peuvent également être utilisés pour effectuer des tâches de maintenance et de réparation dans des environnements dangereux, tels que les centrales nucléaires.
 
@@ -262,7 +262,7 @@ Dans l''agriculture, les robots peuvent être utilisés pour semer et récolter 
 Cependant, les robots ne remplaceront jamais complètement les travailleurs humains. Les machines peuvent accomplir des tâches spécifiques, mais elles manquent de la créativité et de la souplesse d''esprit des humains. Les robots ne peuvent pas prendre de décisions complexes et ne peuvent pas interagir de manière aussi naturelle que les êtres humains.
 
 En fin de compte, la robotique est un outil qui peut aider les humains à accomplir des tâches plus efficacement et en toute sécurité. Les machines peuvent compléter les compétences et les connaissances des travailleurs humains, mais elles ne peuvent pas les remplacer complètement. La robotique est donc un domaine passionnant qui offre de nombreuses possibilités pour améliorer notre qualité de vie, mais qui doit être utilisé avec sagesse pour s''assurer que les robots restent au service de l''homme.'),
-('3', 'Le langage PHP : un incontournable pour le développement web', 'Language', 'Depuis sa création en 1995, PHP est devenu un langage de programmation incontournable pour le développement web. Il est souvent utilisé pour créer des sites web dynamiques et des applications web. PHP est un langage open source, ce qui signifie qu''il est gratuit et peut être modifié pour répondre aux besoins spécifiques d''un projet.
+    (3, 'Le langage PHP : un incontournable pour le développement web', 'Language', 'Depuis sa création en 1995, PHP est devenu un langage de programmation incontournable pour le développement web. Il est souvent utilisé pour créer des sites web dynamiques et des applications web. PHP est un langage open source, ce qui signifie qu''il est gratuit et peut être modifié pour répondre aux besoins spécifiques d''un projet.
 
 PHP offre de nombreuses fonctionnalités, telles que la gestion des formulaires, la manipulation des fichiers et la communication avec les bases de données. Il peut également être intégré à d''autres langages de programmation pour créer des applications plus complexes.
 
@@ -280,4 +280,4 @@ INSERT INTO bt_picture (article_id, link)
 VALUES (1, 'pexels-tara-winstead-8386434.jpg');
 
 INSERT INTO bt_comment (article_id, user_id, content_comment)
-VALUES (1, 1, 'Je commente un article haha lol c\'est trop rigolo de pouvoir commenter des articles je hurle !');
+VALUES (1, 1, 'Je commente un article haha lol c''est trop rigolo de pouvoir commenter des articles je hurle !');
