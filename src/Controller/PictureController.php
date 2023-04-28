@@ -37,4 +37,21 @@ class PictureController extends AbstractController
         $pictureManager = new PictureManager();
         $pictureManager->insert($files, $id);
     }
+
+    public function organisePictures(array $pictures): array
+    {
+        $iterator = 1;
+        foreach ($pictures as $key => $picture) {
+            $picture = $picture;
+            if ($key === 0) {
+                $pictures['pictureMain'] = $pictures[$key];
+                unset($pictures[$key]);
+            } else {
+                $pictures['picture' . $iterator] = $pictures[$key];
+                unset($pictures[$key]);
+            }
+            $iterator++;
+        }
+        return $pictures;
+    }
 }
