@@ -129,7 +129,9 @@ CREATE TABLE `bt_user` (
                            `last_name` VARCHAR(100)  NULL ,
                            `user_name` VARCHAR(25)  NOT NULL ,
                            `email` VARCHAR(255)  NOT NULL ,
+
                            `access_level` INT  NOT NULL DEFAULT 3,
+
                            `birthday` DATE  NULL ,
                            `user_password` VARCHAR(255)  NOT NULL ,
                            PRIMARY KEY (
@@ -245,6 +247,7 @@ La révolution de \'IA est en train de changer la façon dont les entreprises fo
 La réalité virtuelle et augmentée a transformé l\'industrie du divertissement, permettant aux utilisateurs de s\'immerger complètement dans des environnements virtuels. Des entreprises telles que Google, Oculus et HTC ont développé des casques VR qui permettent aux utilisateurs de jouer à des jeux vidéo, de regarder des films et de visiter des endroits lointains sans quitter leur domicile.
 
 La cybersécurité est devenue une préoccupation majeure pour les entreprises et les gouvernements, avec l\'augmentation des cyberattaques et des menaces en ligne. Les professionnels de la sécurité informatique travaillent sans relâche pour développer des systèmes de défense robustes qui protègent les réseaux et les données sensibles.
+
 
 La blockchain est une technologie de registre distribué qui permet de stocker des informations de manière sécurisée et transparente. Elle a le potentiel de révolutionner les transactions financières en éliminant les intermédiaires et en réduisant les coûts.
 
