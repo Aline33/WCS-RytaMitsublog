@@ -213,7 +213,6 @@ CREATE TABLE `bt_theme` (
 ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_user_id` FOREIGN KEY(`user_id`)
     REFERENCES `bt_user` (`id_user`);
 
-
 ALTER TABLE `bt_comment` ADD CONSTRAINT `fk_bt_comment_article_id` FOREIGN KEY(`article_id`)
     REFERENCES `bt_article` (`id_article`);
 
