@@ -19,11 +19,20 @@ class ArticleController extends AbstractController
 
         $author = $articleManager->getAuthor($id);
 
+        $commentController = new CommentController();
+        $commentController->addNewComment();
+
+        $commentController = new CommentController();
+        $showComments = $commentController->showCommment();
+
+
+
         return $this->twig->render('Article/show.html.twig', [
             'article' => $article,
             'bodyArticleSplit' => $bodyArticleSplit,
             'pictures' => $pictures,
-            'author' => $author
+            'author' => $author,
+            'showComments' => $showComments
         ]);
     }
 
