@@ -14,10 +14,20 @@ class HomeController extends AbstractController
         $articleSectionManager = new ArticleSectionManager();
         $articles = $articleSectionManager->selectFirstNineArticleByDate();
 
-        $userController = new UserController();
-        $userController->login();
-        $userController->register();
-
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $userController = new UserController();
+            if (isset($_POST['loginSubmit'])) {
+                $errors = $userController->login();
+            }
+            if (isset($_POST['loginRegister'])) {
+                $errors = $userController->register();
+            }
+            if (empty($errors)) {
+                return $this->twig->render('contact/index.html.twig', ['articles' => $articles]);
+            } else {
+                return $this->twig->render('Home/index.html.twig', ['articles' => $articles, 'errors' => $errors]);
+            }
+        }
         return $this->twig->render('Home/index.html.twig', ['articles' => $articles]);
     }
 }
