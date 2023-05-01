@@ -21,6 +21,6 @@ class LegalNoticeController extends AbstractController
 
     public function cgu(): string
     {
-        return $this->twig->render('Legal/bt-bt-CGU.html.twig');
+        return $this->twig->render('Legal/bt-CGU.html.twig');
     }
 }
