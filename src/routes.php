@@ -19,4 +19,8 @@ return [
     'article/show' => ['ArticleController', 'show', ['id']],
     'article/add' => ['ArticleController', 'add',],
     'contact' => ['ContactController', 'index',],
+    'mentions-legales' => ['LegalNoticeController', 'legalNotice'],
+    'politique-de-confidentialite' => ['LegalNoticeController', 'privacyPolicy'],
+    'CGU' => ['LegalNoticeController', 'cgu'],
+    'RGPD' => ['LegalNoticeController', 'rgpd'],
 ];
