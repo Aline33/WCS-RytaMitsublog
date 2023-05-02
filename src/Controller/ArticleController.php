@@ -51,4 +51,26 @@ class ArticleController extends AbstractController
         }
         return $this->twig->render('Article/add.html.twig');
     }
+
+    public function previous(int $id): void
+    {
+        $articleManager = new ArticleManager();
+        $previousId = $articleManager->getPreviousArticle($id);
+
+        if ($previousId !== null) {
+            header('Location: /article/show/' . $previousId);
+            exit();
+        }
+    }
+
+    public function next(int $id): void
+    {
+        $articleManager = new ArticleManager();
+        $nextId = $articleManager->getNextArticle($id);
+
+        if ($nextId !== null) {
+            header('Location: /article/show/' . $nextId);
+            exit();
+        }
+    }
 }

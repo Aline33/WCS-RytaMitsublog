@@ -52,4 +52,27 @@ class ArticleManager extends AbstractManager
 
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getPreviousArticle(int $id): array|false
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM " . static::TABLE . " WHERE id_article < :id ORDER BY id_article DESC LIMIT 1"
+        );
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getNextArticle(int $id): array|false
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT * FROM  " . static::TABLE . "  WHERE id_article > :id ORDER BY id_article DESC LIMIT 1"
+        );
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
 }
