@@ -26,16 +26,6 @@ class CommentManager extends AbstractManager
         return $stmt->execute();
     }
 
-    /* public function selectComments(): array
-    {
-        $statement = $this->pdo->prepare(
-            "SELECT * FROM bt_comment WHERE article_id = :article_id"
-        );
-        $statement->execute(['article_id' => $_GET['id']]);
-
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    } */
-
     public function selectCommentsWithUsernames(): array
     {
         $statement = $this->pdo->prepare(
@@ -48,4 +38,15 @@ class CommentManager extends AbstractManager
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /* WORK IN PROCESS -- Edit an comment
+
+    public function updateComment(array $comment): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `comment` = :comment WHERE id=:id");
+        $statement->bindValue('id', $comment['id'], PDO::PARAM_INT);
+        $statement->bindValue('comment', $comment['comment'], PDO::PARAM_STR);
+
+        return $statement->execute();
+    } */
 }
