@@ -77,14 +77,17 @@
                     {% endblock %}
                     {# --END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
+                    {% block first_article_link %}/article/show?id=7{% endblock %}
                     {% block sticky_first_article_title %}
                         La robotique, fléau de demain ?
                     {% endblock %}
+                    {% block second_article_link %}/article/show?id=10{% endblock %}
                     {% block sticky_second_article_title %}
-                        J'aime les pommes et vous ? Faîtes le test
+                        12 Citations pour se motiver le matin !
                     {% endblock %}
+                    {% block third_article_link %}/article/show?id=8{% endblock %}
                     {% block sticky_third_article_title %}
-                        Du gloubiboulga pour Rattata
+                        L'évolution des jeux vidéo
                     {% endblock %}
                     {# --END OF -- sticky aside article titles customization #}
                 {% endembed %}
@@ -117,12 +120,15 @@
                     {% endblock %}
                     {# -- END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
+                    {% block second_sticky_first_article_link %}{% endblock %}
                     {% block sticky_first_article_title %}
                         Article 1
                     {% endblock %}
+                    {% block second_sticky_second_article_link %}{% endblock %}
                     {% block sticky_second_article_title %}
                         Article 2
                     {% endblock %}
+                    {% block second_sticky_third_article_link %}{% endblock %}
                     {% block sticky_third_article_title %}
                         Article 3
                     {% endblock %}
