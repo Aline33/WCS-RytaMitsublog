@@ -119,9 +119,6 @@ abstract class AbstractController
     ): array | bool {
         if ($fields) {
             $errors = [];
-            //$options = array_map(fn($validater) => $validaters[$validater], $validaters);
-            //echo 'options validate: ';
-            //var_dump($options);
             foreach ($inputs as $keyInputs => $input) {
                 foreach ($fields as $keyFields => $field) {
                     if ($keyInputs === $keyFields) {
@@ -143,7 +140,10 @@ abstract class AbstractController
     public function validateEmail(string $email): array
     {
         $errors = [];
-        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (empty($email)) {
+            $errors[] = "Veuillez entrer une adresse email";
+        }
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors[] = "Veuillez entrer une adresse email valide";
         }
         if (strlen($email) >= 50) {
