@@ -1,12 +1,11 @@
-.bt-contact {
-    font-family: var(--bt-logo-font);
+#bt-contact-section {
+    height: 800px !important;
 }
 
-.bt-contact input, .bt-contact textarea {
-    border-radius: initial;
-    border-left: solid 1px #002D2B;
-    border-bottom: solid 1px #002D2B;
-    border-top: none;
-    border-right: none;
-    background: var(--bt-main-white);
+#bt-contact-title   {
+    margin-top: 100px !important;
+}
+
+label   {
+    margin: 10px 0;
 }
