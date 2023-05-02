@@ -17,9 +17,9 @@ class CommentController extends AbstractController
         }
     }
 
-    public function showCommment(): array
+    public function selectCommentsWithUsernames(): array
     {
         $commentManager = new CommentManager();
-        return $commentManager->selectComments();
+        return $commentManager->selectCommentsWithUsernames();
     }
 }

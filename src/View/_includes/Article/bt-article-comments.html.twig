@@ -9,7 +9,7 @@
 {% for comment in showComments %}
     <div class="bt-single-comment">
         <div class="bt-name-creation-date">
-            <h1>{{ comment.user_id }}</h1><p>{{ comment.comment_created_at }}</p>
+            <h1>{{ comment.user_name }}</h1><p>{{ comment.comment_created_at }}</p>
         </div>
         <div class="bt-comment-content">{{ comment.content_comment }}</div>
     </div>

@@ -23,7 +23,7 @@ class ArticleController extends AbstractController
         $commentController->addNewComment();
 
         $commentController = new CommentController();
-        $showComments = $commentController->showCommment();
+        $showComments = $commentController->selectCommentsWithUsernames();
 
 
 
@@ -33,7 +33,7 @@ class ArticleController extends AbstractController
             'pictures' => $pictures,
             'author' => $author,
             'showComments' => $showComments
-        ]);
+            ]);
     }
 
     public function splitArticleText(string $bodyArticle): array

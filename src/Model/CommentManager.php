@@ -26,10 +26,23 @@ class CommentManager extends AbstractManager
         return $stmt->execute();
     }
 
-    public function selectComments(): array
+    /* public function selectComments(): array
     {
         $statement = $this->pdo->prepare(
             "SELECT * FROM bt_comment WHERE article_id = :article_id"
+        );
+        $statement->execute(['article_id' => $_GET['id']]);
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    } */
+
+    public function selectCommentsWithUsernames(): array
+    {
+        $statement = $this->pdo->prepare(
+            "SELECT c.*, u.user_name
+         FROM bt_comment c
+         INNER JOIN bt_user u ON c.user_id = u.id_user
+         WHERE c.article_id = :article_id"
         );
         $statement->execute(['article_id' => $_GET['id']]);
 
