@@ -79,7 +79,6 @@ class ArticleController extends AbstractController
             $articleManager->update($article);
 
             header('Location: /article/show?id=' . $id);
-            return null;
         }
         return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
     }
