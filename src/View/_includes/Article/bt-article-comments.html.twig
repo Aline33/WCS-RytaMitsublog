@@ -1,18 +1,20 @@
 <div class="bt-comments">
-<div class="bt-seperation-bar-comments"></div>
 
-<div class="bt-total-comment-section">
-    <p class="bt-title-commentaires">COMMENTAIRES</p>
-</div>
+    <div class="bt-seperation-bar-comments"></div>
 
-{% for comment in showComments %}
-    <div class="bt-single-comment">
-        <div class="bt-name-creation-date">
-            <h1>{{ comment.user_name }}</h1><p>{{ comment.comment_created_at }}</p>
-        </div>
-        <div class="bt-comment-content">{{ comment.content_comment }}</div>
+    <div class="bt-total-comment-section">
+        <p class="bt-title-commentaires">COMMENTAIRES</p>
     </div>
-{% endfor %}
+
+    {% for comment in showComments %}
+        <div class="bt-single-comment">
+            <div class="bt-name-creation-date">
+                <h1>{{ comment.user_name }}</h1><p>{{ comment.comment_created_at }}</p>
+            </div>
+            <div class="bt-comment-content">{{ comment.content_comment }}</div>
+        </div>
+    {% endfor %}
+
 </div>
 
 <div class="bt-comment-area">
@@ -23,4 +25,3 @@
         <button type="submit" name="SendComment" id="button">Envoyer</button>
     </form>
 </div>
-

@@ -24,11 +24,6 @@
     height: 50%;
 }
 
-.bt-main-mosaic h2 {
-    color: var(--bt-main-white);
-    font-family: var(--bt-main-font);
-}
-
 .bt-main-mosaic-title-centered {
     position: absolute;
     top: 50%;
@@ -38,14 +33,14 @@
 
 .bt-main-mosaic-title-top {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .bt-main-mosaic-title-bottom {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -68,7 +63,7 @@
 .bt-main-mosaic h2 {
     color: var(--bt-main-white);
     font-family: var(--bt-main-font);
-    font-size: 3rem;
+    font-size: 2rem;
     z-index: 2;
     width: 80%;
 }
