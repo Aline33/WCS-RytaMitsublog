@@ -51,4 +51,28 @@ class ArticleController extends AbstractController
         }
         return $this->twig->render('Article/add.html.twig');
     }
+
+    public function edit(int $id): ?string
+    {
+        $articleManager = new ArticleManager();
+        $article = $articleManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $article = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, update and redirection
+            $articleManager->update($article);
+
+            header('Location: /article/show?id=' . $id);
+
+            // we are redirecting so we don't want any content rendered
+            return null;
+        }
+        return $this->twig->render('Article/edit.html.twig', [
+            'article' => $article,
+        ]);
+    }
 }
