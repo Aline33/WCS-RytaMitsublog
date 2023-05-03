@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{# Custom title on the index #}
+{% block title %}
+    {{ parent() }} - Profil
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class ="bt-profile" ></div>
+            <h1 class="text-center pt-2">Mon profil</h1>
+            <table>
+                <tr>
+                    <td>Nom :</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Prénom :</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td> Pseudo :</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Email :</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Date de naissance :</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="bt-profile-article">
+            <h2>Mes articles</h2>
+            <a class="bt-button bt-button-green btn btn-primary"> Publier un article</a>
+        </div>
+    </div>
+{% endblock content %}
