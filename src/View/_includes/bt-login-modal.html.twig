@@ -161,14 +161,33 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5 " id="exampleModalToggleLabel2">Créer un compte</h1>
                 {% if errors is not empty and loginRegister == 2 %}
+                    {% set fieldTranslate = '' %}
                     {# {% if myVar in someOtherArray|keys %} #}
                     {% for fieldError, errorList in errors %}
-                        {% for errorGravity, errorType in errorList %}
-                            {% if errorGravity == 'fatal' %}
+                        {% for errorGravity, errorTypeArray in errorList %}
+                            {% if 'fatal' in errorList|keys %}
+                                {% if errorGravity == 'fatal' %}
+                                    {% for errorTypeKeys, errorContent in errorTypeArray %}
+                                        {% if 'emptyField' in errorTypeArray|keys %}
+                                            {% if errorTypeKeys == 'emptyField' %}
+                                                <h4 class="modal-title">
+                                                    {% if fieldError == 'new-username' %}
+                                                        {% set fieldTranslate = "nom d'utilisateur" %}
+                                                    {% endif %}
+                                                    {% if fieldError == 'new-password' %}
+                                                        {% set fieldTranslate = 'mot de passe' %}
+                                                    {% endif %}
+                                                    {{ 'Votre ' ~ fieldTranslate ~ errorContent }}</h4>
+                                            {% endif %}
+                                        {% elseif 'emptyField' not in errortype|keys %}
+                                            <h4 class="modal-title">{{ errorContent }}</h4>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% elseif 'fatal' not in errorList|keys %}
+                                {{ 'test4' }}
                                 {% for errorContent in errorType %}
-                                    {% if errorType == 'user!Exists' %}
-                                        <h4 class="modal-title">{{ errorContent }}</h4>
-                                    {% endif %}
+                                    <h4 class="modal-title">{{ errorContent }}</h4>
                                 {% endfor %}
                             {% endif %}
                         {% endfor %}
