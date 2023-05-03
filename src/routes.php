@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // list of accessible routes of your application, add every new route here
 // key : route to match
 // values : 1. controller name
@@ -17,4 +19,8 @@ return [
     'article/show' => ['ArticleController', 'show', ['id']],
     'article/add' => ['ArticleController', 'add',],
     'contact' => ['ContactController', 'index',],
+    'mentions-legales' => ['LegalNoticeController', 'legalNotice'],
+    'politique-de-confidentialite' => ['LegalNoticeController', 'privacyPolicy'],
+    'CGU' => ['LegalNoticeController', 'cgu'],
+    'RGPD' => ['LegalNoticeController', 'rgpd'],
 ];

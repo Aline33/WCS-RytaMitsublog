@@ -38,6 +38,12 @@
     font-size: 60px;
 }
 
+footer #bt-login-close {
+    --bs-btn-color: var(--bt-main-white);
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-color: none;
+}
+
 @media screen and (max-width: 1000px)   {
 
     #bt-newsletter-total-bar {

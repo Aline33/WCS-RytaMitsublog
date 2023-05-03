@@ -32,50 +32,56 @@ class UserController extends AbstractController
     // TODO : select one user corresponding to email or username,
     // TODO : check compatibility
     // TODO :  set global $user used to test when the user is connected or not
-    public function login(): array | bool
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loginSubmit'])) {
-            $userLogin = $this->sanitizeData($_POST, self::FIELDS_LOGIN);
-            $errors = $this->validateData($userLogin, self::FIELDS_LOGIN);
 
+    public function login(): array
+    {
+        $errors = [];
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $userLogin = $this->sanitizeData($_POST, self::FIELDS_LOGIN);
+        $errors = $this->validateData($userLogin, self::FIELDS_LOGIN);
+        $userManager = new UserManager();
+        $user = $userManager->selectOneByUsername($userLogin['username']);
+        if (!$user) {
+            $errors['username']['fatal']['user!Exists'] = "Cet utilisateur n'existe pas";
+        }
+        if (empty($errors)) {
             $password = $userLogin['password'];
-
-            $userManager = new UserManager();
-            $user = $userManager->selectOneByUsername($userLogin['username']);
-
-            if (!$user) {
-                $errors[]  = "Cette adresse email n'existe pas";
+            $username = $user['user_name'];
+            $hashPassword = $user['user_password'];
+            if (password_verify($password, $hashPassword)) {
+                $_SESSION['user_id'] = $user['id_user'];
+                $_SESSION['username'] = $username;
             } else {
-                $username = $user['user_name'];
-                $hashPassword = $user['user_password'];
-
-                if (!password_verify($password, $hashPassword)) {
-                    $errors[] = "Mot de passe invalide";
-                } elseif (empty($errors) && password_verify($password, $hashPassword)) { // password_verify($password, $hashPassword) $password === $hashPassword
-                    $_SESSION['user_id'] = $user['id_user'];
-                    $_SESSION['username'] = $username;
-                    return true;
-                } else {
-                    return $errors;
-                }
+                $errors['password']['fatal']['password!Match'] = "Mot de passe ou pseudo incorrect";
             }
         }
-        return false;
+        //}
+        return $errors;
     }
-    public function register(): array | bool
+    public function register(): array
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registerSubmit'])) {
-            $userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
-            $errors = $this->validateData($userRegister, self::FIELDS_REGISTER);
+        $errors = [];
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
+        $errors = $this->validateData($userRegister, self::FIELDS_REGISTER);
 
-            if (empty($errors)) {
-                $userManager = new UserManager();
-                $userManager->insert($userRegister);
-                return true;
-            } else {
-                return $errors;
-            }
+        if (empty($errors)) {
+            $userManager = new UserManager();
+            $id = $userManager->insert($userRegister);
+            $_SESSION['user_id'] = $id;
+            $_SESSION['username'] = $userRegister['new-username'];
+        } else {
+            return $errors;
         }
-        return false;
+        //}
+        return $errors;
+    }
+
+    public function disconnect(): void
+    {
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            session_unset();
+            session_destroy();
+        //}
     }
 }
