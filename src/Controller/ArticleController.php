@@ -25,6 +25,17 @@ class ArticleController extends AbstractController
         $commentController = new CommentController();
         $showComments = $commentController->selectCommentsWithUsernames();
 
+        $articleManager = new ArticleManager();
+        $previousId = $articleManager->getPreviousArticle($id);
+
+        $articleManager = new ArticleManager();
+        $nextId = $articleManager->getNextArticle($id);
+
+        $articleManager = new ArticleManager();
+        $linkPreviousPhoto = $articleManager->getPreviousPhoto($id);
+
+        $articleManager = new ArticleManager();
+        $linkNextPhoto = $articleManager->getNextPhoto($id);
 
 
         return $this->twig->render('Article/show.html.twig', [
@@ -32,7 +43,12 @@ class ArticleController extends AbstractController
             'bodyArticleSplit' => $bodyArticleSplit,
             'pictures' => $pictures,
             'author' => $author,
-            'showComments' => $showComments
+            'showComments' => $showComments,
+            'previousId' => $previousId,
+            'nextId' => $nextId,
+            'linkPreviousPhoto' => $linkPreviousPhoto,
+            'linkNextPhoto' => $linkNextPhoto,
+
             ]);
     }
 
@@ -59,27 +75,5 @@ class ArticleController extends AbstractController
             //header('Location:/article/show?id=' . $id);
         }
         return $this->twig->render('Article/add.html.twig');
-    }
-
-    public function previous(int $id): void
-    {
-        $articleManager = new ArticleManager();
-        $previousId = $articleManager->getPreviousArticle($id);
-
-        if ($previousId !== null) {
-            header('Location: /article/show/' . $previousId);
-            exit();
-        }
-    }
-
-    public function next(int $id): void
-    {
-        $articleManager = new ArticleManager();
-        $nextId = $articleManager->getNextArticle($id);
-
-        if ($nextId !== null) {
-            header('Location: /article/show/' . $nextId);
-            exit();
-        }
     }
 }
