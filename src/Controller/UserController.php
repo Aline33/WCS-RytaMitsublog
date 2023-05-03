@@ -76,7 +76,8 @@ class UserController extends AbstractController
         return $errors;
     }
 
-    public function index() {
+    public function index(): string
+    {
         return $this->twig->render('Profile/index.html.twig');
     }
 }
