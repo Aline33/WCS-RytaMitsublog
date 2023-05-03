@@ -1,3 +1,24 @@
 .bt-profile {
-    color:red;
+    width: 60%;
 }
+
+.bt-profile {
+    font-family: var(--bt-main-font);
+}
+
+.bt-table {
+    padding: 2rem;
+    background: var(--bt-bg-card-red);
+    border-radius: var(--bt-main-border-radius);
+    color: var(--bt-main-white);
+    box-shadow: var(--bt-main-box-shadow);
+}
+
+.bt-table td {
+    border-color: var(--bt-bg-card-darkred)
+}
+
+.bt-date {
+    border-style: none;
+}
+
