@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleSectionManager;
 use App\Model\UserManager;
 
 class UserController extends AbstractController
@@ -31,6 +32,7 @@ class UserController extends AbstractController
     // TODO : select one user corresponding to email or username,
     // TODO : check compatibility
     // TODO :  set global $user used to test when the user is connected or not
+
     public function login(): array
     {
         $errors = [];
