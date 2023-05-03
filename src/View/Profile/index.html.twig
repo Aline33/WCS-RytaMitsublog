@@ -6,33 +6,45 @@
 {% block content %}
     <div class="container">
         <div class ="bt-profile" ></div>
-            <h1 class="text-center pt-2">Mon profil</h1>
-            <table>
-                <tr>
-                    <td>Nom :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Prénom :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td> Pseudo :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Email :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Date de naissance :</td>
-                    <td></td>
-                </tr>
-            </table>
+            <h1 class="text-center">Mon profil</h1>
+        <div class="row">
+            <div class="col">
+                <table>
+                    <tr>
+                        <td>Nom :</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Prénom :</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td> Pseudo :</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Email :</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Date de naissance :</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col align-self-end d-md-flex ">
+                <div class = "row justify-content-md-end">
+                    <a href="#">Modifier mon profil</a>
+                    <a href="#">Supprimer mon profil</a>
+                </div>
+            </div>
         </div>
-        <div class="bt-profile-article">
-            <h2>Mes articles</h2>
-            <a class="bt-button bt-button-green btn btn-primary"> Publier un article</a>
+        <div class="bt-profile-article row pt-3">
+            <h3 class="col px-0">Mes articles</h3>
+            <div class="col d-md-flex justify-content-md-end">
+                <a class="bt-button bt-button-green btn btn-primary">Publier un article</a>
+            </div>
         </div>
+
     </div>
 {% endblock content %}
