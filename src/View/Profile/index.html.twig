@@ -4,38 +4,38 @@
     {{ parent() }} - Profil
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <div class ="bt-profile" ></div>
-            <h1 class="text-center">Mon profil</h1>
+    <div class="container bt-profile">
+        <div class ="" ></div>
+            <h1 class="text-center pb-3">Mon profil</h1>
         <div class="row">
             <div class="col">
-                <table>
+                <table class="bt-table table">
                     <tr>
-                        <td>Nom :</td>
-                        <td></td>
+                        <td>Nom</td>
+                        <td>{{ user.last_name }}</td>
                     </tr>
                     <tr>
-                        <td>Prénom :</td>
-                        <td></td>
+                        <td>Prénom</td>
+                        <td>{{ user.first_name }}</td>
                     </tr>
                     <tr>
-                        <td> Pseudo :</td>
-                        <td></td>
+                        <td> Pseudo</td>
+                        <td>{{ user.user_name }}</td>
                     </tr>
                     <tr>
-                        <td>Email :</td>
-                        <td></td>
+                        <td>Email</td>
+                        <td>{{ user.email }}</td>
                     </tr>
                     <tr>
-                        <td>Date de naissance :</td>
-                        <td></td>
+                        <td class="bt-date">Date de naissance</td>
+                        <td class="bt-date">{{ user.birthday }}</td>
                     </tr>
                 </table>
             </div>
-            <div class="col align-self-end d-md-flex ">
-                <div class = "row justify-content-md-end">
-                    <a href="#">Modifier mon profil</a>
-                    <a href="#">Supprimer mon profil</a>
+            <div class="col d-flex align-items-end">
+                <div class="row mb-4">
+                    <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Modifier mon profil</a>
+                    <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Supprimer mon profil</a>
                 </div>
             </div>
         </div>
