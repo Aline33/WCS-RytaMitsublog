@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\ArticleManager;
-use App\Model\ItemManager;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -65,7 +64,7 @@ class ArticleController extends AbstractController
      */
 
 
-    public function edit($id): string
+    public function edit(int $id): ?string
     {
 
         $articleManager = new ArticleManager();
@@ -80,7 +79,8 @@ class ArticleController extends AbstractController
             $articleManager->update($article);
 
             header('Location: /article/show?id=' . $id);
+            return null;
         }
-            return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
+        return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
     }
 }
