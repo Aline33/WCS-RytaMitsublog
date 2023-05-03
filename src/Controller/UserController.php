@@ -84,4 +84,14 @@ class UserController extends AbstractController
             session_destroy();
         //}
     }
+
+    public function show(int $id): string
+    {
+        $userManager = new UserManager();
+        $user = $userManager->selectOneById($id);
+
+        return $this->twig->render('User/show.html.twig', [
+            'user' => $user
+        ]);
+    }
 }
