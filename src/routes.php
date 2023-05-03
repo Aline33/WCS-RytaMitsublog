@@ -18,6 +18,7 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'article/show' => ['ArticleController', 'show', ['id']],
     'article/add' => ['ArticleController', 'add',],
+    'user/show' => ['UserController', 'show', ['id']],
     'contact' => ['ContactController', 'index',],
     'mentions-legales' => ['LegalNoticeController', 'legalNotice'],
     'politique-de-confidentialite' => ['LegalNoticeController', 'privacyPolicy'],
