@@ -19,7 +19,6 @@ class UserManager extends AbstractManager
     }
 
     public function selectOneByUsername(string $username): array | false
-
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE user_name = :username";
         $statement = $this->pdo->prepare($query);
@@ -39,5 +38,17 @@ class UserManager extends AbstractManager
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
+    }
+
+    public function showArticlesCreatedByUserId(): array
+    {
+        $user_id = 1;
+
+        $statement = $this->pdo->prepare("
+SELECT * FROM bt_article WHERE user_id = :user_id");
+        $statement->bindValue(':user_id', $user_id);
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }

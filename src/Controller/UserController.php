@@ -90,8 +90,12 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $user = $userManager->selectOneById($id);
 
+        $userManager = new UserManager();
+        $articles = $userManager->showArticlesCreatedByUserId();
+
         return $this->twig->render('User/show.html.twig', [
-            'user' => $user
+            'user' => $user,
+            'articles' => $articles,
         ]);
     }
 }
