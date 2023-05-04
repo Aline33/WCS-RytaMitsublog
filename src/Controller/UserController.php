@@ -93,19 +93,19 @@ class UserController extends AbstractController
         $userManager = new userManager();
         $user = $userManager->selectOneById($id);
 
-        return $this->twig->render('Profile/index.html.twig', [
+        return $this->twig->render('User/index.html.twig', [
             'user' => $user,
         ]);
     }
 
-    public function delete(int $id): void
+    public function delete(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = trim($_POST['id']);
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_SESSION['user_id'];
             $userManager = new userManager();
             $userManager->delete((int)$id);
 
             header('Location:/');
-        }
+        //}
     }
 }
