@@ -1,6 +1,20 @@
 <div class="container-fluid d-flex justify-content-between align-items-center"  style="background-color: #0A9A93; color: #FDFFF5;"  id="bt-Article-Prev-Next-bar">
+    {% if previousId %}
+        <div class="col-3 d-flex" id="bt-Article-Previous-Article">
+            <a href="/article/show?id={{ previousId[0]['id_article'] }}">
+                <div><img src="/assets/images/{{ linkPreviousPhoto[0]['link'] }}" alt="" style="width: 150px; height:100px"></div>
+                <div><h5>{{ previousId[0]['title'] }}</h5></div>
+            </a>
+        </div>
+    {% endif %}
 
-    <div class="col-3 d-flex" id="bt-Article-Previous-Article"><a href="#"><img src="/public/assets/images/logoProjet2.png" alt="" style="max-width: 200px"><h5>TITRE PRECEDENT ARTICLE</h5></a></div>
-    <div class="col-3 d-flex" id="bt-Article-Next-Article"><a href="#"><h5>TITRE PROCHAINE ARTICLE</h5><img src="/public/assets/images/logoProjet2.png" alt="" style="max-width: 200px"></a></div>
-
+    {% if nextId %}
+        <div class="col-3 d-flex" id="bt-Article-Next-Article">
+            <a href="/article/show?id={{ nextId[0]['id_article'] }}">
+                <h5>{{ nextId[0]['title'] }}</h5>
+                <img src="/assets/images/{{ linkNextPhoto[0]['link'] }}" alt="" style="width: 150px; height:100px">
+            </a>
+        </div>
+    {% endif %}
 </div>
+
