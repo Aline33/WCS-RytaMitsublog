@@ -81,9 +81,14 @@ class UserController extends AbstractController
 
     public function index(): string
     {
-        $id = $_SESSION['user_id'];
+        //$id = $_SESSION['user_id'];
+
+        $userManager = new UserManager();
+        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+
         return $this->twig->render('Profile/index.html.twig', [
-            'id' => $id
+            //'id' => $id,
+            'articles' => $articles,
         ]);
     }
 
@@ -100,12 +105,9 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $user = $userManager->selectOneById($id);
 
-        $userManager = new UserManager();
-        $articles = $userManager->showArticlesCreatedByUserId();
-
         return $this->twig->render('User/show.html.twig', [
             'user' => $user,
-            'articles' => $articles,
+
         ]);
     }
 }

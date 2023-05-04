@@ -50,13 +50,17 @@ class UserManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function showArticlesCreatedByUserId(): array
+    public function getUserArticlesAndCommentsWithPhotos(): array
     {
-        $user_id = 1;
+        $userId = 1;
 
         $statement = $this->pdo->prepare("
-SELECT * FROM bt_article WHERE user_id = :user_id");
-        $statement->bindValue(':user_id', $user_id);
+        SELECT a.*, p.link
+        FROM bt_article a
+        LEFT JOIN bt_picture p ON p.article_id = a.id_article
+        WHERE a.user_id = :user_id AND is_main = 1
+         ");
+        $statement->bindValue(':user_id', $userId);
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
