@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ArticleSectionManager;
+use App\Model\ItemManager;
 use App\Model\UserManager;
 
 class UserController extends AbstractController
@@ -85,13 +86,25 @@ class UserController extends AbstractController
         //}
     }
 
-    public function show(int $id): string
+    public function show(): string
     {
+        $id = $_SESSION['user_id'];
         $userManager = new UserManager();
         $user = $userManager->selectOneById($id);
 
         return $this->twig->render('User/show.html.twig', [
             'user' => $user
         ]);
+    }
+
+    public function delete(int $id): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = trim($_POST['id']);
+            $userManager = new userManager();
+            $userManager->delete((int)$id);
+
+            header('Location:/');
+        }
     }
 }
