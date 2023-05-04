@@ -16,16 +16,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[3].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[3].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/2/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 4'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
-                {{ articles[3].user_id }}
-                {{ articles[3].article_created_at }}
+                {{ author['id_article: 4'].user_name }}
+                {{ articles[3].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -46,16 +45,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[4].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[4].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/33/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 5'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
-                {{ articles[4].user_id }}
-                {{ articles[4].article_created_at }}
+                {{ author['id_article: 5'].user_name }}
+                {{ articles[4].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {# -- END OF -- Custom content for card article, link, title then image #}
         {% endembed %}
@@ -82,16 +80,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[5].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[5].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/54/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 6'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
-                {{ articles[5].user_id }}
-                {{ articles[5].article_created_at }}
+                {{ author['id_article: 6'].user_name }}
+                {{ articles[5].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {% block section_article_h3_content %}
             {% endblock %}
@@ -125,16 +122,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[6].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[6].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/95/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 7'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
-                {{ articles[6].user_id }}
-                {{ articles[6].article_created_at }}
+                {{ author['id_article: 7'].user_name }}
+                {{ articles[6].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {% block section_article_h3_content %}
             {% endblock %}
@@ -170,16 +166,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[7].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[7].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/16/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 8'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
-                {{ articles[7].user_id }}
-                {{ articles[7].article_created_at }}
+                {{ author['id_article: 8'].user_name }}
+                {{ articles[7].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {% block section_article_h3_content %}
             {% endblock %}
@@ -211,16 +206,15 @@
             {# -- END OF -- Custom style for card article #}
             {# Custom content for card article, link, titles, author and date, description, then image #}
             {% block section_article_link %}
+                /article/show?id={{ articles[8].id_article }}
             {% endblock %}
             {% block section_article_h2_content %}
                 {{ articles[8].title }}
             {% endblock %}
-            {% block section_article_img_content %}
-                https://picsum.photos/id/77/500/400
-            {% endblock %}
+            {% block section_article_img_content %}{{ pictures['id_article: 9'].pictureMain.link }}{% endblock %}
             {% block section_article_author_date_content %}
                 {{ articles[8].user_id }}
-                {{ articles[8].article_created_at }}
+                {{ articles[8].article_created_at|date("d/m/Y") }}
             {% endblock %}
             {% block section_article_h3_content %}
             {% endblock %}

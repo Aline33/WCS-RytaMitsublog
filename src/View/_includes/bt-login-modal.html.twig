@@ -1,19 +1,23 @@
-
-
+{#
 <!-- Modal BOOTSTRAP -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-header d-flex-end" id="bt-button-close-modal"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div>
         <div class="modal-content d-flex">
             <div class="modal-body" id="bt-login-modal-body">
-
                 <!-- DIV FOR THE LOGIN -->
+                {% if errors is not empty and loginRegister == 1 %}
+                    {{ dump(errors) }}
+                {% endif %}
                 <div class="d-flex-column" id="bt-Login">
                     <h1 class="p-1">Se Connecter</h1>
+                    {% if errors is defined %}
+                        {{ dump(errors) }}
+                    {% endif %}
                     <form action="" method="post">
                         <div>
-                            <label for="pseudo">Pseudo</label>
-                            <input type="text" name="pseudo" id="pseudo">
+                            <label for="pseudo">Username</label>
+                            <input type="text" name="username" id="pseudo">
                         </div>
 
                         <div>
@@ -21,7 +25,7 @@
                             <input type="text" name="password" id="password">
                         </div>
 
-                        <button type="submit">Se connecter</button>
+                        <button type="submit" name="loginSubmit">Se connecter</button>
                     </form>
 
                     <a href="#">Mot de passe oublié</a>
@@ -33,27 +37,29 @@
                 <!-- DIV FOR THE FIRST VISIT -->
                 <div class="d-flex-column" id="bt-firstVisit">
 
-                    <div class="fs-1"><h1>Première Visit?</h1></div>
-
+                    <div class="fs-1"><h1>Première Visite ?</h1></div>
+                    {% if errors is not empty and loginRegister == 2 %}
+                        {{ dump(errors) }}
+                    {% endif %}
                     <div class="fs-6 p-3">
-                        <button id="CreateNewUser">Je creér mon compte</button>
+                        <button id="CreateNewUser">Je crée mon compte</button>
                     </div>
 
                     <div id="bt-showRegisterForm" style="display: none">
-                        <form action="">
+                        <form action="" method="post">
                             <div><label for="new-user_email">Email</label><br>
                                 <input type="text" name="new-email" id="new-user_email">
                             </div>
 
                             <div><label for="new-pseudo">Pseudo</label><br>
-                                <input type="text" name="new-pseudo" id="new-pseudo">
+                                <input type="text" name="new-username" id="new-pseudo">
                             </div>
 
                             <div><label for="new-password">Password</label><br>
                                 <input type="password" name="new-password" id="new-password">
                             </div>
 
-                            <button type="submit">Creér nouveaux compte</button>
+                            <button type="submit" name="registerSubmit">Creér nouveau compte</button>
                         </form>
                     </div>
 
@@ -77,4 +83,134 @@
 
         </div>
 </div>
+-->
+#}
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                {% if user is empty %}
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Se connecter</h1>
+                    {% if errors is not empty and loginRegister == 1 %}
+                        {% set fieldTranslate = '' %}
+                        {# {% if myVar in someOtherArray|keys %} #}
+                        {% for fieldError, errorList in errors %}
+                            {% for errorGravity, errorTypeArray in errorList %}
+                                {% if 'fatal' in errorList|keys %}
+                                    {% if errorGravity == 'fatal' %}
+                                        {% for errorTypeKeys, errorContent in errorTypeArray %}
+                                            {% if 'emptyField' in errorTypeArray|keys %}
+                                                {% if errorTypeKeys == 'emptyField' %}
+                                                    <h4 class="modal-title">
+                                                        {% if fieldError == 'username' %}
+                                                            {% set fieldTranslate = "nom d'utilisateur" %}
+                                                        {% endif %}
+                                                        {% if fieldError == 'password' %}
+                                                            {% set fieldTranslate = 'mot de passe' %}
+                                                        {% endif %}
+                                                        {{ 'Votre ' ~ fieldTranslate ~ errorContent }}</h4>
+                                                {% endif %}
+                                            {% elseif 'emptyField' not in errortype|keys %}
+                                                <h4 class="modal-title">{{ errorContent }}</h4>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% elseif 'fatal' not in errorList|keys %}
+                                    {{ 'test4' }}
+                                    {% for errorContent in errorType %}
+                                        <h4 class="modal-title">{{ errorContent }}</h4>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+                {% if user is not empty %}
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Bienvenue {{ user.user_name }}</h1>
+                {% endif %}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {% if user is empty %}
+                    <form action="" method="post" class="bt-modal-form">
+                        <input type="text" name="username" id="pseudo" placeholder="Nom d'utilisateur">
+                        <input type="text" name="password" id="password" placeholder="Mot de passe">
+                        <button type="submit" name="loginSubmit" class="bt-button-login">Se connecter</button>
+                    </form>
 
+                    <a href="#">Mot de passe oublié ?</a>
+                {% endif %}
+
+                {% if user is not empty %}
+                    <form action="" method="post" class="bt-modal-form">
+                        <button type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
+                    </form>
+                {% endif %}
+            </div>
+
+            <div class="modal-footer">
+                <div class="bt-modal-footer-line"></div>
+                {% if user is empty %}
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Créer un compte</button>
+                {% endif %}
+                <img src="assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 " id="exampleModalToggleLabel2">Créer un compte</h1>
+                {% if errors is not empty and loginRegister == 2 %}
+                    {% set fieldTranslate = '' %}
+                    {# {% if myVar in someOtherArray|keys %} #}
+                    {% for fieldError, errorList in errors %}
+                        {% for errorGravity, errorTypeArray in errorList %}
+                            {% if 'fatal' in errorList|keys %}
+                                {% if errorGravity == 'fatal' %}
+                                    {% for errorTypeKeys, errorContent in errorTypeArray %}
+                                        {% if 'emptyField' in errorTypeArray|keys %}
+                                            {% if errorTypeKeys == 'emptyField' %}
+                                                <h4 class="modal-title">
+                                                    {% if fieldError == 'new-username' %}
+                                                        {% set fieldTranslate = "nom d'utilisateur" %}
+                                                    {% endif %}
+                                                    {% if fieldError == 'new-password' %}
+                                                        {% set fieldTranslate = 'mot de passe' %}
+                                                    {% endif %}
+                                                    {{ 'Votre ' ~ fieldTranslate ~ errorContent }}</h4>
+                                            {% endif %}
+                                        {% elseif 'emptyField' not in errortype|keys %}
+                                            <h4 class="modal-title">{{ errorContent }}</h4>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% elseif 'fatal' not in errorList|keys %}
+                                {{ 'test4' }}
+                                {% for errorContent in errorType %}
+                                    <h4 class="modal-title">{{ errorContent }}</h4>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" class="bt-modal-form">
+                    <input type="text" name="new-email" id="new-user_email" placeholder="Adresse email">
+                    <input type="text" name="new-username" id="new-pseudo" placeholder="Nom d'utilisateur">
+                    <input type="password" name="new-password" id="new-password" placeholder="Mot de passe">
+                    <button type="submit" name="registerSubmit" class="bt-button-login">Creér nouveau compte</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="bt-modal-footer-line"></div>
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Se connecter</button>
+                <img src="assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
+            </div>
+        </div>
+    </div>
+</div>

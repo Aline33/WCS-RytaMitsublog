@@ -33,9 +33,17 @@
         {% endblock %}
         {% block show_article_third_img %}{{ pictures.picture3.link }}{% endblock %}
         {% block show_article_content_part3 %}
-            {{ bodyArticleSplit.2 }}
+            {{ bodyArticleSplit.2 ~bodyArticleSplit.3 }}
         {% endblock %}
     {% endembed %}
     {# -- END OF -- Article custom content, images then text #}
+{% endblock %}
+
+{% block next_previous_bar %}{% embed  '_includes/Article/bt-bar-next-article.html.twig' %}{% endembed %}{% endblock %}
+{% block Comments %}{% embed '_includes/Article/bt-article-comments.html.twig' %}{% endembed %}{% endblock %}
+
+{% block Comments %}
+    {% embed '_includes/Article/bt-article-comments.html.twig' %}
+    {% endembed %}
 {% endblock %}
 
