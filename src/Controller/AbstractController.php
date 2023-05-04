@@ -90,7 +90,6 @@ abstract class AbstractController
         'username' => 'string',
         'email' => 'email',
         'birthday' => 'date',
-        'password' => 'password'
     ];
 
     protected Environment $twig;
