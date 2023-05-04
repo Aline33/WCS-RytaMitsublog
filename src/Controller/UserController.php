@@ -82,13 +82,16 @@ class UserController extends AbstractController
 
     public function index(): string
     {
-        //$id = $_SESSION['user_id'];
+        $id = $_SESSION['user_id'];
+
+        $userManager = new userManager();
+        $user = $userManager->selectOneById($id);
 
         $userManager = new UserManager();
         $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
 
         return $this->twig->render('Profile/index.html.twig', [
-            //'id' => $id,
+            'id' => $id,
             'articles' => $articles,
         ]);
     }
@@ -99,16 +102,5 @@ class UserController extends AbstractController
         session_unset();
         session_destroy();
         //}
-    }
-
-    public function show(): string
-    {
-        $id = $_SESSION['user_id'];
-        $userManager = new userManager();
-        $user = $userManager->selectOneById($id);
-
-        return $this->twig->render('Profile/index.html.twig', [
-            'user' => $user,
-        ]);
     }
 }

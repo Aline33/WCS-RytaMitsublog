@@ -7,3 +7,16 @@
 .bt-button:hover {
     background : var(--bt-bg-card-light-green);
 }
+
+#bt-button-edit-article {
+    color: #fdfff5;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#bt-button-delete-article   {
+    color: var(--bt-main-white);
+    background-color: var(--bt-bg-card-red);
+    padding: 5px;
+    margin-top: 5px;
+}
