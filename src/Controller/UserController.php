@@ -2,35 +2,12 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleManager;
+use App\Model\ArticleSectionManager;
 use App\Model\UserManager;
 
 class UserController extends AbstractController
 {
-    public const FIELDS = [
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'username' => 'string',
-        'email' => 'email',
-        'birthday' => 'date',
-        'password' => 'string'
-    ];
-
-    public const FIELDS_LOGIN = [
-        'username' => 'string',
-        'password' => 'string'
-    ];
-
-    public const FIELDS_REGISTER = [
-        'new-username' => 'string',
-        'new-email' => 'email',
-        'new-password' => 'string'
-    ];
-
-    // TODO : get data from $_POST,
-    // TODO :  verify their safety,
-    // TODO : select one user corresponding to email or username,
-    // TODO : check compatibility
-    // TODO :  set global $user used to test when the user is connected or not
     public function login(): array
     {
         $errors = [];
@@ -78,18 +55,68 @@ class UserController extends AbstractController
     public function disconnect(): void
     {
         //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            session_unset();
-            session_destroy();
+        session_unset();
+        session_destroy();
+        header('Location: /');
         //}
+    }
+
+    public function index(): string
+    {
+        $id = $_SESSION['user_id'];
+        return $this->twig->render('Profile/index.html.twig', [
+            'id' => $id
+        ]);
     }
 
     public function show(int $id): string
     {
-        $userManager = new UserManager();
+        $userManager = new userManager();
         $user = $userManager->selectOneById($id);
 
-        return $this->twig->render('User/show.html.twig', [
-            'user' => $user
+        return $this->twig->render('Profile/index.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+    public function edit(): string
+    {
+        /*if (!$_SESSION['user_id']) {
+            header('Location: /');
+        } else {
+
+        }*/
+        $userManager = new UserManager();
+        $id = $_SESSION['user_id'];
+
+        $user = $userManager->selectOneById($id);
+        //$user['user_password'] =
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editUserSubmit'])) {
+            $userEdit = array_pop($_POST);
+            $userEdit = $this->sanitizeData($userEdit, self::FIELDS_EDIT);
+            $errors = $this->validateData($userEdit, self::FIELDS_EDIT);
+
+            $userEdit['id'] = $_SESSION['user_id'];
+
+
+            if (empty($errors)) {
+                $userManager = new UserManager();
+                $id = $userManager->update($userEdit);
+                header('Location: /profil/edit');
+                //$_SESSION['user_id'] = $id;
+                //$_SESSION['username'] = $userEdit['new-username'];
+            }
+        }
+
+        if (!empty($errors)) {
+            return $this->twig->render('Profile/edit.html.twig', [
+                'user' => $user,
+                'errors' => $errors
+            ]);
+        }
+        return $this->twig->render('Profile/edit.html.twig', [
+            'user' => $user,
         ]);
     }
 }
