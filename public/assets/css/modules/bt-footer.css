@@ -5,11 +5,17 @@ footer  {
     font-family: var(--bt-main-font);
 }
 
-ul  {
+    footer ul  {
     list-style: none;
 }
 
-li  {
+#bt-newsletter-total-bar > #bt-login-close {
+    --bs-btn-color: var(--bt-main-white);
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-color: none;
+}
+
+footer li  {
     padding: 0.3rem;
 }
 
@@ -30,15 +36,15 @@ footer div a  {
     footer  {
         padding: 0;
     }
-    svg {
+    footer svg {
         width: 25px;
     }
 
-    ul  {
+    footer ul  {
         padding-inline-start: 0;
     }
 
-    ol, ul  {
+    footer ol, footer ul  {
         padding-left: 0!important;
     }
 
@@ -50,7 +56,7 @@ footer div a  {
         font-size: 10px;
     }
 
-    .col-3.d-flex.align-items-center    {
+    footer > .col-3.d-flex.align-items-center    {
         margin-top: 75px;
     }
 

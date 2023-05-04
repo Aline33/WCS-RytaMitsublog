@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\ArticleManager;
 use App\Model\ArticleSectionManager;
+use App\Model\UserManager;
 
 class HomeController extends AbstractController
 {
@@ -30,16 +31,27 @@ class HomeController extends AbstractController
 
         $userController = new UserController();
         $loginRegister = 0;
-        if (isset($_POST['loginSubmit'])) {
-            $errors = $userController->login();
-            $loginRegister = 1;
-        }
-        if (isset($_POST['registerSubmit'])) {
-            $errors = $userController->register();
-            $loginRegister = 2;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['loginSubmit'])) {
+                $errors = $userController->login();
+                $loginRegister = 1;
+            }
+            if (isset($_POST['registerSubmit'])) {
+                $errors = $userController->register();
+                $loginRegister = 2;
+            }
+            if (isset($_POST['disconnectSubmit'])) {
+                $userController->disconnect();
+            }
+        } else {
+            return $this->twig->render('Home/index.html.twig', [
+                'articles' => $articles,
+                'pictures' => $pictures,
+                'author' => $author]);
         }
 
-        if (isset($errors)) {
+
+        if (!empty($errors)) {
             return $this->twig->render('Home/index.html.twig', [
                 'articles' => $articles,
                 'pictures' => $pictures,
@@ -47,10 +59,11 @@ class HomeController extends AbstractController
                 'errors' => $errors,
                 'loginRegister' => $loginRegister]);
         } else {
-            return $this->twig->render('Home/index.html.twig', [
-                'articles' => $articles,
-                'pictures' => $pictures,
-                'author' => $author]);
+            header('Location: /');
         }
+        return $this->twig->render('Home/index.html.twig', [
+            'articles' => $articles,
+            'pictures' => $pictures,
+            'author' => $author]);
     }
 }

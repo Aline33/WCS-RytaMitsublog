@@ -15,7 +15,7 @@
             La Tech : un monde en constante évolution
         {% endblock %}
         {% block mosaic_article_img_big_left %}
-            /assets/images/ales-nesetril-Im7lZjxeLhg-unsplash.jpg
+            /assets/images/laptopHalfClosed.jpg
         {% endblock %}
         {# Article 2 : #}
         {% block mosaic_article_link_big_right %}/article/show?id=2{% endblock %}
@@ -23,7 +23,7 @@
             Robotique : des machines au service de l'homme
         {% endblock %}
         {% block mosaic_article_img_big_right %}
-            /assets/images/eli-alvarez-cNqDk50X6TA-unsplash.jpg
+            /assets/images/robotWork.jpg
         {% endblock %}
         {# Article 3 : #}
         {% block mosaic_article_link_small_left %}/article/show?id=3{% endblock %}
@@ -31,7 +31,7 @@
             PHP : un incontournable pour le développement web
         {% endblock %}
         {% block mosaic_article_img_small_left %}
-            /assets/images/Php elephant.png
+            /assets/images/coding.jpg
         {% endblock %}
         {# Article 4 : #}
         {% block mosaic_article_link_small_mid %}/article/show?id=4{% endblock %}
@@ -39,7 +39,7 @@
             Les compétences clés pour devenir un développeur web réussi
         {% endblock %}
         {% block mosaic_article_img_small_mid %}
-            /assets/images/michael-dziedzic-qDG7XKJLKbs-unsplash.jpg
+            /assets/images/immersivVRDark.jpg
         {% endblock %}
         {# Article 5 : #}
         {% block mosaic_article_link_small_right %}/article/show?id=5{% endblock %}
@@ -77,14 +77,17 @@
                     {% endblock %}
                     {# --END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
+                    {% block first_article_link %}/article/show?id=7{% endblock %}
                     {% block sticky_first_article_title %}
                         La robotique, fléau de demain ?
                     {% endblock %}
+                    {% block second_article_link %}/article/show?id=10{% endblock %}
                     {% block sticky_second_article_title %}
-                        J'aime les pommes et vous ? Faîtes le test
+                        12 Citations pour se motiver le matin !
                     {% endblock %}
+                    {% block third_article_link %}/article/show?id=8{% endblock %}
                     {% block sticky_third_article_title %}
-                        Du gloubiboulga pour Rattata
+                        L'évolution des jeux vidéo
                     {% endblock %}
                     {# --END OF -- sticky aside article titles customization #}
                 {% endembed %}
@@ -117,12 +120,15 @@
                     {% endblock %}
                     {# -- END OF -- sticky aside style customization #}
                     {# sticky aside article titles customization #}
+                    {% block second_sticky_first_article_link %}{% endblock %}
                     {% block sticky_first_article_title %}
                         Article 1
                     {% endblock %}
+                    {% block second_sticky_second_article_link %}{% endblock %}
                     {% block sticky_second_article_title %}
                         Article 2
                     {% endblock %}
+                    {% block second_sticky_third_article_link %}{% endblock %}
                     {% block sticky_third_article_title %}
                         Article 3
                     {% endblock %}
