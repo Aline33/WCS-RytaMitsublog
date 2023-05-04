@@ -118,6 +118,5 @@ class ArticleManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
-
     }
 }

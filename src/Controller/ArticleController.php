@@ -89,7 +89,7 @@ class ArticleController extends AbstractController
      */
 
 
-    public function edit(int $id): ?string
+    public function edit(int $id): string
     {
 
         $articleManager = new ArticleManager();

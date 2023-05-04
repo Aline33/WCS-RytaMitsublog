@@ -26,4 +26,3 @@ return [
     'CGU' => ['LegalNoticeController', 'cgu'],
     'RGPD' => ['LegalNoticeController', 'rgpd'],
 ];
-
