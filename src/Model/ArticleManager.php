@@ -66,7 +66,6 @@ class ArticleManager extends AbstractManager
         $statement->bindValue(':content', $article['content']);
 
         return $statement->execute();
-
     }
 
     public function getPreviousArticle($id): array
