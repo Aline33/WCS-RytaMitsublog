@@ -1,0 +1,22 @@
+.bt-form-user {
+    background: var(--bt-main-bg-color);
+    border-radius: var(--bt-main-border-radius);
+    width: 100%;
+}
+
+.bt-form-user .row {
+    width: 100%;
+}
+
+.bt-form-user input {
+    width: 80%;
+}
+
+.bt-button-edit {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.bt-edit-row-lol-nimp-balek {
+    margin: 5vh 0;
+}
