@@ -9,3 +9,6 @@
     background: var(--bt-main-white);
     margin: auto;
 }
+.article-head .row {
+    --bs-gutter-x: 0;
+}

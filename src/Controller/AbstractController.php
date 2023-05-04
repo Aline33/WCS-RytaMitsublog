@@ -141,7 +141,7 @@ abstract class AbstractController
     {
         $errors = [];
         if (empty($email)) {
-            $errors[] = "Veuillez entrer une adresse email";
+            $errors['fatal']['emptyEmail'] = "Veuillez entrer une adresse email";
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors[] = "Veuillez entrer une adresse email valide";
@@ -159,11 +159,11 @@ abstract class AbstractController
     {
         $errors = [];
         if (empty($string)) {
-            $errors[] = " est vide";
+            $errors['fatal']['emptyField'] = " est vide";
         } elseif (strlen($string) >= 50) {
-            $errors[] = " est trop long";
+            $errors[]['fieldLength'] = " est trop long";
         } elseif (strlen($string) <= 3) {
-            $errors[] = " est trop court";
+            $errors[]['fieldLength'] = " est trop court";
         }
 
         return $errors;
