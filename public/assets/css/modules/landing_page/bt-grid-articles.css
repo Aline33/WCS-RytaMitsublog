@@ -33,7 +33,7 @@
 
 .bt-main-mosaic-title-top {
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -65,7 +65,7 @@
     font-family: var(--bt-main-font);
     font-size: 2rem;
     z-index: 2;
-    width: 70%;
+    width: 80%;
 }
 
 @media screen and (max-width: 400px) {
