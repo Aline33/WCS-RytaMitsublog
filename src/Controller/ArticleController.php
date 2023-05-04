@@ -25,6 +25,17 @@ class ArticleController extends AbstractController
         $commentController = new CommentController();
         $showComments = $commentController->selectCommentsWithUsernames();
 
+        $articleManager = new ArticleManager();
+        $previousId = $articleManager->getPreviousArticle($id);
+
+        $articleManager = new ArticleManager();
+        $nextId = $articleManager->getNextArticle($id);
+
+        $articleManager = new ArticleManager();
+        $linkPreviousPhoto = $articleManager->getPreviousPhoto($id);
+
+        $articleManager = new ArticleManager();
+        $linkNextPhoto = $articleManager->getNextPhoto($id);
 
 
         return $this->twig->render('Article/show.html.twig', [
@@ -32,7 +43,12 @@ class ArticleController extends AbstractController
             'bodyArticleSplit' => $bodyArticleSplit,
             'pictures' => $pictures,
             'author' => $author,
-            'showComments' => $showComments
+            'showComments' => $showComments,
+            'previousId' => $previousId,
+            'nextId' => $nextId,
+            'linkPreviousPhoto' => $linkPreviousPhoto,
+            'linkNextPhoto' => $linkNextPhoto,
+
             ]);
     }
 
