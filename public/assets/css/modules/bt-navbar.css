@@ -27,3 +27,7 @@ img.bc-resize-logo{
     margin-bottom: 50px;
     margin-left: 15px;
 }
+
+#bt-login-close {
+    --bs-btn-padding-x: 0;
+}
