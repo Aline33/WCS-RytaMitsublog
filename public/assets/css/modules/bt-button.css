@@ -2,7 +2,6 @@
     border-radius: var(--bt-main-border-radius);
     background: var(--bt-main-bg-color);
     box-shadow: var(--bt-main-box-shadow);
-    border-radius: var(--bt-main-border-radius);
 }
 
 .bt-button:hover {

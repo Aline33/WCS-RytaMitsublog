@@ -7,8 +7,9 @@ use PDO;
 class UserManager extends AbstractManager
 {
     public const TABLE = 'bt_user';
+
     // TODO : create methods to get user info depending on one field, (email and username would be good)
-    public function selectOneByEmail(string $email): array | false
+    public function selectOneByEmail(string $email): array|false
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE email = :email";
         $statement = $this->pdo->prepare($query);
@@ -18,7 +19,7 @@ class UserManager extends AbstractManager
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function selectOneById(int $id): array | false
+    public function selectOneById(int $id): array|false
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE id_user = :id";
         $statement = $this->pdo->prepare($query);
@@ -28,7 +29,7 @@ class UserManager extends AbstractManager
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function selectOneByUsername(string $username): array | false
+    public function selectOneByUsername(string $username): array|false
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE user_name = :username";
         $statement = $this->pdo->prepare($query);
@@ -56,5 +57,31 @@ class UserManager extends AbstractManager
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
+    }
+
+    public function update(array $userEdit): int
+    {
+        $query = "UPDATE " . static::TABLE . " SET
+        first_name = :firstname,
+        last_name = :lastname,
+        user_name = :username,
+        email = :email,
+        birthday = :birthday
+        WHERE id_user = :id";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':firstname', $userEdit['firstName'], \PDO::PARAM_STR);
+        $statement->bindValue(':lastname', $userEdit['lastName'], \PDO::PARAM_STR);
+        $statement->bindValue(':username', $userEdit['username'], \PDO::PARAM_STR);
+        $statement->bindValue(':email', $userEdit['email'], \PDO::PARAM_STR);
+        if (empty($userEdit['birthday'])) {
+            $statement->bindValue(':birthday', null);
+        } else {
+            $statement->bindValue(':birthday', $userEdit['birthday']);
+        }
+        //$statement->bindValue(':password', password_hash($userEdit['password'], PASSWORD_BCRYPT), \PDO::PARAM_STR);
+        $statement->bindValue(':id', $userEdit['id'], \PDO::PARAM_INT);
+
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
     }
 }
