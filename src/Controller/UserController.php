@@ -100,12 +100,14 @@ class UserController extends AbstractController
 
     public function delete(): void
     {
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_SESSION['user_id'];
-            $userManager = new userManager();
-            $userManager->delete((int)$id);
+        $id = $_SESSION['user_id'];
+        if (false === $id || null === $id) {
+            header("Location: /");
+            exit("Wrong input parameter");
+        }
+        $userManager = new userManager();
+        $userManager->delete($id);
 
-            header('Location:/');
-        //}
+        header('Location:/');
     }
 }

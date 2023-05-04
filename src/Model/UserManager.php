@@ -52,7 +52,7 @@ class UserManager extends AbstractManager
 
     public function delete(int $id): void
     {
-        $query = "DELETE FROM " . self::TABLE . " WHERE `id` = :id";
+        $query = "DELETE FROM " . self::TABLE . " WHERE id_user = :id";
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
