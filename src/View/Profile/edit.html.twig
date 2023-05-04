@@ -9,26 +9,60 @@
         <h1 class="text-center">Mon profil</h1>
         <div class="row">
             <div class="col">
-                <form method="post" action="">
-                    <label for="firstName">Prénom : </label>
-                    <input type="text" class="" id="firstName" name="firstName" value="{{ user.first_name }}">
-                    <label for="lastName">Nom : </label>
-                    <input type="text" class="" id="lastName" name="lastName" value="{{ user.last_name }}">
-                    <label for="username">Pseudo</label>
-                    <input type="text" class="" id="username" name="username" value="{{ user.user_name }}">
-                    <label for="email">Email : </label>
-                    <input type="email" class="" id="email" name="email" value="{{ user.email }}">
-                    <label for="birthday">Date de naissance : </label>
-                    <input type="date" class="" id="birthday" name="birthday" value="{{ user.birthday }}">
-                    <label for="password">Mot de passe : </label>
-                    <input type="password" class="" id="password" name="password" value="{{ user.user_password }}">
-                    <input type="submit" class="" name="editUserSubmit" value="Modifier">
+                <form method="post" action="" class="bt-form bt-form-user">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="firstName" class="">Prénom : </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="" id="firstName" name="firstName" value="{{ user.first_name }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="lastName" class="">Nom : </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="" id="lastName" name="lastName" value="{{ user.last_name }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="username" class="">Pseudo : </label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="" id="username" name="username" value="{{ user.user_name }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="email" class="">Email : </label>
+                        </div>
+                        <div class="col">
+                            <input type="email" class="" id="email" name="email" value="{{ user.email }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="birthday" class="">Date de naissance : </label>
+                        </div>
+                        <div class="col">
+                            <input type="date" class="" id="birthday" name="birthday" value="{{ user.birthday }}">
+                        </div>
+                    </div>
+                    {# <label for="password">Mot de passe : </label>
+                    <input type="password" class="" id="password" name="password" value="{{ user.user_password }}"> #}
+                    <div class="row">
+                        <button type="submit" name="editUserSubmit" class="bt-button-login bt-button-edit">Modifier</button>
+                    </div>
                 </form>
+                <div class="row bt-edit-row-lol-nimp-balek">
+                    <a href="#">Supprimer mon profil</a>
+                </div>
             </div>
             <div class="col align-self-end d-md-flex ">
                 <div class = "row justify-content-md-end">
-                    <a href="#">Modifier mon profil</a>
-                    <a href="#">Supprimer mon profil</a>
+
                 </div>
             </div>
         </div>
