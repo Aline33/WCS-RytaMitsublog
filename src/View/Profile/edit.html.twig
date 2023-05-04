@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{# Custom title on the index #}
+{% block title %}
+    {{ parent() }} - Modification du profil
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class ="bt-profile" ></div>
+        <h1 class="text-center">Mon profil</h1>
+        <div class="row">
+            <div class="col">
+                <form method="post" action="">
+                    <label for="firstName">Prénom : </label>
+                    <input type="text" class="" id="firstName" name="firstName" value="{{ user.first_name }}">
+                    <label for="lastName">Nom : </label>
+                    <input type="text" class="" id="lastName" name="lastName" value="{{ user.last_name }}">
+                    <label for="username">Pseudo</label>
+                    <input type="text" class="" id="username" name="username" value="{{ user.user_name }}">
+                    <label for="email">Email : </label>
+                    <input type="email" class="" id="email" name="email" value="{{ user.email }}">
+                    <label for="birthday">Date de naissance : </label>
+                    <input type="date" class="" id="birthday" name="birthday" value="{{ user.birthday }}">
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" class="" id="password" name="password" value="{{ user.user_password }}">
+                    <input type="submit" class="" name="editUserSubmit" value="Modifier">
+                </form>
+            </div>
+            <div class="col align-self-end d-md-flex ">
+                <div class = "row justify-content-md-end">
+                    <a href="#">Modifier mon profil</a>
+                    <a href="#">Supprimer mon profil</a>
+                </div>
+            </div>
+        </div>
+        <div class="bt-profile-article row pt-3">
+            <h3 class="col px-0">Mes articles</h3>
+            <div class="col d-md-flex justify-content-md-end">
+                <a class="bt-button bt-button-green btn btn-primary">Publier un article</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}
