@@ -11,6 +11,9 @@
                 {% endif %}
                 <div class="d-flex-column" id="bt-Login">
                     <h1 class="p-1">Se Connecter</h1>
+                    {% if errors is defined %}
+                        {{ dump(errors) }}
+                    {% endif %}
                     <form action="" method="post">
                         <div>
                             <label for="pseudo">Username</label>
