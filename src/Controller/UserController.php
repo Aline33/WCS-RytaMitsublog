@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleManager;
 use App\Model\ArticleSectionManager;
 use App\Model\UserManager;
 
@@ -100,14 +101,14 @@ class UserController extends AbstractController
         //}
     }
 
-    public function show(int $id): string
+    public function show(): string
     {
-        $userManager = new UserManager();
+        $id = $_SESSION['user_id'];
+        $userManager = new userManager();
         $user = $userManager->selectOneById($id);
 
-        return $this->twig->render('User/show.html.twig', [
+        return $this->twig->render('Profile/index.html.twig', [
             'user' => $user,
-
         ]);
     }
 }
