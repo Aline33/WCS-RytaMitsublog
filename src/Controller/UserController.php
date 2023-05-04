@@ -118,8 +118,21 @@ class UserController extends AbstractController
                 'errors' => $errors
             ]);
         }*/
+        $this->delete();
+
         return $this->twig->render('Profile/edit.html.twig', [
             'user' => $user,
         ]);
+    }
+
+    public function delete(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteUserSubmit'])) {
+            $id = trim($_SESSION['user_id']);
+            $userManager = new UserManager();
+            $userManager->delete((int)$id);
+
+            header('Location:/');
+        }
     }
 }

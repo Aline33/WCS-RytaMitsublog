@@ -20,3 +20,12 @@
 .bt-edit-row-lol-nimp-balek {
     margin: 5vh 0;
 }
+
+.bt-user-delete {
+    margin: 0 auto;
+    display: flex;
+}
+
+.bt-button-user-delete {
+    background: var(--bt-bg-card-red);
+}
