@@ -4,16 +4,17 @@
 </div>
 <h1 class="bt-form-h1 text-center pb-3">{% block title_form %}Titre formulaire{% endblock %}</h1>
 <div class="d-flex justify-content-md-center">
-<
+
     <form action="" method="POST" enctype="multipart/form-data" class="bt-container-form row g-4">
         <div class="col-md-6">
             <input type="text" class="bt-form-input form-control" id="title" name="title" placeholder="Titre de l'article" value="{{article.title }}" required>
-=       </div>
+     </div>
         <div class="d-grid col-md-6 mx-auto">
             <label for="file1" class="bt-button bt-button-red btn btn-primary">{% block button_picture1 %}Téléchargement image principale{% endblock %}</label>
             <input type="file" name="picture1" id="file1" class="bt-input-file" required></input>
         </div>
         <div class="col-md-6">
+
             <textarea type="text" class="bt-form-input form-control" id="description" name="description" placeholder="Description (50 mots maximum)" value="{{ article.description_article }}" rows="3" required></textarea>
 
         </div>
@@ -26,6 +27,7 @@
             <input type="file" name="picture3" id="file3" class="bt-input-file"></input>
         </div>
         <div class="col-12">
+
             <textarea type="text" class="bt-form-input form-control" id="content" name="content" placeholder="Contenu de l'article (1000 mots maximum)"  rows="10" required >"{{ article.body_article }}"</textarea>
 
         </div>
