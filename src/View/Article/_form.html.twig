@@ -15,7 +15,9 @@
         </div>
         <div class="col-md-6">
 
-            <textarea type="text" class="bt-form-input form-control" id="description" name="description" placeholder="Description (50 mots maximum)" value="{{ article.description_article }}" rows="3" required></textarea>
+            <textarea class="bt-form-input form-control" id="description" name="description" placeholder="Description (50 mots maximum)"  rows="3" required>
+                {{ article.description_article }}
+            </textarea>
 
         </div>
         <div class="d-grid col-md-3 mx-auto">
