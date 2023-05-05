@@ -15,12 +15,6 @@
             </div>
             <div class="bt-comment-content">{{ comment.content_comment }}</div>
         </div>
-        {% if comment.user_id == _SESSION['user_id'] %}
-            <a href=""><button class="bt-button-green">Edit</button></a>
-            <a href=""><button class="bt-button-red">Delete</button></a>
-        {% endif %}
-        <button>edit</button>
-        <button>delete</button>
     {% endfor %}
     <div class="bt-separation-bar-comments"></div>
 </div>
@@ -29,7 +23,7 @@
     <form method="post">
         <div class="row bt-comment-form">
             <label class="bt-comment-form-title" for="comment">Ton commentaire :</label>
-            <textarea class="bt-form-input" type="test" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
+            <textarea class="bt-form-input" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
         </div>
         <div class="d-md-flex justify-content-md-center mt-3 mb-5">
             <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>

@@ -25,14 +25,21 @@ class CommentController extends AbstractController
 
     // WORK IN PROCESS --- EDIT COMMENT
 
-    public function edit(): ?string
+    public function editComment($id): ?string
     {
-        $commentManager = new CommentManager();
-        $commentManager->updateComment($comment);
+            $commentManager = new CommentManager();
+            $comment = $commentManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $comment = array_map('trim', $_POST);
+            // clean $_POST data
+            $newComment = array_map('trim', $_POST);
+
+            $commentManager = new CommentManager();
+            $commentManager->updateComment($newComment);
+
+            header('Location: /article/show?id=' . $id);
         }
-        return $this->twig->render('Article/show.html.twig');
+
+            return $this->twig->render('Article/Form-edit-comment.html.twig', ['comment' => $comment]);
     }
 }

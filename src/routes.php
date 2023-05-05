@@ -22,7 +22,7 @@ return [
     'user/show' => ['UserController', 'show'],
     'user/delete' => ['UserController', 'delete'],
     'article/edit' => ['ArticleController', 'edit',['id']],
-    'comment/edit' => ['CommentController', 'edit'],
+    'comment/edit' => ['CommentController', 'editComment', ['id']],
     'comment/delete' => ['CommentController', 'delete'],
     'contact' => ['ContactController', 'index',],
     'mentions-legales' => ['LegalNoticeController', 'legalNotice'],

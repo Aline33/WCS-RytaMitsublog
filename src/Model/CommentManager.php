@@ -10,7 +10,7 @@ class CommentManager extends AbstractManager
     public function insertComment($newComment): bool
     {
         $user_id = $_SESSION['user_id']; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
-        $content = $_POST['comment'];
+        $content = $_POST['content_comment'];
         $article_id = $_GET['id'];
 
         // Prepare SQL statement
@@ -41,23 +41,22 @@ class CommentManager extends AbstractManager
 
     // WORK IN PROCESS -- Edit a comment
 
-    public function updateComment($comment): bool
+    public function updateComment($newComment): bool
     {
+        $comment_id = $_GET['id'];
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `content_comment` =
-         :comment WHERE user_id = :id and comment_id = :comment_id");
-        $statement->bindValue('comment', $comment['comment'], PDO::PARAM_STR);
-        $statement->bindValue('user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+         :comment WHERE id_comment = :comment_id");
+        $statement->bindValue('comment', $newComment['content_comment'], PDO::PARAM_STR);
         $statement->bindValue('comment_id', $comment_id, PDO::PARAM_INT);
 
-        $statement->execute();
-
-        return (int)$this->pdo->lastInsertId();
+        return $statement->execute();
     }
 
     /* public function deleteComment()
     {
+        $comment_id = $_GET['comment_id];
         $statement = $this->pdo->prepare("
         DELETE FROM " . self::TABLE . " WHERE id_comment = :id");
-        $statement->bindValue('id', $)
+        $statement->bindValue('id', $comment_id)
     } */
 }
