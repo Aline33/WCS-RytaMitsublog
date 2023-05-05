@@ -6,3 +6,5 @@ db.php
 .idea
 .vscode
 public/assets/images/
+.DS_STORE
+public/.DS_STORE

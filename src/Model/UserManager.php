@@ -8,7 +8,7 @@ class UserManager extends AbstractManager
 {
     public const TABLE = 'bt_user';
     // TODO : create methods to get user info depending on one field, (email and username would be good)
-    public function selectOneByEmail(string $email): array
+    public function selectOneByEmail(string $email): array | false
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE email = :email";
         $statement = $this->pdo->prepare($query);
@@ -19,6 +19,7 @@ class UserManager extends AbstractManager
     }
 
     public function selectOneByUsername(string $username): array | false
+
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE user_name = :username";
         $statement = $this->pdo->prepare($query);
