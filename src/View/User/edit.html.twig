@@ -53,12 +53,12 @@
                     {# <label for="password">Mot de passe : </label>
                     <input type="password" class="" id="password" name="password" value="{{ user.user_password }}"> #}
                     <div class="row">
-                        <button type="submit" name="editUserSubmit" class="bt-button-login bt-button-edit">Modifier</button>
+                        <button type="submit" name="editUserSubmit" class="bt-button bt-button-login bt-button-edit">Modifier</button>
                     </div>
                 </form>
                 <div class="row bt-edit-row-lol-nimp-balek">
                     <form method="post" class="bt-user-delete">
-                        <button type="submit" name="deleteUserSubmit" class="bt-button-login bt-button-edit bt-button-user-delete">Supprimer mon profil</button>
+                        <button type="submit" name="deleteUserSubmit" class="bt-button bt-button-login bt-button-edit bt-button-user-delete">Supprimer mon profil</button>
                     </form>
                 </div>
             </div>
@@ -71,7 +71,7 @@
         <div class="bt-profile-article row pt-3">
             <h3 class="col px-0">Mes articles</h3>
             <div class="col d-md-flex justify-content-md-end">
-                <a class="bt-button bt-button-green btn btn-primary">Publier un article</a>
+                <a class="bt-button bt-button-green btn btn-primary" href="/article/add">Publier un article</a>
             </div>
         </div>
 
