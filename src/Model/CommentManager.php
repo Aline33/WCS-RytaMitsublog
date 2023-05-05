@@ -9,7 +9,7 @@ class CommentManager extends AbstractManager
     public const TABLE = 'bt_comment';
     public function insertComment($newComment): bool
     {
-        $user_id = 1; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
+        $user_id = $_SESSION['user_id']; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
         $content = $_POST['comment'];
         $article_id = $_GET['id'];
 
@@ -39,14 +39,25 @@ class CommentManager extends AbstractManager
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /* WORK IN PROCESS -- Edit an comment
+    // WORK IN PROCESS -- Edit a comment
 
-    public function updateComment(array $comment): bool
+    public function updateComment($comment): bool
     {
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `comment` = :comment WHERE id=:id");
-        $statement->bindValue('id', $comment['id'], PDO::PARAM_INT);
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `content_comment` =
+         :comment WHERE user_id = :id and comment_id = :comment_id");
         $statement->bindValue('comment', $comment['comment'], PDO::PARAM_STR);
+        $statement->bindValue('user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $statement->bindValue('comment_id', $comment_id, PDO::PARAM_INT);
 
-        return $statement->execute();
+        $statement->execute();
+
+        return (int)$this->pdo->lastInsertId();
+    }
+
+    /* public function deleteComment()
+    {
+        $statement = $this->pdo->prepare("
+        DELETE FROM " . self::TABLE . " WHERE id_comment = :id");
+        $statement->bindValue('id', $)
     } */
 }

@@ -20,6 +20,8 @@ return [
     'article/show' => ['ArticleController', 'show', ['id']],
     'article/add' => ['ArticleController', 'add',],
     'article/edit' => ['ArticleController', 'edit',['id']],
+    'comment/edit' => ['CommentController', 'edit'],
+    'comment/delete' => ['CommentController', 'delete'],
     'user/show' => ['UserController', 'show', ['id']],
     'contact' => ['ContactController', 'index',],
     'mentions-legales' => ['LegalNoticeController', 'legalNotice'],

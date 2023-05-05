@@ -1,3 +1,5 @@
+{{ dump(showComments) }}
+
 <div class="bt-comments">
 
     <div class="bt-seperation-bar-comments"></div>
@@ -13,6 +15,12 @@
             </div>
             <div class="bt-comment-content">{{ comment.content_comment }}</div>
         </div>
+        {% if comment.user_id == _SESSION['user_id'] %}
+            <a href=""><button class="bt-button-green">Edit</button></a>
+            <a href=""><button class="bt-button-red">Delete</button></a>
+        {% endif %}
+        <button>edit</button>
+        <button>delete</button>
     {% endfor %}
 
 </div>

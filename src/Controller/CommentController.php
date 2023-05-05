@@ -23,18 +23,16 @@ class CommentController extends AbstractController
         return $commentManager->selectCommentsWithUsernames();
     }
 
-    /* WORK IN PROCESS --- EDIT COMMENT
+    // WORK IN PROCESS --- EDIT COMMENT
 
-    public function edit(int $id): ?string
+    public function edit(): ?string
     {
         $commentManager = new CommentManager();
-        $comment = $commentManager->selectOneById($id);
+        $commentManager->updateComment($comment);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $comment = array_map('trim', $_POST);
-
-            $commentManager->updateComment($comment);
         }
         return $this->twig->render('Article/show.html.twig');
-    } */
+    }
 }
