@@ -1,90 +1,3 @@
-{#
-<!-- Modal BOOTSTRAP -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-header d-flex-end" id="bt-button-close-modal"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div>
-        <div class="modal-content d-flex">
-            <div class="modal-body" id="bt-login-modal-body">
-                <!-- DIV FOR THE LOGIN -->
-                {% if errors is not empty and loginRegister == 1 %}
-                    {{ dump(errors) }}
-                {% endif %}
-                <div class="d-flex-column" id="bt-Login">
-                    <h1 class="p-1">Se Connecter</h1>
-                    {% if errors is defined %}
-                        {{ dump(errors) }}
-                    {% endif %}
-                    <form action="" method="post">
-                        <div>
-                            <label for="pseudo">Username</label>
-                            <input type="text" name="username" id="pseudo">
-                        </div>
-
-                        <div>
-                            <label for="password">Password</label>
-                            <input type="text" name="password" id="password">
-                        </div>
-
-                        <button type="submit" name="loginSubmit">Se connecter</button>
-                    </form>
-
-                    <a href="#">Mot de passe oublié</a>
-                </div>
-
-                <!-- DIV THAT CREATES THE BAR IN THE MIDDLE -->
-                <div class="d-flex-column" id="bt-login-seperation-bar"></div>
-
-                <!-- DIV FOR THE FIRST VISIT -->
-                <div class="d-flex-column" id="bt-firstVisit">
-
-                    <div class="fs-1"><h1>Première Visite ?</h1></div>
-                    {% if errors is not empty and loginRegister == 2 %}
-                        {{ dump(errors) }}
-                    {% endif %}
-                    <div class="fs-6 p-3">
-                        <button id="CreateNewUser">Je crée mon compte</button>
-                    </div>
-
-                    <div id="bt-showRegisterForm" style="display: none">
-                        <form action="" method="post">
-                            <div><label for="new-user_email">Email</label><br>
-                                <input type="text" name="new-email" id="new-user_email">
-                            </div>
-
-                            <div><label for="new-pseudo">Pseudo</label><br>
-                                <input type="text" name="new-username" id="new-pseudo">
-                            </div>
-
-                            <div><label for="new-password">Password</label><br>
-                                <input type="password" name="new-password" id="new-password">
-                            </div>
-
-                            <button type="submit" name="registerSubmit">Creér nouveau compte</button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-
-            <script>
-
-                const createNewUserBtn = document.getElementById("CreateNewUser");
-                const registerForm = document.getElementById("bt-showRegisterForm");
-                createNewUserBtn.addEventListener("click", () => {
-                    createNewUserBtn.style.display = "none";
-                    registerForm.style.display = "block";
-                });
-
-            </script>
-        </div>
-
-            <!-- LOGO IN THE MIDDLE OF THE PAGE -->
-            <div class="d-flex justify-content-center" id="bt-login-logo"><img src="/assets/images/FinishedLogoP2-modified.png" alt="Logo" height="200px" width="auto"></div>
-
-        </div>
-</div>
--->
-#}
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -116,7 +29,6 @@
                                         {% endfor %}
                                     {% endif %}
                                 {% elseif 'fatal' not in errorList|keys %}
-                                    {{ 'test4' }}
                                     {% for errorContent in errorType %}
                                         <h4 class="modal-title">{{ errorContent }}</h4>
                                     {% endfor %}
@@ -132,7 +44,7 @@
             </div>
             <div class="modal-body">
                 {% if user is empty %}
-                    <form action="" method="post" class="bt-modal-form">
+                    <form action="" method="post" class="bt-form">
                         <input type="text" name="username" id="pseudo" placeholder="Nom d'utilisateur">
                         <input type="text" name="password" id="password" placeholder="Mot de passe">
                         <button type="submit" name="loginSubmit" class="bt-button-login">Se connecter</button>
@@ -142,7 +54,7 @@
                 {% endif %}
 
                 {% if user is not empty %}
-                    <form action="" method="post" class="bt-modal-form">
+                    <form action="" method="post" class="bt-form">
                         <button type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
                     </form>
                 {% endif %}
@@ -199,7 +111,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="post" class="bt-modal-form">
+                <form action="" method="post" class="bt-form">
                     <input type="text" name="new-email" id="new-user_email" placeholder="Adresse email">
                     <input type="text" name="new-username" id="new-pseudo" placeholder="Nom d'utilisateur">
                     <input type="password" name="new-password" id="new-password" placeholder="Mot de passe">

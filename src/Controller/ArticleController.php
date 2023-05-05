@@ -75,23 +75,20 @@ class ArticleController extends AbstractController
             $pictureController = new PictureController();
             $pictureController->add($id);
             $this->show($id);
-            //header('Location:/article/show?id=' . $id);
+            header('Location:/article/show?id=' . $id);
         }
         return $this->twig->render('Article/add.html.twig');
     }
 
     /**
      * @param $id
-     * @return int
+     * @return string
      * @throws RuntimeError
      * @throws SyntaxError
      * @throws LoaderError
      */
-
-
     public function edit(int $id): string
     {
-
         $articleManager = new ArticleManager();
         $article = $articleManager->selectOneById($id);
 

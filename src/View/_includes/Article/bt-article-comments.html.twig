@@ -1,17 +1,17 @@
 {{ dump(showComments) }}
 
 <div class="bt-comments">
-
-    <div class="bt-seperation-bar-comments"></div>
-
+    <div class="bt-separation-bar-comments"></div>
     <div class="bt-total-comment-section">
-        <p class="bt-title-commentaires">COMMENTAIRES</p>
+        <h2 class="bt-title-commentaires pt-5">Commentaires</h2>
+        <div class="bt-bar-comments"></div>
     </div>
 
     {% for comment in showComments %}
-        <div class="bt-single-comment">
+        <div class="bt-single-comment pt-3 pb-5">
             <div class="bt-name-creation-date">
-                <h1>{{ comment.user_name }}</h1><p>{{ comment.comment_created_at }}</p>
+                <h3>{{ comment.user_name }}</h3>
+                <p> le {{ comment.comment_created_at|date("d/m/Y") }}</p>
             </div>
             <div class="bt-comment-content">{{ comment.content_comment }}</div>
         </div>
@@ -22,13 +22,17 @@
         <button>edit</button>
         <button>delete</button>
     {% endfor %}
-
+    <div class="bt-separation-bar-comments"></div>
 </div>
 
-<div class="bt-comment-area">
+<div class="bt-comment-area pt-5">
     <form method="post">
-        <div id="bt-comment-form-title"><label for="comment">Donner votre avis</label></div> <br>
-        <textarea name="comment" id="comment" cols="60" rows="15">Votre message</textarea>
-        <button type="submit" name="SendComment">Envoyer</button>
+        <div class="row bt-comment-form">
+            <label class="bt-comment-form-title" for="comment">Ton commentaire :</label>
+            <textarea class="bt-form-input" type="test" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
+        </div>
+        <div class="d-md-flex justify-content-md-center mt-3 mb-5">
+            <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>
+        </div>
     </form>
 </div>

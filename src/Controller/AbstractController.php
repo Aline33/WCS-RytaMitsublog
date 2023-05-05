@@ -35,7 +35,8 @@ abstract class AbstractController
             'filter' => FILTER_SANITIZE_NUMBER_FLOAT,
             'flags' => FILTER_REQUIRE_ARRAY
         ],
-        'date' => FILTER_UNSAFE_RAW
+        'date' => FILTER_UNSAFE_RAW,
+        'password' => FILTER_UNSAFE_RAW
     ];
     public const VALIDATERS = [
         'string' => 'validateString',
@@ -60,9 +61,37 @@ abstract class AbstractController
             'filter' => FILTER_VALIDATE_FLOAT,
             'flags' => FILTER_REQUIRE_ARRAY
         ],
-        'date' => FILTER_UNSAFE_RAW
+        'date' => 'validateDate',
+        'password' => 'validatePassword'
     ];
-    public const FIELDS = [];
+    public const FIELDS = [
+        'first_name' => 'string',
+        'last_name' => 'string',
+        'username' => 'string',
+        'email' => 'email',
+        'birthday' => 'date',
+        'password' => 'string'
+    ];
+
+    public const FIELDS_LOGIN = [
+        'username' => 'string',
+        'password' => 'string'
+    ];
+
+    public const FIELDS_REGISTER = [
+        'new-username' => 'string',
+        'new-email' => 'email',
+        'new-password' => 'string'
+    ];
+
+    public const FIELDS_EDIT = [
+        'firstName' => 'string',
+        'lastName' => 'string',
+        'username' => 'string',
+        'email' => 'email',
+        'birthday' => 'date',
+    ];
+
     protected Environment $twig;
     protected array | false $user;
 
@@ -164,6 +193,28 @@ abstract class AbstractController
             $errors[]['fieldLength'] = " est trop long";
         } elseif (strlen($string) <= 3) {
             $errors[]['fieldLength'] = " est trop court";
+        }
+
+        return $errors;
+    }
+
+    public function validateDate(mixed $date): array
+    {
+        $errors = [];
+        if (empty($date)) {
+            $errors['fatal']['emptyField'] = " est vide";
+        }
+
+        return $errors;
+    }
+
+    public function validatePassword(string $password): array
+    {
+        $errors = [];
+        if (empty($password)) {
+            $errors['fatal']['emptyField'] = "Le mot de passe est vide";
+        } elseif (strlen($password) <= 5) {
+            $errors[]['fieldLength'] = "Le mot de passe est trop court";
         }
 
         return $errors;
