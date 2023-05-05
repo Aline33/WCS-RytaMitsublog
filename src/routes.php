@@ -26,5 +26,5 @@ return [
     'politique-de-confidentialite' => ['LegalNoticeController', 'privacyPolicy'],
     'CGU' => ['LegalNoticeController', 'cgu'],
     'RGPD' => ['LegalNoticeController', 'rgpd'],
-    'profil' => ['UserController', 'show'],
+    'profil' => ['UserController', 'index'],
 ];
