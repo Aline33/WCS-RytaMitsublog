@@ -10,7 +10,7 @@ class CommentManager extends AbstractManager
     public function insertComment($newComment): bool
     {
         $user_id = $_SESSION['user_id']; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
-        $content = $_POST['content_comment'];
+        $content = $_POST['comment'];
         $article_id = $_GET['id'];
 
         // Prepare SQL statement
