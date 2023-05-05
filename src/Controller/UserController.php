@@ -59,6 +59,7 @@ class UserController extends AbstractController
         //}
         return $errors;
     }
+
     public function register(): array
     {
         $errors = [];
@@ -78,22 +79,28 @@ class UserController extends AbstractController
         return $errors;
     }
 
-    public function disconnect(): void
-    {
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            session_unset();
-            session_destroy();
-        //}
-    }
 
-    public function show(): string
+    public function index(): string
     {
         $id = $_SESSION['user_id'];
+
         $userManager = new userManager();
         $user = $userManager->selectOneById($id);
 
+        $userManager = new UserManager();
+        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+
         return $this->twig->render('Profile/index.html.twig', [
-            'user' => $user,
+            'id' => $id,
+            'articles' => $articles,
         ]);
+    }
+
+    public function disconnect(): void
+    {
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        session_unset();
+        session_destroy();
+        //}
     }
 }

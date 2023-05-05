@@ -48,3 +48,46 @@
 
     </div>
 {% endblock content %}
+
+
+{% block articles %}
+<div id="bt-articles-by-id">
+ {% for article in articles %}
+
+         <div class="col-sm-4" id="bt-article-by-id">
+             {# Include, custom content and style for row : 1 article : 1 #}
+             {% embed '_includes/landing_page/bt-section-article-card.html.twig' %}
+                 {# Custom style for card article #}
+                 {% block section_article_card_style %}
+                     bt-card-section2
+                     bt-bg-light-green
+                     bt-card-colored
+                 {% endblock %}
+                 {% block section_article_h2_style %}
+                 {% endblock %}
+                 {% block section_article_author_date_style %}
+                 {% endblock %}
+                 {# -- END OF -- Custom style for card article #}
+                 {# Custom content for card article, link, titles, author and date, description, then image #}
+                 {% block section_article_link %}
+                 {% endblock %}
+                 {% block section_article_h2_content %}
+                     {{ article.title }}
+                 {% endblock %}
+                 {% block section_article_img_content %}{{ article.link }}{% endblock %}
+                 {% block section_article_author_date_content %}
+                     {{ article.article_created_at }}
+                 {% endblock %}
+                 {% block button_content %}Edit Article{% endblock %}
+                 {# -- END OF -- Custom content for card article, link, title then image #}
+             {% endembed %}
+             {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
+             <button class="bt-button" id="bt-button-edit-article">Modifier</button>
+             <button class="bt-button" id="bt-button-delete-article">Supprimé</button>
+         </div>
+
+ {% endfor %}
+</div>
+{% endblock %}
+
+
