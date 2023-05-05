@@ -37,9 +37,8 @@ class CommentController extends AbstractController
             $commentManager = new CommentManager();
             $commentManager->updateComment($newComment);
 
-            header('Location: /article/show?id=' . $id);
+            header('Location: /user/show');
         }
-
             return $this->twig->render('Article/Form-edit-comment.html.twig', ['comment' => $comment]);
     }
 }
