@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Model\ArticleManager;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class ArticleController extends AbstractController
 {
@@ -75,5 +78,33 @@ class ArticleController extends AbstractController
             //header('Location:/article/show?id=' . $id);
         }
         return $this->twig->render('Article/add.html.twig');
+    }
+
+    /**
+     * @param $id
+     * @return int
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws LoaderError
+     */
+
+
+    public function edit(int $id): string
+    {
+
+        $articleManager = new ArticleManager();
+        $article = $articleManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $article = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            $articleManager->update($article);
+
+            header('Location: /article/show?id=' . $id);
+        }
+        return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
     }
 }
