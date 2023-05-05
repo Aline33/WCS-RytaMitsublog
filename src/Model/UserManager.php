@@ -19,7 +19,6 @@ class UserManager extends AbstractManager
     }
 
     public function selectOneByUsername(string $username): array | false
-
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE user_name = :username";
         $statement = $this->pdo->prepare($query);
