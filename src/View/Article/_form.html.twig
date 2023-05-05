@@ -1,6 +1,6 @@
 
 <div class="d-md-flex justify-content-md-end pt-4 px-4">
-    <a href="#" class="bt-button bt-button-green btn btn-primary">Annuler</a>
+    <a href="/profil" class="bt-button bt-button-green btn btn-primary">Annuler</a>
 </div>
 <h1 class="bt-form-h1 text-center pb-3">{% block title_form %}Titre formulaire{% endblock %}</h1>
 <div class="d-flex justify-content-md-center">
@@ -26,8 +26,7 @@
             <input type="file" name="picture3" id="file3" class="bt-input-file"></input>
         </div>
         <div class="col-12">
-
-            <textarea class="bt-form-input form-control" id="content" name="content" placeholder="Contenu de l'article (1000 mots maximum)"  rows="10" required >"{{ article.body_article }}"</textarea>
+            <textarea type="text" class="bt-form-input form-control" id="content" name="content" placeholder="Contenu de l'article (1000 mots maximum)"  rows="10" required >{{ article.body_article }}</textarea>
         </div>
 
         <div class="d-md-flex justify-content-md-center pb-5">

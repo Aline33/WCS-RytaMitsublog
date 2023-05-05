@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }} - Titre article
+    {{ parent() }} - {{ article.title }}
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
             {{ author.user_name }}
         {% endblock %}
         {% block show_article_date %}
-            {{ article.article_created_at }}
+            {{ article.article_created_at|date("d/m/Y h:i") }}
         {% endblock %}
         {% block show_article_description %}
             {{ article.description_article }}
@@ -41,8 +41,3 @@
 
 {% block next_previous_bar %}{% embed  '_includes/Article/bt-bar-next-article.html.twig' %}{% endembed %}{% endblock %}
 {% block Comments %}{% embed '_includes/Article/bt-article-comments.html.twig' %}{% endembed %}{% endblock %}
-
-
-
-
-
