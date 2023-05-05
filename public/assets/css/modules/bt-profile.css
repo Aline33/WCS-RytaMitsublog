@@ -22,3 +22,22 @@
     border-style: none;
 }
 
+#bt-articles-by-id {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#bt-article-by-id {
+    margin: 40px 60px;
+    transition: none;
+}
+
+#bt-article-by-id:hover {
+    transform: none;
+    transition: none;
+}
+
+#bt-article-by-id .bt-card:hover {
+    transform: none;
+}

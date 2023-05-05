@@ -117,7 +117,6 @@ class UserController extends AbstractController
         ]);
     }
 
-
     public function delete(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteUserSubmit'])) {
@@ -127,5 +126,21 @@ class UserController extends AbstractController
 
             header('Location:/');
         }
+    }
+
+    public function index(): string
+    {
+        $id = $_SESSION['user_id'];
+
+        $userManager = new userManager();
+        $userManager->selectOneById($id);
+
+        $userManager = new UserManager();
+        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+
+        return $this->twig->render('Profile/index.html.twig', [
+            'id' => $id,
+            'articles' => $articles,
+        ]);
     }
 }

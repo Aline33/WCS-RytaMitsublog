@@ -11,6 +11,7 @@ session_start();
 
 return [
     '' => ['HomeController', 'index',],
+
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
@@ -20,6 +21,7 @@ return [
     'article/add' => ['ArticleController', 'add',],
     'user/show' => ['UserController', 'show'],
     'user/delete' => ['UserController', 'delete'],
+    'article/edit' => ['ArticleController', 'edit',['id']],
     'contact' => ['ContactController', 'index',],
     'mentions-legales' => ['LegalNoticeController', 'legalNotice'],
     'politique-de-confidentialite' => ['LegalNoticeController', 'privacyPolicy'],
