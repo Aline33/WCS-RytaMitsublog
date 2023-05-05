@@ -6,7 +6,9 @@
 
 {% block content %}
     {% embed '_includes/Article/bt-article-head.html.twig' %}
+
         {% block show_article_title %}
+            <a href="/article/edit?id={{ article.id_article }}">Edit</a>
             {{ article.title }}
         {% endblock %}
         {% block show_article_author %}
@@ -38,8 +40,4 @@
 {% endblock %}
 
 {% block next_previous_bar %}{% embed  '_includes/Article/bt-bar-next-article.html.twig' %}{% endembed %}{% endblock %}
-
-{% block Comments %}
-    {% embed '_includes/Article/bt-article-comments.html.twig' %}
-    {% endembed %}
-{% endblock %}
+{% block Comments %}{% embed '_includes/Article/bt-article-comments.html.twig' %}{% endembed %}{% endblock %}

@@ -6,7 +6,6 @@
 -- Généré le :  Jeu 26 Octobre 2017 à 13:53
 -- Version du serveur :  5.7.19-0ubuntu0.16.04.1
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -30,9 +29,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_user_id')
     THEN
-        ALTER TABLE bt_comment
-            DROP FOREIGN KEY fk_bt_comment_user_id;
-    END IF;
+ALTER TABLE bt_comment
+DROP FOREIGN KEY fk_bt_comment_user_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -44,9 +43,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_comment' AND CONSTRAINT_NAME = 'fk_bt_comment_article_id')
     THEN
-        ALTER TABLE bt_comment
-            DROP FOREIGN KEY fk_bt_comment_article_id;
-    END IF;
+ALTER TABLE bt_comment
+DROP FOREIGN KEY fk_bt_comment_article_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -58,9 +57,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_article' AND CONSTRAINT_NAME != 'PRIMARY')
     THEN
-        ALTER TABLE bt_article
-            DROP FOREIGN KEY fk_bt_article_user_id;
-    END IF;
+ALTER TABLE bt_article
+DROP FOREIGN KEY fk_bt_article_user_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -72,9 +71,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_picture' AND CONSTRAINT_NAME != 'PRIMARY')
     THEN
-        ALTER TABLE bt_picture
-            DROP FOREIGN KEY fk_bt_picture_article_id;
-    END IF;
+ALTER TABLE bt_picture
+DROP FOREIGN KEY fk_bt_picture_article_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -86,9 +85,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
     THEN
-        ALTER TABLE bt_theme
-            DROP FOREIGN KEY fk_bt_theme_tag_id;
-    END IF;
+ALTER TABLE bt_theme
+DROP FOREIGN KEY fk_bt_theme_tag_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -100,9 +99,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_theme' AND CONSTRAINT_NAME != 'PRIMARY')
     THEN
-        ALTER TABLE bt_theme
-            DROP FOREIGN KEY fk_bt_theme_article_id;
-    END IF;
+ALTER TABLE bt_theme
+DROP FOREIGN KEY fk_bt_theme_article_id;
+END IF;
 CALL dropConstraint();
 
 DROP PROCEDURE IF EXISTS dropConstraint;
@@ -114,9 +113,9 @@ CREATE PROCEDURE dropConstraint()
               WHERE
                       TABLE_NAME = 'bt_user' AND CONSTRAINT_NAME != 'PRIMARY')
     THEN
-        ALTER TABLE bt_user
-            DROP KEY uc_bt_user_email;
-    END IF;
+ALTER TABLE bt_user
+DROP KEY uc_bt_user_email;
+END IF;
 CALL dropConstraint();
 
 DROP TABLE IF EXISTS bt_user;
