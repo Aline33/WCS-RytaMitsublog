@@ -74,46 +74,39 @@ class UserController extends AbstractController
 
     public function edit(): string
     {
-        /*if (!$_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             header('Location: /');
         } else {
-
-        }*/
-        $userManager = new UserManager();
-        $id = $_SESSION['user_id'];
-
-        $user = $userManager->selectOneById($id);
-        //$user['user_password'] =
-
-        //$errors = [];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editUserSubmit'])) {
-            array_pop($_POST);
-            $userEdit = $_POST;
-            $userEdit = $this->sanitizeData($userEdit, self::FIELDS_EDIT);
-            //$errors = $this->validateData($userEdit, self::FIELDS_EDIT);
-
-            $userEdit['id'] = $_SESSION['user_id'];
-
-            //if (empty($errors)) {
             $userManager = new UserManager();
-            $id = $userManager->update($userEdit);
-            header('Location: /profil/edit');
-            //$_SESSION['user_id'] = $id;
-            //$_SESSION['username'] = $userEdit['new-username'];
-            //}
-        }
+            $id = $_SESSION['user_id'];
 
-        /*if (!empty($errors)) {
-            return $this->twig->render('Profile/edit.html.twig', [
+            $user = $userManager->selectOneById($id);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editUserSubmit'])) {
+                array_pop($_POST);
+                $userEdit = $_POST;
+                $userEdit = $this->sanitizeData($userEdit, self::FIELDS_EDIT);
+
+                $userEdit['id'] = $_SESSION['user_id'];
+
+                $userManager = new UserManager();
+                $id = $userManager->update($userEdit);
+                header('Location: /user/edit');
+            }
+
+            /*if (!empty($errors)) {
+                return $this->twig->render('Profile/edit.html.twig', [
+                    'user' => $user,
+                    'errors' => $errors
+                ]);
+            }*/
+            $this->delete();
+
+            return $this->twig->render('User/edit.html.twig', [
                 'user' => $user,
-                'errors' => $errors
             ]);
-        }*/
-        $this->delete();
-
-        return $this->twig->render('Profile/edit.html.twig', [
-            'user' => $user,
+        }
+        return $this->twig->render('User/edit.html.twig', [
         ]);
     }
 
