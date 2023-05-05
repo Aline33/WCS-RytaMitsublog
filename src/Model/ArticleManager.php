@@ -55,6 +55,19 @@ class ArticleManager extends AbstractManager
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function update(array $article): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title,
+        `description_article` = :description, `body_article` = :content WHERE id_article=:id");
+
+        $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+        $statement->bindValue(':title', $article['title']);
+        $statement->bindValue(':description', $article['description']);
+        $statement->bindValue(':content', $article['content']);
+
+        return $statement->execute();
+    }
+
     public function getPreviousArticle($id): array
     {
         $id = $_GET['id'];
