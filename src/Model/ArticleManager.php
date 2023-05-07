@@ -144,4 +144,12 @@ class ArticleManager extends AbstractManager
         $statement->bindValue(':id', $id, PDO::PARAM_STR);
         $statement->execute();
     }
+
+    public function selectAllArticles()
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM bt_article");
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
