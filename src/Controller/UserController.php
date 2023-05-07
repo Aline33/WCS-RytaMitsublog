@@ -31,7 +31,6 @@ class UserController extends AbstractController
                 $errors['password']['fatal']['password!Match'] = "Mot de passe ou pseudo incorrect";
             }
         }
-        //}
         return $errors;
     }
 
@@ -47,10 +46,7 @@ class UserController extends AbstractController
             $id = $userManager->insert($userRegister);
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $userRegister['new-username'];
-        } else {
-            return $errors;
         }
-        //}
         return $errors;
     }
 
