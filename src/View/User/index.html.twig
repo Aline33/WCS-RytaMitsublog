@@ -69,7 +69,7 @@
                  {% endblock %}
                  {# -- END OF -- Custom style for card article #}
                  {# Custom content for card article, link, titles, author and date, description, then image #}
-                 {% block section_article_link %}
+                 {% block section_article_link %}/article/show?id={{ article.id_article }}
                  {% endblock %}
                  {% block section_article_h2_content %}
                      {{ article.title }}
@@ -82,8 +82,8 @@
                  {# -- END OF -- Custom content for card article, link, title then image #}
              {% endembed %}
              {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
-             <button class="bt-button" id="bt-button-edit-article">Modifier</button>
-             <button class="bt-button" id="bt-button-delete-article">Supprimé</button>
+             <a href="/article/edit?id={{ article.id_article }}"><button class="bt-button" id="bt-button-edit-article">Modifier</button></a>
+             <a href="/article/delete?id={{ article.id_article }}"><button class="bt-button" id="bt-button-delete-article">Supprimé</button></a>
          </div>
 
  {% endfor %}

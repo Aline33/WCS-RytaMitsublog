@@ -22,6 +22,7 @@ return [
     'user/show' => ['UserController', 'index', ['id']],
     'user/delete' => ['UserController', 'delete'],
     'article/edit' => ['ArticleController', 'edit',['id']],
+    'article/delete' => ['ArticleController', 'delete', ['id']],
     'comment/edit' => ['CommentController', 'editComment', ['id']],
     'comment/delete' => ['CommentController', 'deleteComment', ['id']],
     'contact' => ['ContactController', 'index',],
