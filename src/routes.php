@@ -21,6 +21,7 @@ return [
     'article/add' => ['ArticleController', 'add',],
     'user/show' => ['UserController', 'show'],
     'user/delete' => ['UserController', 'delete'],
+    'user/edit' => ['UserController', 'edit'],
     'article/edit' => ['ArticleController', 'edit',['id']],
     'contact' => ['ContactController', 'index',],
     'mentions-legales' => ['LegalNoticeController', 'legalNotice'],

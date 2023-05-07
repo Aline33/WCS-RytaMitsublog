@@ -1,8 +1,4 @@
 .bt-profile {
-    width: 60%;
-}
-
-.bt-profile {
     font-family: var(--bt-main-font);
 }
 
@@ -12,6 +8,7 @@
     border-radius: var(--bt-main-border-radius);
     color: var(--bt-main-white);
     box-shadow: var(--bt-main-box-shadow);
+    width: 60%;
 }
 
 .bt-table td {
@@ -22,22 +19,29 @@
     border-style: none;
 }
 
-#bt-articles-by-id {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.bt-profile-articles .bt-card-section2:hover {
+    transform:none;
 }
 
-#bt-article-by-id {
-    margin: 40px 60px;
-    transition: none;
+.bt-profile-articles .bt-card-section2 {
+    padding-left:3.5rem;
+    height: 25rem;
 }
 
-#bt-article-by-id:hover {
-    transform: none;
-    transition: none;
+.bt-article-by-id img {
+    border-radius: var(--bt-main-border-radius);
 }
 
-#bt-article-by-id .bt-card:hover {
-    transform: none;
+@media screen and (max-width: 780px) {
+    .bt-table {
+        width: 95%;
+    }
+
+    .bt-profile-articles .bt-card-section2 {
+        padding-left: 1rem;
+        width: 90%;
+        margin: 4rem auto;
+    }
+
 }
+
