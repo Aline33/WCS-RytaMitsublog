@@ -16,6 +16,9 @@
             <div class="bt-comment-content">{{ comment.content_comment }}</div>
         </div>
     {% endfor %}
+    {% if showComments is empty %}
+        <p class="p-5 mx-auto">Ancun commentaire</p>
+    {% endif %}
     <div class="bt-separation-bar-comments"></div>
 </div>
 
@@ -25,7 +28,7 @@
             <label class="bt-comment-form-title" for="comment">Ton commentaire :</label>
             <textarea class="bt-form-input" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
         </div>
-        <div class="d-md-flex justify-content-md-center mt-3 mb-5">
+        <div class="d-flex justify-content-center mt-3 mb-5">
             <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>
         </div>
     </form>
