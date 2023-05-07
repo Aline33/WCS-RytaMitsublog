@@ -41,4 +41,15 @@ class CommentController extends AbstractController
         }
             return $this->twig->render('Article/Form-edit-comment.html.twig', ['comment' => $comment]);
     }
+
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->selectOneById($id);
+
+        $commentManager = new CommentManager();
+        $commentManager->deleteComment();
+
+        header('Location: /user/show');
+    }
 }

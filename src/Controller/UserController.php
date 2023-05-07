@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace App\Controller;
 
@@ -60,16 +60,6 @@ class UserController extends AbstractController
         session_unset();
         session_destroy();
         //}
-    }
-
-    public function show(int $id): string
-    {
-        $userManager = new userManager();
-        $user = $userManager->selectOneById($id);
-
-        return $this->twig->render('User/index.html.twig', [
-            'user' => $user,
-        ]);
     }
 
     public function edit(): string
