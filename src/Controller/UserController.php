@@ -62,9 +62,10 @@ class UserController extends AbstractController
         //}
     }
 
-    public function show(int $id): string
+    public function show(): string
     {
-        $userManager = new userManager();
+        $id = $_SESSION['user_id'];
+        $userManager = new UserManager();
         $user = $userManager->selectOneById($id);
 
         return $this->twig->render('User/index.html.twig', [
@@ -98,21 +99,21 @@ class UserController extends AbstractController
             //if (empty($errors)) {
             $userManager = new UserManager();
             $id = $userManager->update($userEdit);
-            header('Location: /profil/edit');
+            header('Location: /user/show');
             //$_SESSION['user_id'] = $id;
             //$_SESSION['username'] = $userEdit['new-username'];
             //}
         }
 
         /*if (!empty($errors)) {
-            return $this->twig->render('Profile/edit.html.twig', [
+            return $this->twig->render('User/edit.html.twig', [
                 'user' => $user,
                 'errors' => $errors
             ]);
         }*/
         $this->delete();
 
-        return $this->twig->render('Profile/edit.html.twig', [
+        return $this->twig->render('User/edit.html.twig', [
             'user' => $user,
         ]);
     }
@@ -138,7 +139,7 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
 
-        return $this->twig->render('Profile/index.html.twig', [
+        return $this->twig->render('User/index.html.twig', [
             'id' => $id,
             'articles' => $articles,
         ]);
