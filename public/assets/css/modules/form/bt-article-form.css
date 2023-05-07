@@ -21,10 +21,10 @@
 
 @media screen and (max-width: 767px ){
     .bt-container-form {
-        width: 100%;
+        width: 90%;
     }
 
     .bt-form-h1 {
-        width: 100%;
+        width: 90%;
     }
 }
