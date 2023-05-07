@@ -62,7 +62,7 @@ class ArticleController extends AbstractController
 
     public function add(): string
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['articleAddSubmit'])) {
             // clean $_POST data
             $article = array_map('trim', $_POST);
 
