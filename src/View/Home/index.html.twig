@@ -62,6 +62,12 @@
             <div class="col-md-auto">
                 {# Include, custom content and style for the first sticky aside on main page #}
                 {% embed '_includes/bt-sticky-aside.html.twig' %}
+                    {% block color %}orange{% endblock %}
+                    {% block titleblock %}A LA UNE{% endblock %}
+                    {% block title %}La puissance de ChatGPT : Comment un modèle de langage améliore la communication{% endblock %}
+
+                    {% block picture %}ChatGPTPhone.jpg{% endblock %}
+
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
                         lighter
@@ -103,8 +109,14 @@
                 {% include '_includes/landing_page/bt-second-section-articles.html.twig' %}
             </div>
             <div class="col-md-auto">
+
                 {# Include, custom content and style for the second aside sticky on main page #}
                 {% embed '_includes/bt-sticky-aside.html.twig' %}
+                    {% block color %}red{% endblock %}
+                    {% block titleblock %}QUI SOMMES NOUS ?{% endblock %}
+                    {% block title %}Découvre Jean-Marc de Stratégir : fondateur et rédacteur du Circuit.{% endblock %}
+                    {% block description %}{% endblock %}
+                    {% block picture %}jeanmarc.jpg{% endblock %}
                     {# sticky aside style customization #}
                     {% block sticky_aside_header_style %}
                         lighter
@@ -135,7 +147,9 @@
                     {# --END OF -- sticky aside article titles customization #}
                 {% endembed %}
                 {# -- END OF -- Include, custom content and style for the second aside sticky on main page #}
+
             </div>
         </div>
     </div>
 {% endblock %}
+

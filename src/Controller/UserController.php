@@ -1,4 +1,4 @@
-<?php /** @noinspection ALL */
+<?php
 
 namespace App\Controller;
 
@@ -62,6 +62,22 @@ class UserController extends AbstractController
         //}
     }
 
+    public function show(): string
+    {
+        $id = $_SESSION['user_id'];
+
+        $userManager = new UserManager();
+        $user = $userManager->selectOneById($id);
+
+        $userManager = new UserManager();
+        $articles = $userManager->getUserArticlesAndCommentsWithPictures($id);
+
+        return $this->twig->render('User/index.html.twig', [
+            'user' => $user,
+            'articles' => $articles,
+        ]);
+    }
+
     public function edit(): string
     {
         /*if (!$_SESSION['user_id']) {
@@ -88,21 +104,21 @@ class UserController extends AbstractController
             //if (empty($errors)) {
             $userManager = new UserManager();
             $id = $userManager->update($userEdit);
-            header('Location: /profil/edit');
+            header('Location: /user/show');
             //$_SESSION['user_id'] = $id;
             //$_SESSION['username'] = $userEdit['new-username'];
             //}
         }
 
         /*if (!empty($errors)) {
-            return $this->twig->render('Profile/edit.html.twig', [
+            return $this->twig->render('User/edit.html.twig', [
                 'user' => $user,
                 'errors' => $errors
             ]);
         }*/
         $this->delete();
 
-        return $this->twig->render('Profile/edit.html.twig', [
+        return $this->twig->render('User/edit.html.twig', [
             'user' => $user,
         ]);
     }
