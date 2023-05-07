@@ -4,10 +4,10 @@
             <div class="modal-header">
                 {% if user is empty %}
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Se connecter</h1>
-                    {% if errors is not empty and loginRegister == 1 %}
+                    {% if errorsLogin is not empty and login == 1 %}
                         {% set fieldTranslate = '' %}
                         {# {% if myVar in someOtherArray|keys %} #}
-                        {% for fieldError, errorList in errors %}
+                        {% for fieldError, errorList in errorsLogin %}
                             {% for errorGravity, errorTypeArray in errorList %}
                                 {% if 'fatal' in errorList|keys %}
                                     {% if errorGravity == 'fatal' %}
@@ -75,10 +75,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 " id="exampleModalToggleLabel2">Créer un compte</h1>
-                {% if errors is not empty and loginRegister == 2 %}
+                {% if errorsRegister is not empty and register == 2%}
                     {% set fieldTranslate = '' %}
                     {# {% if myVar in someOtherArray|keys %} #}
-                    {% for fieldError, errorList in errors %}
+                    {% for fieldError, errorList in errorsRegister %}
                         {% for errorGravity, errorTypeArray in errorList %}
                             {% if 'fatal' in errorList|keys %}
                                 {% if errorGravity == 'fatal' %}
