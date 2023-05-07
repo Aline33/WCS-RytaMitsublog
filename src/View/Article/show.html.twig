@@ -8,7 +8,6 @@
     {% embed '_includes/Article/bt-article-head.html.twig' %}
 
         {% block show_article_title %}
-            <a href="/article/edit?id={{ article.id_article }}">Edit</a>
             {{ article.title }}
         {% endblock %}
         {% block show_article_author %}
