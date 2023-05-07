@@ -7,11 +7,11 @@ use PDO;
 class CommentManager extends AbstractManager
 {
     public const TABLE = 'bt_comment';
-    public function insertComment($newComment): bool
+    public function insertComment(): bool
     {
-        $user_id = 1; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
+        $userId = $_SESSION['user_id']; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
         $content = $_POST['comment'];
-        $article_id = $_GET['id'];
+        $articleId = $_GET['id'];
 
         // Prepare SQL statement
         $stmt = $this->pdo->prepare(
@@ -19,8 +19,8 @@ class CommentManager extends AbstractManager
             (article_id, user_id, content_comment, comment_created_at)
             VALUES (?, ?, ?, NOW())"
         );
-        $stmt->bindParam(1, $article_id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(1, $articleId, PDO::PARAM_INT);
+        $stmt->bindParam(2, $userId, PDO::PARAM_INT);
         $stmt->bindParam(3, $content, PDO::PARAM_STR);
 
         return $stmt->execute();

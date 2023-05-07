@@ -47,9 +47,9 @@ footer #bt-login-close {
 .gridwormCanvas {
     height: 16.875rem;
     width: 100%;
-    margin-top: -1000px;
-    transform: translateY(102%);
+    position: absolute;
     opacity: 0.15;
+    pointer-events: none;
 }
 
 @media screen and (max-width: 1000px)   {

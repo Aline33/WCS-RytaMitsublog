@@ -1,135 +1,79 @@
-.navbar {
-    background:linear-gradient(90deg, #163E3D 1.42%, #0A9A93 50.39%, #163E3D 100%);
-    height: 55px;
-    position: sticky;
+nav {
+    background: linear-gradient(90deg, #163E3D 0%, #0A9A93 50%, #163E3D 100%);
+    height: 4rem;
     z-index: 100;
 }
-.logo_parent {
-    width: 100px;
-height: 100px;
+
+.bt-navbar-logo {
+    height: 8rem;
+    z-index: revert;
     position: relative;
+    margin-top: 4.5rem;
 }
 
-img.logo{
-    width: 100px;
-    padding: 5px;
-    margin: 0 auto;
-}
-.search-bar {
-    margin-top: 25px;
-    padding:0;
-    height: 50px;
-    transform: translate(-50%,-50%);
-
-
-}
 .bt-icon-search {
- color: black;
-    margin-bottom: 50px;
-    margin-right: 15px;
-}
-.search-btn:hover > p {
-    color: white;
-    transition-duration: 0.2s;
-}
-
-a{
     color: black;
 }
 
-.sidebar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
+.bt-icon-search:hover {
     color: white;
-    padding: 5px 16px;
-    border: none;
-    margin-bottom: 100%;
 }
 
-.openbtn:hover {
-    background-color: #444;
+.bt-button-search:hover {
+    background: var(--bt-bg-card-light-orange);
 }
 
-#main {
-    transition: margin-left .5s;
+.bt-search-bar-input.is-visible, .bt-search-bar-button.is-visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-/* Style the header: fixed position (always stay at the top) */
-.header {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    background-color: #f1f1f1;
+.bt-search-bar-input, .bt-search-bar-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-/* The progress container (grey background) */
-.progress-container {
-    width: 100%;
-    height: 8px;
-    background: whitesmoke;
-
+.bt-search {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
 }
 
-/* The progress bar (scroll indicator) */
-.progress-bar {
-    height: 8px;
-    background:linear-gradient(90deg, #163E3D 1.42%, #0A9A93 50.39%, #163E3D 100%);
-    width: 0;
+.bt-search form {
+    width: 90%;
 }
 
-
-/* The Close Button */
-.close {
-
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.bt-nav {
+    width: 20%;
 }
 
-.close:hover,
-.close:focus {
-    text-decoration: none;
-    cursor: pointer;
-}
+@media screen and (max-width: 780px){
+    .bt-navbar {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        margin-top: 0;
+    }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+    .bt-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        width: auto;
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .bt-navbar-logo {
+        margin-top: 0;
+    }
+
+    .bt-search {
+        width: 90%;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+
+    .bt-nav-hello {
+        display: none;
+    }
 }

@@ -10,10 +10,10 @@ class CommentController extends AbstractController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
-            $newComment = array_map('trim', $_POST);
+            //$newComment = array_map('trim', $_POST);
 
             $comment = new CommentManager();
-            $comment->insertComment($newComment);
+            $comment->insertComment();
         }
     }
 

@@ -14,17 +14,18 @@
             <div class="bt-comment-content">{{ comment.content_comment }}</div>
         </div>
     {% endfor %}
-    <div class="bt-separation-bar-comments"></div>
 </div>
 
-<div class="bt-comment-area pt-5">
-    <form method="post">
-        <div class="row bt-comment-form">
-            <label class="bt-comment-form-title" for="comment">Ton commentaire :</label>
-            <textarea class="bt-form-input" type="test" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
-        </div>
-        <div class="d-md-flex justify-content-md-center mt-3 mb-5">
-            <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>
-        </div>
-    </form>
-</div>
+{% if user is not empty %}
+    <div class="bt-separation-bar-comments"></div>
+    <div class="bt-comment-area pt-5">
+        <form method="post">
+            <div class="row bt-comment-form">
+                <textarea class="bt-form-input" type="test" name="comment" id="comment" rows="5" placeholder="Laisse un commentaire et donne ton avis" required></textarea>
+            </div>
+            <div class="d-md-flex justify-content-md-center mt-3 mb-5">
+                <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>
+            </div>
+        </form>
+    </div>
+{% endif %}
