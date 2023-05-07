@@ -1,3 +1,19 @@
+    <aside class="rounded-4 bt-sticky-aside">
+        <a href="/article/show?id=8">
+            <div class="bt-sticky-aside card rounded-4 {% block color %}{% endblock %}" style="width: 18rem; ">
+                <div class="card-body">
+                    <h1 class="text-center">{% block titleblock %}{% endblock %}</h1>
+                    <div class="bt-article-head-line mb-3"></div>
+                    <h4 class="text-center">{% block title %}{% endblock %}</h4>
+                    <p class="card-text">{% block description %}{% endblock %}</p>
+                </div>
+                <img class="m-auto pb-3" src="/assets/images/{% block picture %}{% endblock%}" class="card-img-bottom" alt="..." style="width: 16rem;">
+            </div>
+        </a>
+    </aside>
+
+
+<!--
 <aside class="rounded-4">
     <div class="bt-sticky-aside card rounded-4" style="width: 18rem;">
         <div class="card-header rounded-top-4
@@ -52,3 +68,4 @@
         </a>
     </div>
 </aside>
+-->

@@ -5,89 +5,78 @@
 {% endblock %}
 {% block content %}
     <div class="container bt-profile">
-        <div class ="" ></div>
-            <h1 class="text-center pb-3">Mon profil</h1>
-        <div class="row pb-5">
-            <div class="col px-5">
-                <table class="bt-table table">
-                    <tr>
-                        <td>Nom</td>
-                        <td>{{ user.last_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Prénom</td>
-                        <td>{{ user.first_name }}</td>
-                    </tr>
-                    <tr>
-                        <td> Pseudo</td>
-                        <td>{{ user.user_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                        <td class="bt-date">Date de naissance</td>
-                        <td class="bt-date">{{ user.birthday|date("d/m/Y") }}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col d-flex align-items-end">
-                <div class="row mb-4">
-                    <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="/user/edit">Modifier mon profil</a>
-                    <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="/user/delete">Supprimer mon profil</a>
-                </div>
-            </div>
+        <h1 class="text-center pb-3">Mon profil</h1>
+        <table class="bt-table table m-auto">
+            <tr>
+                <td>Nom</td>
+                <td>{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Prénom</td>
+                <td>{{ user.first_name }}</td>
+            </tr>
+            <tr>
+                <td> Pseudo</td>
+                <td>{{ user.user_name }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td class="bt-date">Date de naissance</td>
+                {% if user.birthday is not empty %}
+                <td class="bt-date">{{ user.birthday|date("d/m/Y") }}</td>
+                {% endif %}
+            </tr>
+        </table>
+        <div class="mb-4 d-flex justify-content-md-end justify-content-center">
+            <a class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover mt-md-0 mt-3" href="/user/edit">Modifier mon profil</a>
         </div>
-        <div class="bt-profile-article row pt-3">
-            <h3 class="col px-0">Mes articles</h3>
-            <div class="col d-md-flex justify-content-md-end">
+        <div class="bt-profile-article row">
+            <h3 class="text-center mb-0">Mes articles</h3>
+            <div class="text-center p-4">
                 <a class="bt-button bt-button-green btn btn-primary" href="/article/add">Publier un article</a>
             </div>
         </div>
+        <div class="bt-profile-articles d-md-flex flex-md-wrap justify-content-center">
+        {% for article in articles %}
+             <div class="col-md-5 m-md-5 bt-article-by-id">
+                 {# Include, custom content and style for row : 1 article : 1 #}
+                 {% embed '_includes/landing_page/bt-section-article-card.html.twig' %}
+                     {# Custom style for card article #}
+                     {% block section_article_card_style %}
+                         bt-card-section2
+                         bt-bg-light-green
+                         bt-card-colored
+                     {% endblock %}
+                     {% block section_article_h2_style %}
+                     {% endblock %}
+                     {% block section_article_author_date_style %}
+                     {% endblock %}
+                     {# -- END OF -- Custom style for card article #}
+                     {# Custom content for card article, link, titles, author and date, description, then image #}
+                     {% block section_article_link %}/article/show?id={{ article.id_article }}
+                     {% endblock %}
+                     {% block section_article_h2_content %}
+                         {{ article.title }}
+                     {% endblock %}
+                     {% block section_article_img_content %}{{ article.link }}{% endblock %}
+                     {% block section_article_author_date_content %}
+                         {{ article.article_created_at|date("d/m/Y") }}
+                     {% endblock %}
+                     {% block link %}
+                     <a href="/article/edit?id= {{ article.id_article }}" class="bt-button bt-button-green btn btn-primary">Modifier</a>
+                     <a href="/article/delete?id= {{ article.id_article }}" class="bt-button bt-button-red bt-button-delete btn btn-primary">Supprimer</a>
+                     {% endblock %}
+                     {# -- END OF -- Custom content for card article, link, title then image #}
+                 {% endembed %}
+                 {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
+             </div>
 
+        {% endfor %}
+        </div>
     </div>
-{% endblock content %}
-
-
-{% block articles %}
-<div id="bt-articles-by-id">
- {% for article in articles %}
-
-         <div class="col-sm-4" id="bt-article-by-id">
-             {# Include, custom content and style for row : 1 article : 1 #}
-             {% embed '_includes/landing_page/bt-section-article-card.html.twig' %}
-                 {# Custom style for card article #}
-                 {% block section_article_card_style %}
-                     bt-card-section2
-                     bt-bg-light-green
-                     bt-card-colored
-                 {% endblock %}
-                 {% block section_article_h2_style %}
-                 {% endblock %}
-                 {% block section_article_author_date_style %}
-                 {% endblock %}
-                 {# -- END OF -- Custom style for card article #}
-                 {# Custom content for card article, link, titles, author and date, description, then image #}
-                 {% block section_article_link %}/article/show?id={{ article.id_article }}
-                 {% endblock %}
-                 {% block section_article_h2_content %}
-                     {{ article.title }}
-                 {% endblock %}
-                 {% block section_article_img_content %}{{ article.link }}{% endblock %}
-                 {% block section_article_author_date_content %}
-                     {{ article.article_created_at }}
-                 {% endblock %}
-                 {% block button_content %}Edit Article{% endblock %}
-                 {# -- END OF -- Custom content for card article, link, title then image #}
-             {% endembed %}
-             {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
-             <a href="/article/edit?id={{ article.id_article }}"><button class="bt-button" id="bt-button-edit-article">Modifier</button></a>
-             <a href="/article/delete?id={{ article.id_article }}"><button class="bt-button" id="bt-button-delete-article">Supprimé</button></a>
-         </div>
-
- {% endfor %}
-</div>
 {% endblock %}
 
 
