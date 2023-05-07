@@ -62,9 +62,10 @@ class UserController extends AbstractController
         //}
     }
 
-    public function show(int $id): string
+    public function show(): string
     {
         $userManager = new userManager();
+        $id = $_SESSION['user_id'];
         $user = $userManager->selectOneById($id);
 
         return $this->twig->render('User/index.html.twig', [
