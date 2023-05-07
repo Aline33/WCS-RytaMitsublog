@@ -11,6 +11,8 @@ class ArticleController extends AbstractController
 {
     public function show(int $id): string
     {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
         $articleManager = new ArticleManager();
         $pictureController = new PictureController();
         $article = $articleManager->selectOneById($id);
@@ -62,6 +64,8 @@ class ArticleController extends AbstractController
 
     public function add(): string
     {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['articleAddSubmit'])) {
             // clean $_POST data
             $article = array_map('trim', $_POST);
