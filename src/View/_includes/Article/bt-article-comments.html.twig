@@ -1,3 +1,5 @@
+{{ dump(showComments) }}
+
 <div class="bt-comments">
     <div class="bt-separation-bar-comments"></div>
     <div class="bt-total-comment-section">
@@ -24,7 +26,7 @@
     <form method="post">
         <div class="row bt-comment-form">
             <label class="bt-comment-form-title" for="comment">Ton commentaire :</label>
-            <textarea class="bt-form-input" type="test" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
+            <textarea class="bt-form-input" name="comment" id="comment" rows="5" placeholder="Donne ton avis" required></textarea>
         </div>
         <div class="d-flex justify-content-center mt-3 mb-5">
             <button class="bt-button bt-button-green btn btn-primary" type="submit" name="SendComment">Publier</button>
