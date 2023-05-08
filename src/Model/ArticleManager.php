@@ -30,7 +30,7 @@ class ArticleManager extends AbstractManager
             "(user_id, title, description_article, body_article)
             VALUES (:user_id, :title, :description, :body)";
         $statement = $this->pdo->prepare($query);
-        $statement->bindValue('user_id', 1, PDO::PARAM_INT); // TODO: change user_id value
+        $statement->bindValue('user_id', $_SESSION['user_id'], PDO::PARAM_INT);
         $statement->bindValue(':title', $article['title'], PDO::PARAM_STR);
         $statement->bindValue(':description', $article['description'], PDO::PARAM_STR);
         $statement->bindValue(':body', $article['content'], PDO::PARAM_STR);
@@ -119,5 +119,29 @@ class ArticleManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function deletePhotos($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_picture WHERE article_id = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function deleteComments($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_comment WHERE article_id = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function deleteArticle($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_article WHERE id_article = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
     }
 }
