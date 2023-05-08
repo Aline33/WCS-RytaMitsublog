@@ -94,6 +94,7 @@ class UserManager extends AbstractManager
         FROM bt_article a
         LEFT JOIN bt_picture p ON p.article_id = a.id_article
         WHERE a.user_id = :user_id AND is_main = 1
+        ORDER BY article_created_at DESC
          ");
         $statement->bindValue(':user_id', $userId);
         $statement->execute();
