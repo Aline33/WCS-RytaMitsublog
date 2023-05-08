@@ -144,7 +144,7 @@ class UserController extends AbstractController
         $userManager->selectOneById($id);
 
         $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+        $articles = $userManager->getUserArticlesWithPhotos($id);
 
         return $this->twig->render('User/index.html.twig', [
             'id' => $id,
