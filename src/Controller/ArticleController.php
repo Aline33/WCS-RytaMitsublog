@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\ArticleManager;
 
-
 class ArticleController extends AbstractController
 {
     public function show(int $id): string
@@ -91,10 +90,7 @@ class ArticleController extends AbstractController
 
             $articleManager->update($article);
 
-            $pictureController = new PictureController();
-            $pictureController->update($id);
-
-            header('Location: /user/show');
+            header('Location:/user/show');
         }
         return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
     }
