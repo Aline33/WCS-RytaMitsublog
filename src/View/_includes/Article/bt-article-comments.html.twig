@@ -1,5 +1,3 @@
-{{ dump(showComments) }}
-
 <div class="bt-comments">
     <div class="bt-separation-bar-comments"></div>
     <div class="bt-total-comment-section">
@@ -19,9 +17,9 @@
     {% if showComments is empty %}
         <p class="p-5 mx-auto">Ancun commentaire</p>
     {% endif %}
-    <div class="bt-separation-bar-comments"></div>
 </div>
-
+{% if userId is not empty %}
+    <div class="bt-separation-bar-comments"></div>
 <div class="bt-comment-area pt-5">
     <form method="post">
         <div class="row bt-comment-form">
@@ -33,3 +31,4 @@
         </div>
     </form>
 </div>
+{% endif  %}
