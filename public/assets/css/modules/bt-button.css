@@ -30,3 +30,7 @@
     background : var(--bt-bg-card-red);
 }
 
+#bt-button-to-profile    {
+    width: 150px;
+    margin-bottom: 20px;
+}
