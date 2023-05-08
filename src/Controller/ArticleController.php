@@ -78,8 +78,7 @@ class ArticleController extends AbstractController
 
             $pictureController = new PictureController();
             $pictureController->add($id);
-            $this->show($id);
-            header('Location:/article/show?id=' . $id);
+            header('Location:/user/show');
         }
         return $this->twig->render('Article/add.html.twig');
     }
@@ -98,7 +97,7 @@ class ArticleController extends AbstractController
 
             $articleManager->update($article);
 
-            header('Location: /article/show?id=' . $id);
+            header('Location:/user/show');
         }
         return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
     }

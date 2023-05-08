@@ -144,15 +144,11 @@ class UserController extends AbstractController
         $userManager->selectOneById($id);
 
         $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesWithPhotos($id);
-
-        $commentManager = new CommentManager();
-        $comments = $commentManager->getAllCommentsByUserId();
+        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
 
         return $this->twig->render('User/index.html.twig', [
             'id' => $id,
             'articles' => $articles,
-            'comments' => $comments,
         ]);
     }
 }
