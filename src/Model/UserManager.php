@@ -85,7 +85,7 @@ class UserManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function getUserArticlesAndCommentsWithPhotos(): array
+    public function getUserArticlesWithPhotos($id): array
     {
         $userId = $_SESSION['user_id'];
 
