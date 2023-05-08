@@ -73,8 +73,32 @@
                  {% endembed %}
                  {# -- END OF -- Include, custom content and style for row : 1 article : 1 #}
              </div>
-
         {% endfor %}
+        </div>
+
+        <div>
+            <div class="bt-profile-article row">
+                <h3 class="text-center mb-0">Mes commentaires</h3>
+            </div>
+
+            <div class="bt-comments-profile d-md-flex flex-md-wrap justify-content-center">
+            {% for comment in comments %}
+                <a href="/article/show?id={{ comment.id_article }}"><div div class="col-md-5 m-md-5 bt-comment-by-id">
+
+                    <div>
+                        <h2>{{ comment.title }}</h2>
+                    </div>
+                    <div>
+                        <h5>{{ comment.comment_created_at|date("d/m/Y") }}</h5>
+                        <h3>{{ comment.content_comment }}</h3>
+                    </div>
+                        <div>
+                            <a href="/comment/edit?id= {{ comment.id_comment }}" class="bt-button bt-button-green btn btn-primary" style="color: #FDFFF5">Modifier</a>
+                            <a href="/comment/delete?id= {{ comment.id_comment }}" class="bt-button bt-button-red bt-button-delete btn btn-primary" style="color: #FDFFF5">Supprimer</a>
+                        </div>
+                </div></a>
+            {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

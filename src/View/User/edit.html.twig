@@ -6,20 +6,20 @@
 {% block content %}
     <div class="container">
         <div class ="bt-profile" ></div>
-        <h1 class="text-center">Mon profil</h1>
+        <h1 class="text-center p-3">Modifie tes informations personnelles</h1>
         <div class="row">
-            <div class="col">
+            <div class="col-md-8 m-auto">
                 <form method="post" action="" class="bt-form bt-form-user">
-                    <div class="row">
-                        <div class="col-3">
-                            <label for="firstName" class="">Prénom : </label>
+                    <div class="row p-auto">
+                        <div class="col-md-3">
+                            <label for="firstName" class="pt-4">Prénom : </label>
                         </div>
                         <div class="col">
-                            <input type="text" class="" id="firstName" name="firstName" value="{{ user.first_name }}">
+                            <input type="text" class="pt-3" id="firstName" name="firstName" value="{{ user.first_name }}">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label for="lastName" class="">Nom : </label>
                         </div>
                         <div class="col">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label for="username" class="">Pseudo : </label>
                         </div>
                         <div class="col">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <label for="email" class="">Email : </label>
                         </div>
                         <div class="col">
@@ -43,37 +43,23 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-3">
-                            <label for="birthday" class="">Date de naissance : </label>
+                        <div class="col-md-3">
+                            <label for="birthday" class="btn-light">Date de naissance : </label>
                         </div>
                         <div class="col">
-                            <input type="date" class="" id="birthday" name="birthday" value="{{ user.birthday }}">
+                            <input type="date" class="input" id="birthday" name="birthday" value="{{ user.birthday }}">
                         </div>
                     </div>
                     {# <label for="password">Mot de passe : </label>
                     <input type="password" class="" id="password" name="password" value="{{ user.user_password }}"> #}
-                    <div class="row">
+                    <div class="row pb-4 pt-0">
                         <button type="submit" name="editUserSubmit" class="bt-button-login bt-button-edit">Modifier</button>
                     </div>
                 </form>
-                <div class="row bt-edit-row-lol-nimp-balek">
-                    <form method="post" class="bt-user-delete">
-                        <button type="submit" name="deleteUserSubmit" class="bt-button-login bt-button-edit bt-button-user-delete">Supprimer mon profil</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col align-self-end d-md-flex ">
-                <div class = "row justify-content-md-end">
-
+                <div class="d-flex justify-content-center">
+                    <a href="/user/delete" type="submit" class="btn btn-primary bt-button bt-button-delete my-3 text-center">Supprimer mon profil</a>
                 </div>
             </div>
         </div>
-        <div class="bt-profile-article row pt-3">
-            <h3 class="col px-0">Mes articles</h3>
-            <div class="col d-md-flex justify-content-md-end">
-                <a class="bt-button bt-button-green btn btn-primary">Publier un article</a>
-            </div>
-        </div>
-
     </div>
 {% endblock content %}

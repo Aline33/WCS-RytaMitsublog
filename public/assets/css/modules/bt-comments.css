@@ -51,6 +51,13 @@
     width: 60%;
     margin: auto;
 }
+#bt-edit-comment-total  {
+    margin-top: 30px;
+}
+
+#bt-edit-comment    {
+    margin-bottom: 10px;
+}
 
 @media screen and (max-width: 780px){
     .bt-comment-form{
