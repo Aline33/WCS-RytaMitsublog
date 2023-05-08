@@ -54,6 +54,7 @@
                 {% endif %}
 
                 {% if user is not empty %}
+                    <a href="/user/show?id={{ user.id_user }}" class="bt-profile-link">Profil</a>
                     <form action="" method="post" class="bt-form">
                         <button type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
                     </form>
@@ -65,7 +66,7 @@
                 {% if user is empty %}
                     <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Créer un compte</button>
                 {% endif %}
-                <img src="assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
+                <img src="/assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
             </div>
         </div>
     </div>
