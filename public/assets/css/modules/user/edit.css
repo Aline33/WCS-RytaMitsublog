@@ -28,4 +28,5 @@
 
 .bt-button-user-delete {
     background: var(--bt-bg-card-red);
+    border: none;
 }
