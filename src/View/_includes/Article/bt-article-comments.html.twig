@@ -15,6 +15,9 @@
         </div>
     {% endfor %}
 </div>
+{% if showComments is empty %}
+    <p class="p-5 mx-auto">Ancun commentaire, sois le premier à laisser ton avis !</p>
+{% endif %}
 
 {% if user is not empty %}
     <div class="bt-separation-bar-comments"></div>

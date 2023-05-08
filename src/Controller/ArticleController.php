@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 use App\Model\ArticleManager;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 class ArticleController extends AbstractController
 {
@@ -84,13 +81,7 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/add.html.twig');
     }
 
-    /**
-     * @param $id
-     * @return string
-     * @throws RuntimeError
-     * @throws SyntaxError
-     * @throws LoaderError
-     */
+
     public function edit(int $id): string
     {
         $articleManager = new ArticleManager();
@@ -107,5 +98,19 @@ class ArticleController extends AbstractController
             header('Location: /article/show?id=' . $id);
         }
         return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
+    }
+
+    public function delete($id)
+    {
+        $articleManager = new ArticleManager();
+        $articleManager->deletePhotos($id);
+
+        $articleManager = new ArticleManager();
+        $articleManager->deleteComments($id);
+
+        $articleManager = new ArticleManager();
+        $articleManager->deleteArticle($id);
+
+        header('Location: /user/show');
     }
 }

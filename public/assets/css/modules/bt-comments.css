@@ -5,7 +5,7 @@
 
 .bt-separation-bar-comments {
     width: 80%;
-    height: 1px;
+    height: 0.5px;
     background: black;
     margin: auto;
 }
@@ -50,6 +50,12 @@
 .bt-comment-form {
     width: 60%;
     margin: auto;
+}
+
+@media screen and (max-width: 780px){
+    .bt-comment-form{
+        width: 90%;
+    }
 }
 
 

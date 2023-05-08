@@ -4,19 +4,29 @@
     box-shadow: var(--bt-main-box-shadow);
 }
 
+.bt-button-green {
+    border: none;
+}
+
+.bt-button-red {
+    background: var(--bt-bg-card-red);
+    border: none;
+}
+
+.bt-button-orange {
+    background: var(--bt-bg-cards-orange);
+    border: none;
+}
+
 .bt-button:hover {
     background : var(--bt-bg-card-light-green);
 }
 
-#bt-button-edit-article {
-    color: #fdfff5;
-    padding: 5px;
-    margin-top: 5px;
+.bt-button-delete {
+    background : var(--bt-bg-card-darkred);
 }
 
-#bt-button-delete-article   {
-    color: var(--bt-main-white);
-    background-color: var(--bt-bg-card-red);
-    padding: 5px;
-    margin-top: 5px;
+.bt-button-delete:hover {
+    background : var(--bt-bg-card-red);
 }
+

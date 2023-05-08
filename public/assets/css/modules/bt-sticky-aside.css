@@ -50,7 +50,7 @@ aside {
     border-radius: 2px;
 }
 
-.bt-sticky-aside h4, .bt-sticky-aside a{
+.bt-sticky-aside h4, .bt-sticky-aside h1{
     color: var(--bt-main-white);
     font-family: var(--bt-main-font);
 }
@@ -61,6 +61,14 @@ aside {
 
 .orange {
     background: var(--bt-bg-card-orange);
+}
+
+.green {
+    background: var(--bt-bg-card-light-green);
+}
+
+.red {
+    background: var(--bt-bg-card-red);
 }
 
 @media screen and (max-width: 400px) {

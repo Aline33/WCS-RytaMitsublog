@@ -1,4 +1,4 @@
-.bt-article p {
+.bt-article {
     font-family: var(--bt-article-text-font);
     width: 70%;
 }

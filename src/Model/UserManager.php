@@ -87,7 +87,7 @@ class UserManager extends AbstractManager
 
     public function getUserArticlesAndCommentsWithPhotos(): array
     {
-        $userId = $_SESSION['id'];
+        $userId = $_SESSION['user_id'];
 
         $statement = $this->pdo->prepare("
         SELECT a.*, p.link

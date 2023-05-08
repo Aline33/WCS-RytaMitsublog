@@ -1,18 +1,19 @@
-#bt-Article-Prev-Next-bar   {
-    height: 200px;
+#bt-Article-Prev-Next-bar {
     font-size: 15px;
+    background-color: var(--bt-bg-card-light-green);
 }
 
-#bt-Article-Previous-Article a  {
-    display: flex;
+#bt-Article-Prev-Next-bar a {
     text-decoration: none;
-    color: #FDFFF5;
+    color: var(--bt-main-bg);
+}
+
+#bt-Article-Prev-Next-bar img{
+    width: 150px;
+    height: 100px;
 }
 
 #bt-Article-Next-Article a  {
-    display: flex;
-    text-decoration: none;
-    color: #FDFFF5;
     text-align: right;
 }
 
@@ -21,6 +22,17 @@
     border-radius: var(--bt-main-border-radius);
 }
 
-#bt-Article-Previous-Article h5, #bt-Article-Next-Article h5    {
+#bt-Article-Previous-Article h5, #bt-Article-Next-Article h5 {
     margin: 0 10px;
+}
+@media screen and (max-width: 780px){
+    #bt-Article-Prev-Next-bar {
+        text-align: center;
+    }
+
+    #bt-Article-Next-Article a{
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
 }

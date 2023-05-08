@@ -2,9 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\ArticleManager;
-use App\Model\ArticleSectionManager;
-use App\Model\ItemManager;
 use App\Model\UserManager;
 
 class UserController extends AbstractController
@@ -60,12 +57,17 @@ class UserController extends AbstractController
 
     public function show(): string
     {
-        $userManager = new userManager();
         $id = $_SESSION['user_id'];
+
+        $userManager = new UserManager();
         $user = $userManager->selectOneById($id);
+
+        $userManager = new UserManager();
+        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
 
         return $this->twig->render('User/index.html.twig', [
             'user' => $user,
+            'articles' => $articles,
         ]);
     }
 
@@ -75,6 +77,7 @@ class UserController extends AbstractController
             header('Location: /');
         } else {
             $userManager = new UserManager();
+
             $id = $_SESSION['user_id'];
 
             $user = $userManager->selectOneById($id);
@@ -98,6 +101,7 @@ class UserController extends AbstractController
                 ]);
             }*/
             $this->delete();
+
 
             return $this->twig->render('User/edit.html.twig', [
                 'user' => $user,
@@ -128,7 +132,7 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
 
-        return $this->twig->render('Profile/index.html.twig', [
+        return $this->twig->render('User/index.html.twig', [
             'id' => $id,
             'articles' => $articles,
         ]);
