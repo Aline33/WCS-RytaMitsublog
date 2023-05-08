@@ -74,9 +74,13 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $articles = $userManager->getUserArticlesWithPhotos($id);
 
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByUserId();
+
         return $this->twig->render('User/index.html.twig', [
-            'user' => $user,
+            'id' => $id,
             'articles' => $articles,
+            'comments' => $comments,
         ]);
     }
 
@@ -146,9 +150,13 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $articles = $userManager->getUserArticlesWithPhotos($id);
 
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByUserId();
+
         return $this->twig->render('User/index.html.twig', [
             'id' => $id,
             'articles' => $articles,
+            'comments' => $comments,
         ]);
     }
 }
