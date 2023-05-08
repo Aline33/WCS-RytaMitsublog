@@ -120,4 +120,28 @@ class ArticleManager extends AbstractManager
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function deletePhotos($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_picture WHERE article_id = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function deleteComments($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_comment WHERE article_id = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function deleteArticle($id)
+    {
+        $id = $_GET['id'];
+        $statement = $this->pdo->prepare("DELETE FROM bt_article WHERE id_article = :id");
+        $statement->bindValue(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+    }
 }
