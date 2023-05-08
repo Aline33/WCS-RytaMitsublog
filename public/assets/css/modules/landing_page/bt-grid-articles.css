@@ -33,7 +33,7 @@
 
 .bt-main-mosaic-title-top {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -50,7 +50,7 @@
 }
 
 .bt-main-mosaic img {
-    width: auto;
+    filter: brightness(40%);
     transition: transform .2s ease ;
     width: 100%;
     height: 100%;
