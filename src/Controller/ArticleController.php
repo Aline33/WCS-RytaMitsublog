@@ -10,6 +10,12 @@ class ArticleController extends AbstractController
     {
         $navbarController = new NavbarController();
         $navbarController->modalLogin();
+        if (!empty($_SESSION)) {
+            $userId = $_SESSION['user_id'];
+        } else {
+            $userId = "";
+        }
+
         $articleManager = new ArticleManager();
         $pictureController = new PictureController();
         $article = $articleManager->selectOneById($id);
@@ -50,6 +56,7 @@ class ArticleController extends AbstractController
             'nextId' => $nextId,
             'linkPreviousPhoto' => $linkPreviousPhoto,
             'linkNextPhoto' => $linkNextPhoto,
+            'userId' => $userId,
 
             ]);
     }

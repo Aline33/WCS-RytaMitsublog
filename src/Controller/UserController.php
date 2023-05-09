@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
+use Couchbase\User;
+use App\Model\CommentManager;
 
 class UserController extends AbstractController
 {
@@ -63,7 +65,8 @@ class UserController extends AbstractController
         $user = $userManager->selectOneById($id);
 
         $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+        $articles = $userManager->getUserArticlesWithPhotos($id);
+
 
         return $this->twig->render('User/index.html.twig', [
             'user' => $user,
@@ -130,11 +133,15 @@ class UserController extends AbstractController
         $userManager->selectOneById($id);
 
         $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesAndCommentsWithPhotos();
+        $articles = $userManager->getUserArticlesWithPhotos($id);
+
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getAllCommentsByUserId();
 
         return $this->twig->render('User/index.html.twig', [
             'id' => $id,
             'articles' => $articles,
+            'comments' => $comments,
         ]);
     }
 }

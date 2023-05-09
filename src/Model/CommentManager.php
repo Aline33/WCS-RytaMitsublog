@@ -63,4 +63,19 @@ class CommentManager extends AbstractManager
 
             return $statement->execute();
     }
+    public function getAllCommentsByUserId(): array
+    {
+        $userId = $_SESSION['user_id'];
+
+        $statement = $this->pdo->prepare("
+        SELECT c.*, a.*
+        FROM bt_comment c
+        JOIN bt_article a ON c.article_id = a.id_article
+        WHERE c.user_id = :id");
+        $statement->bindValue(':id', $userId);
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

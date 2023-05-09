@@ -38,7 +38,7 @@
                     {% endif %}
                 {% endif %}
                 {% if user is not empty %}
-                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Bienvenue {{ user.user_name }}</h1>
+                    <h1 class="modal-title fs-5 d-flex" id="exampleModalToggleLabel">Bienvenue {{ user.user_name }}</h1>
                 {% endif %}
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -54,7 +54,11 @@
                 {% endif %}
 
                 {% if user is not empty %}
-                    <a href="/user/show?id={{ user.id_user }}" class="bt-profile-link">Profil</a>
+                    {# <<<<<<< HEAD #}
+                    {# <a href="/user/show?id={{ user.id_user }}" class="bt-profile-link">Profil</a> #}
+{# ======= #}
+                    <a href="/user/show"><button class="bt-button-login bt-button-orange bt-button btn-primary" id="bt-button-to-profile"> Acceder à mon profil </button></a>
+{# >>>>>>> 8b8c46df8d472d5adfe69a4662384b70d2900eb4 #}
                     <form action="" method="post" class="bt-form">
                         <button type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
                     </form>
