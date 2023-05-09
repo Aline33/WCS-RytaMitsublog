@@ -59,18 +59,26 @@ class UserController extends AbstractController
 
     public function show(): string
     {
-        $id = $_SESSION['user_id'];
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
+            $id = $_SESSION['user_id'];
 
-        $userManager = new UserManager();
-        $user = $userManager->selectOneById($id);
+            $userManager = new UserManager();
+            $user = $userManager->selectOneById($id);
 
-        $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesWithPhotos($id);
+            $userManager = new UserManager();
+            $articles = $userManager->getUserArticlesWithPhotos($id);
 
 
+            return $this->twig->render('User/index.html.twig', [
+                'user' => $user,
+                'articles' => $articles,
+            ]);
+        }
         return $this->twig->render('User/index.html.twig', [
-            'user' => $user,
-            'articles' => $articles,
         ]);
     }
 
