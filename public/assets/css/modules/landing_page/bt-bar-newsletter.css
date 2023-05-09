@@ -44,6 +44,14 @@ footer #bt-login-close {
     --bs-btn-hover-color: none;
 }
 
+.gridwormCanvas {
+    height: 16.875rem;
+    width: 100%;
+    position: absolute;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
 @media screen and (max-width: 1000px)   {
 
     #bt-newsletter-total-bar {

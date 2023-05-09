@@ -8,6 +8,8 @@ class ArticleController extends AbstractController
 {
     public function show(int $id): string
     {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
         if (!empty($_SESSION)) {
             $userId = $_SESSION['user_id'];
         } else {
@@ -66,7 +68,9 @@ class ArticleController extends AbstractController
 
     public function add(): string
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['articleAddSubmit'])) {
             // clean $_POST data
             $article = array_map('trim', $_POST);
 

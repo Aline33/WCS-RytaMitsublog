@@ -17,6 +17,14 @@
     text-align: right;
 }
 
+#bt-Article-Next-Article a:hover, #bt-Article-Previous-Article a:hover {
+    box-shadow: var(--bt-main-box-shadow);
+    border-radius: var(--bt-main-border-radius);
+}
+
+#bt-Article-Previous-Article h5, #bt-Article-Next-Article h5 {
+    margin: 0 10px;
+}
 @media screen and (max-width: 780px){
     #bt-Article-Prev-Next-bar {
         text-align: center;
@@ -26,4 +34,5 @@
         flex-direction: column-reverse;
         text-align: center;
     }
+
 }

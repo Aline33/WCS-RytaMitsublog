@@ -4,10 +4,10 @@
             <div class="modal-header">
                 {% if user is empty %}
                     <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Se connecter</h1>
-                    {% if errors is not empty and loginRegister == 1 %}
+                    {% if errorsLogin is not empty and login == 1 %}
                         {% set fieldTranslate = '' %}
                         {# {% if myVar in someOtherArray|keys %} #}
-                        {% for fieldError, errorList in errors %}
+                        {% for fieldError, errorList in errorsLogin %}
                             {% for errorGravity, errorTypeArray in errorList %}
                                 {% if 'fatal' in errorList|keys %}
                                     {% if errorGravity == 'fatal' %}
@@ -54,7 +54,11 @@
                 {% endif %}
 
                 {% if user is not empty %}
+                    {# <<<<<<< HEAD #}
+                    {# <a href="/user/show?id={{ user.id_user }}" class="bt-profile-link">Profil</a> #}
+{# ======= #}
                     <a href="/user/show"><button class="bt-button-login bt-button-orange bt-button btn-primary" id="bt-button-to-profile"> Acceder à mon profil </button></a>
+{# >>>>>>> 8b8c46df8d472d5adfe69a4662384b70d2900eb4 #}
                     <form action="" method="post" class="bt-form">
                         <button onclick="checkerLogout()" type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
                     </form>
@@ -66,7 +70,7 @@
                 {% if user is empty %}
                     <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Créer un compte</button>
                 {% endif %}
-                <img src="assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
+                <img src="/assets/images/FinishedLogoP2-modified.png" alt="Logo" class="bt-login-logo">
             </div>
         </div>
     </div>
@@ -76,10 +80,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 " id="exampleModalToggleLabel2">Créer un compte</h1>
-                {% if errors is not empty and loginRegister == 2 %}
+                {% if errorsRegister is not empty and register == 2%}
                     {% set fieldTranslate = '' %}
                     {# {% if myVar in someOtherArray|keys %} #}
-                    {% for fieldError, errorList in errors %}
+                    {% for fieldError, errorList in errorsRegister %}
                         {% for errorGravity, errorTypeArray in errorList %}
                             {% if 'fatal' in errorList|keys %}
                                 {% if errorGravity == 'fatal' %}
