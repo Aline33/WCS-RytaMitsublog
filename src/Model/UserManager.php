@@ -8,7 +8,6 @@ class UserManager extends AbstractManager
 {
     public const TABLE = 'bt_user';
 
-    // TODO : create methods to get user info depending on one field, (email and username would be good)
     public function selectOneByEmail(string $email): array|false
     {
         $query = "SELECT * FROM " . static::TABLE . " WHERE email = :email";
@@ -78,8 +77,7 @@ class UserManager extends AbstractManager
         } else {
             $statement->bindValue(':birthday', $userEdit['birthday']);
         }
-        //$statement->bindValue(':password', password_hash($userEdit['password'], PASSWORD_BCRYPT), \PDO::PARAM_STR);
-        $statement->bindValue(':id', $userEdit['id'], \PDO::PARAM_INT);
+        $statement->bindValue(':id', $userEdit['id'], PDO::PARAM_INT);
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
