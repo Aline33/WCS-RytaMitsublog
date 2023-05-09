@@ -24,10 +24,10 @@
     display: flex;
     padding: 2rem 1.8rem 2rem 1.2rem;
     border-radius: var(--bt-main-border-radius);
-    color: var(--bt-main-white);
     flex-direction: column;
     margin-bottom: 0;
     margin-top: 3rem;
+    color: black;
 }
 
 .bt-card-section2:hover {
