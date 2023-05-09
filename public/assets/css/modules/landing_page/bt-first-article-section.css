@@ -1,6 +1,5 @@
 .bt-card {
     transition: transform .2s ease;
-    /*box-shadow: var(--bt-main-box-shadow);*/
 }
 
 .bt-card-colored {
