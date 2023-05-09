@@ -2,12 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\UserManager;
-use PHP_CodeSniffer\Standards\PEAR\Sniffs\Files\IncludingFileSniff;
-use Twig\Environment;
-use Twig\Extension\DebugExtension;
-use Twig\Loader\FilesystemLoader;
-
 class NavbarController extends AbstractController
 {
     public function login(): void

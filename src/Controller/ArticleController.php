@@ -77,9 +77,6 @@ class ArticleController extends AbstractController
                 // clean $_POST data
                 $article = array_map('trim', $_POST);
 
-                // TODO validations (length, format...)
-
-                // if validation is ok, insert and redirection
                 $articleManager = new ArticleManager();
                 $id = $articleManager->insert($article);
 
@@ -103,13 +100,8 @@ class ArticleController extends AbstractController
             $article = $articleManager->selectOneById($id);
 
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // clean $_POST data
                 $article = array_map('trim', $_POST);
-
-                // TODO validations (length, format...)
-
                 $articleManager->update($article);
-
                 header('Location:/user/show');
             }
             return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
