@@ -46,8 +46,8 @@ aside {
     width: 90%;
     left: 5%;
     z-index: 1;
-    box-shadow: 0.063rem 0,125rem 0.313rem black;
-    border-radius: 0.125rem;
+    box-shadow: var(--bt-main-box-shadow);
+    border-radius: var(--bt-sticky-border-radius)
 }
 
 .bt-sticky-aside h4, .bt-sticky-aside h1{
