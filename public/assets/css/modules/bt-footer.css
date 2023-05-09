@@ -37,7 +37,7 @@ footer div a  {
         padding: 0;
     }
     footer svg {
-        width: 25px;
+        width: 1.563rem;
     }
 
     footer ul  {
@@ -49,15 +49,15 @@ footer div a  {
     }
 
     footer div a   {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
 
     footer .text-center.p-3    {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
 
     footer > .col-3.d-flex.align-items-center    {
-        margin-top: 75px;
+        margin-top: 4.688rem;
     }
 
     .row #bt-footer-social-media-icons {

@@ -10,7 +10,7 @@ class CommentManager extends AbstractManager
     public function insertComment(): bool
     {
 
-        $userId = $_SESSION['user_id']; //TO DO, GET THE USER_ID FROM $SESSIONS WHEN LOGGED IN
+        $userId = $_SESSION['user_id'];
 
         $content = $_POST['comment'];
         $articleId = $_GET['id'];
@@ -41,8 +41,6 @@ class CommentManager extends AbstractManager
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // WORK IN PROCESS -- Edit a comment
-
     public function updateComment($newComment): bool
     {
         $commentId = $_GET['id'];
@@ -57,8 +55,7 @@ class CommentManager extends AbstractManager
     public function deleteComment(): bool
     {
         $commentId = $_GET['id'];
-            $statement = $this->pdo->prepare("
-            DELETE FROM " . self::TABLE . " WHERE id_Comment = :id");
+            $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id_comment = :id");
             $statement->bindValue('id', $commentId);
 
             return $statement->execute();
