@@ -28,23 +28,7 @@
     flex-direction: column;
     margin-bottom: 0;
     margin-top: 3rem;
-    color: black
 }
-/*
-.bt-card-section2 {
-    display: flex;
-    align-items: center;
-    width: 25vw;
-    height: 40vh;
-    max-width: 650px;
-    padding: 50px 20px 50px 20px;
-    border-radius: 24px;
-    margin: 7vh 0;
-    text-align: center;
-    flex-direction: column;
-    transition: transform .2s ease ;
-
-}*/
 
 .bt-card-section2:hover {
     transform: scale(1.1);
@@ -55,7 +39,7 @@
     border-radius: inherit;
     height: 12rem;
     width: 90%;
-    box-shadow: var(--bt-main-box-shadow)/*10px 60px 40px rgb(0 0 0 / 30%)*/;
+    box-shadow: var(--bt-main-box-shadow);
     margin: -5rem auto 0.5rem auto;
     max-width: 1000px;
 }
