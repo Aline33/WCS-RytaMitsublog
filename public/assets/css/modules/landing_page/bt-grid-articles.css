@@ -6,14 +6,12 @@
     padding: 0;
     position: relative;
     text-align: center;
-    /*border-right: solid 5px black;*/
     overflow: hidden;
 }
 
 .bt-main-mosaic .row {
     margin-right: 0;
     margin-left: 0;
-    /*border-bottom: solid 5px black*/
 }
 
 .bt-main-mosaic .row:first-of-type {

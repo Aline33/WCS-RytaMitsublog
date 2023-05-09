@@ -10,7 +10,7 @@
 .bt-form input {
     border: none;
     background: none;
-    border-bottom: 2px solid var(--bt-main-white);
+    border-bottom: 0.125rem solid var(--bt-main-white);
     margin-bottom: 4vh;
     width: 100%;
     color: var(--bt-main-white);
