@@ -1,3 +1,4 @@
+
 nav {
     background: linear-gradient(90deg, #163E3D 0%, #0A9A93 50%, #163E3D 100%);
     height: 4rem;
@@ -146,3 +147,67 @@ nav {
         display: none;
     }
 }
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+
+.nav_bt{
+    height: 56px;
+    z-index: 1000;
+    background:linear-gradient(90deg, #163E3D 1.42%, #0A9A93 50.39%, #163E3D 100%);
+
+}
+
+/* The Close Button */
+.close {
+
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.bt-icon-search:hover {
+    color: white;
+}
+
+.bt-button-search:hover {
+    background: var(--bt-bg-card-light-orange);
+}
+
+.close:hover,
+.close:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+.search_icon{
+    padding-top: 20px;
+}
+.user_icon{
+    padding-top: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,15 +1,51 @@
 {% extends 'layout.html.twig' %}
 
-<form method="GET">
-    <input type="search" name="q" placeholder="Recherche..." />
-    <input type="submit" value="Valider" />
-</form>
-<?php if($articles->rowCount() > 0) { ?>
-<ul>
-    <?php while($a = $articles->fetch()) { ?>
-    <li><?= $a['titre'] ?></li>
-    <?php } ?>
-</ul>
-<?php } else { ?>
-Aucun résultat pour: <?= $q ?>...
-<?php } ?>
+{% block content %}
+
+    <div class="container bt-search-results">
+    {% for result in results %}
+
+        {% embed '_includes/landing_page/bt-section-article-card.html.twig' %}
+            {# Custom style for card article #}
+            {% block section_article_card_style %}
+                bt-card-section1
+                bt-bg-light-green
+                bt-card-colored
+            {% endblock %}
+            {% block section_article_img_style %}
+                bt-img-right
+            {% endblock %}
+            {% block section_article_author_date_style %}
+                bt-date
+            {% endblock %}
+            {% block section_article_h3_style %}
+                bt-h3
+            {% endblock %}
+            {% block section_article_description_style %}
+                bt-description
+            {% endblock %}
+            {# -- END OF -- Custom style for card article #}
+            {# Custom content for card article, link, titles, author and date, description, then image #}
+            {% block section_article_link %}
+                /article/show?id={{ result.id_article }}
+            {% endblock %}
+            {% block section_article_img_content %}{{ result['pictures'].pictureMain.link }}{% endblock %}
+            {% block section_article_author_date_content %}
+                {{ result['author'].user_name }}
+                {{ result.article_created_at|date("d/m/Y") }}
+            {% endblock %}
+            {% block section_article_h3_content %}
+                {{ result.title }}
+            {% endblock %}
+            {% block section_article_description_content %}
+                {{ result.description_article }}
+            {% endblock %}
+            {# -- END OF -- Custom content for card article, link, title then image #}
+        {% endembed %}
+
+    {% endfor %}
+    </div>
+
+
+{% endblock %}
+

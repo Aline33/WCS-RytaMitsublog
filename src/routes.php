@@ -17,6 +17,7 @@ return [
     'user/edit' => ['UserController', 'edit'],
     'article/edit' => ['ArticleController', 'edit',['id']],
     'article/delete' => ['ArticleController', 'delete', ['id']],
+    'search' => ['ArticleController','search',['querySearch']],
     'comment/edit' => ['CommentController', 'editComment', ['id']],
     'comment/delete' => ['CommentController', 'deleteComment', ['id']],
     'contact' => ['ContactController', 'index',],
