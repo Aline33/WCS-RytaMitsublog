@@ -46,7 +46,6 @@
 .bt-comment-by-id a  {
     color: unset;
     text-decoration: none;
-
 }
 
 @media screen and (max-width: 780px) {
