@@ -88,6 +88,8 @@ class UserController extends AbstractController
 
     public function edit(): string
     {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
         if (!isset($_SESSION['user_id'])) {
             header('Location: /');
         } else {
@@ -139,21 +141,28 @@ class UserController extends AbstractController
 
     public function index(): string
     {
-        $id = $_SESSION['user_id'];
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
+            $id = $_SESSION['user_id'];
 
-        $userManager = new userManager();
-        $userManager->selectOneById($id);
+            $userManager = new userManager();
+            $userManager->selectOneById($id);
 
-        $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesWithPhotos($id);
+            $userManager = new UserManager();
+            $articles = $userManager->getUserArticlesWithPhotos($id);
 
-        $commentManager = new CommentManager();
-        $comments = $commentManager->getAllCommentsByUserId();
+            $commentManager = new CommentManager();
+            $comments = $commentManager->getAllCommentsByUserId();
 
-        return $this->twig->render('User/index.html.twig', [
-            'id' => $id,
-            'articles' => $articles,
-            'comments' => $comments,
-        ]);
+            return $this->twig->render('User/index.html.twig', [
+                'id' => $id,
+                'articles' => $articles,
+                'comments' => $comments,
+            ]);
+        }
+        return $this->twig->render('User/index.html.twig');
     }
 }

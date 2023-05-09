@@ -70,19 +70,23 @@ class ArticleController extends AbstractController
     {
         $navbarController = new NavbarController();
         $navbarController->modalLogin();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['articleAddSubmit'])) {
-            // clean $_POST data
-            $article = array_map('trim', $_POST);
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['articleAddSubmit'])) {
+                // clean $_POST data
+                $article = array_map('trim', $_POST);
 
-            // TODO validations (length, format...)
+                // TODO validations (length, format...)
 
-            // if validation is ok, insert and redirection
-            $articleManager = new ArticleManager();
-            $id = $articleManager->insert($article);
+                // if validation is ok, insert and redirection
+                $articleManager = new ArticleManager();
+                $id = $articleManager->insert($article);
 
-            $pictureController = new PictureController();
-            $pictureController->add($id);
-            header('Location:/user/show');
+                $pictureController = new PictureController();
+                $pictureController->add($id);
+                header('Location:/user/show');
+            }
         }
         return $this->twig->render('Article/add.html.twig');
     }
@@ -90,20 +94,27 @@ class ArticleController extends AbstractController
 
     public function edit(int $id): string
     {
-        $articleManager = new ArticleManager();
-        $article = $articleManager->selectOneById($id);
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
+            $articleManager = new ArticleManager();
+            $article = $articleManager->selectOneById($id);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $article = array_map('trim', $_POST);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $article = array_map('trim', $_POST);
 
-            // TODO validations (length, format...)
+                // TODO validations (length, format...)
 
-            $articleManager->update($article);
+                $articleManager->update($article);
 
-            header('Location:/user/show');
+                header('Location:/user/show');
+            }
+            return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
         }
-        return $this->twig->render('Article/edit.html.twig', ['article' => $article]);
+        return $this->twig->render('Article/edit.html.twig');
     }
 
     public function delete($id)
