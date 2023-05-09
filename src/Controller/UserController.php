@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
-use Couchbase\User;
 use App\Model\CommentManager;
 
 class UserController extends AbstractController
@@ -36,7 +35,6 @@ class UserController extends AbstractController
     public function register(): array
     {
         $errors = [];
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $userRegister = $this->sanitizeData($_POST, self::FIELDS_REGISTER);
         $errors = $this->validateData($userRegister, self::FIELDS_REGISTER);
 
@@ -51,7 +49,6 @@ class UserController extends AbstractController
 
     public function disconnect(): void
     {
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_unset();
         session_destroy();
         //}
@@ -82,8 +79,7 @@ class UserController extends AbstractController
                 'comments' => $comments,
             ]);
         }
-        return $this->twig->render('User/index.html.twig', [
-        ]);
+        return $this->twig->render('User/index.html.twig');
     }
 
     public function edit(): string
@@ -109,12 +105,6 @@ class UserController extends AbstractController
                 header('Location: /user/edit');
             }
 
-            /*if (!empty($errors)) {
-                return $this->twig->render('Profile/edit.html.twig', [
-                    'user' => $user,
-                    'errors' => $errors
-                ]);
-            }*/
             $this->delete();
 
 
@@ -122,8 +112,7 @@ class UserController extends AbstractController
                 'user' => $user,
             ]);
         }
-        return $this->twig->render('User/edit.html.twig', [
-        ]);
+        return $this->twig->render('User/edit.html.twig');
     }
 
     public function delete(): void
