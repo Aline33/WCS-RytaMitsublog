@@ -99,7 +99,7 @@ nav {
 }
 
 .animated-icon1 span:nth-child(1) {
-    top: 0px;
+    top: 0;
 }
 
 .animated-icon1 span:nth-child(2) {
@@ -114,6 +114,7 @@ nav {
     background: var(--bt-bg-card-light-green);
     font-family: var(--bt-main-font);
     color: var(--bt-main-white);
+    border: none;
 }
 
 
