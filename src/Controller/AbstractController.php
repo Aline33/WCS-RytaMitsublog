@@ -94,6 +94,10 @@ abstract class AbstractController
 
     protected Environment $twig;
     protected array | false $user;
+    protected array $errorsLogin;
+    protected array $errorsRegister;
+    protected int $login;
+    protected int $register;
 
 
     public function __construct()
@@ -110,6 +114,18 @@ abstract class AbstractController
         $userManager = new UserManager();
         $this->user = isset($_SESSION['user_id']) ? $userManager->selectOneById($_SESSION['user_id']) : false;
         $this->twig->addGlobal('user', $this->user);
+        if (!empty($_SESSION['errorsLogin'])) {
+            $this->errorsLogin = $_SESSION['errorsLogin'];
+            $this->twig->addGlobal('errorsLogin', $this->errorsLogin);
+            $this->login = 1;
+            $this->twig->addGlobal('login', $this->login);
+        }
+        if (!empty($_SESSION['errorsRegister'])) {
+            $this->errorsRegister = $_SESSION['errorsRegister'];
+            $this->twig->addGlobal('errorsRegister', $this->errorsRegister);
+            $this->register = 2;
+            $this->twig->addGlobal('register', $this->register);
+        }
     }
 
     public function arrayTrim(array $inputs): array

@@ -56,6 +56,7 @@
                      {% endblock %}
                      {# -- END OF -- Custom style for card article #}
                      {# Custom content for card article, link, titles, author and date, description, then image #}
+
                      {% block section_article_link %}/article/show?id={{ article.id_article }}
                      {% endblock %}
                      {% block section_article_h2_content %}
@@ -67,7 +68,7 @@
                      {% endblock %}
                      {% block link %}
                      <a href="/article/edit?id= {{ article.id_article }}" class="bt-button bt-button-green btn btn-primary">Modifier</a>
-                     <a href="/article/delete?id= {{ article.id_article }}" class="bt-button bt-button-red bt-button-delete btn btn-primary">Supprimer</a>
+                     <a onclick="checkerDelete()" href="/article/delete?id= {{ article.id_article }}" class="bt-button bt-button-red bt-button-delete btn btn-primary">Supprimer</a>
                      {% endblock %}
                      {# -- END OF -- Custom content for card article, link, title then image #}
                  {% endembed %}
@@ -83,7 +84,7 @@
 
             <div class="bt-comments-profile d-md-flex flex-md-wrap justify-content-center">
             {% for comment in comments %}
-                <a href="/article/show?id={{ comment.id_article }}"><div div class="col-md-5 m-md-5 bt-comment-by-id">
+                <a href="/article/show?id={{ comment.id_article }}"><div class="col-md-5 m-md-5 bt-comment-by-id">
 
                     <div>
                         <h2>{{ comment.title }}</h2>
@@ -94,7 +95,7 @@
                     </div>
                         <div>
                             <a href="/comment/edit?id= {{ comment.id_comment }}" class="bt-button bt-button-green btn btn-primary" style="color: #FDFFF5">Modifier</a>
-                            <a href="/comment/delete?id= {{ comment.id_comment }}" class="bt-button bt-button-red bt-button-delete btn btn-primary" style="color: #FDFFF5">Supprimer</a>
+                            <a onclick="checkerDelete()" href="/comment/delete?id= {{ comment.id_comment }}" class="bt-button bt-button-red bt-button-delete btn btn-primary" style="color: #FDFFF5">Supprimer</a>
                         </div>
                 </div></a>
             {% endfor %}

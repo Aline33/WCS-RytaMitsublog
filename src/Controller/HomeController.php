@@ -29,38 +29,9 @@ class HomeController extends AbstractController
             $author['id_article: ' . $article['id_article']] = $articleManager->getAuthor($article['id_article']);
         }
 
-        $userController = new UserController();
-        $loginRegister = 0;
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['loginSubmit'])) {
-                $errors = $userController->login();
-                $loginRegister = 1;
-            }
-            if (isset($_POST['registerSubmit'])) {
-                $errors = $userController->register();
-                $loginRegister = 2;
-            }
-            if (isset($_POST['disconnectSubmit'])) {
-                $userController->disconnect();
-            }
-        } else {
-            return $this->twig->render('Home/index.html.twig', [
-                'articles' => $articles,
-                'pictures' => $pictures,
-                'author' => $author]);
-        }
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
 
-
-        if (!empty($errors)) {
-            return $this->twig->render('Home/index.html.twig', [
-                'articles' => $articles,
-                'pictures' => $pictures,
-                'author' => $author,
-                'errors' => $errors,
-                'loginRegister' => $loginRegister]);
-        } else {
-            header('Location: /');
-        }
         return $this->twig->render('Home/index.html.twig', [
             'articles' => $articles,
             'pictures' => $pictures,

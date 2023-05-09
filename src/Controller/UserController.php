@@ -2,9 +2,6 @@
 
 namespace App\Controller;
 
-use App\Model\ArticleManager;
-use App\Model\ArticleSectionManager;
-use App\Model\ItemManager;
 use App\Model\UserManager;
 use Couchbase\User;
 use App\Model\CommentManager;
@@ -33,7 +30,6 @@ class UserController extends AbstractController
                 $errors['password']['fatal']['password!Match'] = "Mot de passe ou pseudo incorrect";
             }
         }
-        //}
         return $errors;
     }
 
@@ -49,10 +45,7 @@ class UserController extends AbstractController
             $id = $userManager->insert($userRegister);
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $userRegister['new-username'];
-        } else {
-            return $errors;
         }
-        //}
         return $errors;
     }
 
@@ -66,63 +59,70 @@ class UserController extends AbstractController
 
     public function show(): string
     {
-        $id = $_SESSION['user_id'];
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
+            $id = $_SESSION['user_id'];
 
-        $userManager = new UserManager();
-        $user = $userManager->selectOneById($id);
+            $userManager = new UserManager();
+            $user = $userManager->selectOneById($id);
 
-        $userManager = new UserManager();
-        $articles = $userManager->getUserArticlesWithPhotos($id);
+            $userManager = new UserManager();
+            $articles = $userManager->getUserArticlesWithPhotos($id);
 
+            $commentManager = new CommentManager();
+            $comments = $commentManager->getAllCommentsByUserId();
 
+            return $this->twig->render('User/index.html.twig', [
+                'id' => $id,
+                'user' => $user,
+                'articles' => $articles,
+                'comments' => $comments,
+            ]);
+        }
         return $this->twig->render('User/index.html.twig', [
-            'user' => $user,
-            'articles' => $articles,
         ]);
     }
 
     public function edit(): string
     {
-        /*if (!$_SESSION['user_id']) {
+        if (!isset($_SESSION['user_id'])) {
             header('Location: /');
         } else {
-
-        }*/
-        $userManager = new UserManager();
-        $id = $_SESSION['user_id'];
-
-        $user = $userManager->selectOneById($id);
-        //$user['user_password'] =
-
-        //$errors = [];
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editUserSubmit'])) {
-            array_pop($_POST);
-            $userEdit = $_POST;
-            $userEdit = $this->sanitizeData($userEdit, self::FIELDS_EDIT);
-            //$errors = $this->validateData($userEdit, self::FIELDS_EDIT);
-
-            $userEdit['id'] = $_SESSION['user_id'];
-
-            //if (empty($errors)) {
             $userManager = new UserManager();
-            $id = $userManager->update($userEdit);
-            header('Location: /user/show');
-            //$_SESSION['user_id'] = $id;
-            //$_SESSION['username'] = $userEdit['new-username'];
-            //}
-        }
 
-        /*if (!empty($errors)) {
+            $id = $_SESSION['user_id'];
+
+            $user = $userManager->selectOneById($id);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['editUserSubmit'])) {
+                array_pop($_POST);
+                $userEdit = $_POST;
+                $userEdit = $this->sanitizeData($userEdit, self::FIELDS_EDIT);
+
+                $userEdit['id'] = $_SESSION['user_id'];
+
+                $userManager = new UserManager();
+                $id = $userManager->update($userEdit);
+                header('Location: /user/edit');
+            }
+
+            /*if (!empty($errors)) {
+                return $this->twig->render('Profile/edit.html.twig', [
+                    'user' => $user,
+                    'errors' => $errors
+                ]);
+            }*/
+            $this->delete();
+
+
             return $this->twig->render('User/edit.html.twig', [
                 'user' => $user,
-                'errors' => $errors
             ]);
-        }*/
-        $this->delete();
-
+        }
         return $this->twig->render('User/edit.html.twig', [
-            'user' => $user,
         ]);
     }
 
