@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleManager;
+
 class NavbarController extends AbstractController
 {
     public function login(): void

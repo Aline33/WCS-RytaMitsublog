@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArticleManager;
 use App\Model\UserManager;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
@@ -95,6 +96,7 @@ abstract class AbstractController
     protected array $errorsRegister;
     protected int $login;
     protected int $register;
+    protected array $allArticles;
 
 
     public function __construct()
@@ -111,6 +113,9 @@ abstract class AbstractController
         $userManager = new UserManager();
         $this->user = isset($_SESSION['user_id']) ? $userManager->selectOneById($_SESSION['user_id']) : false;
         $this->twig->addGlobal('user', $this->user);
+        $articleManager = new ArticleManager();
+        $this->allArticles = $articleManager->selectAllArticles();
+        $this->twig->addGlobal('allArticles', $this->allArticles);
         if (!empty($_SESSION['errorsLogin'])) {
             $this->errorsLogin = $_SESSION['errorsLogin'];
             $this->twig->addGlobal('errorsLogin', $this->errorsLogin);
