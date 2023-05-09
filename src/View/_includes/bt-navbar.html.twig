@@ -1,5 +1,19 @@
 {% block navbar %}
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+    </div>
     <nav class="bt-navbar navbar navbar-expand d-flex sticky-top">
+        {# <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button> #}
+        <button class="navbar-toggler first-button" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
+        </button>
         <div class="bt-search">
             <form class="d-flex bt-search-bar" role="search">
                 <input class="bt-search-bar-input form-control me-2" type="search" placeholder="Recherche un article" aria-label="Search">
@@ -46,6 +60,18 @@
         search.addEventListener('click', () => {
             input.classList.toggle('is-visible');
             button.classList.toggle('is-visible');
+        });
+        document.querySelector('.first-button').addEventListener('click', function () {
+
+            document.querySelector('.animated-icon1').classList.toggle('open');
+        });
+        document.querySelector('.second-button').addEventListener('click', function () {
+
+            document.querySelector('.animated-icon2').classList.toggle('open');
+        });
+        document.querySelector('.third-button').addEventListener('click', function () {
+
+            document.querySelector('.animated-icon3').classList.toggle('open');
         });
     </script>
 {% endblock %}
