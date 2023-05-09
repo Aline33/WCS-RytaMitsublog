@@ -1,97 +1,3 @@
-.navbar {
-    background:linear-gradient(90deg, #163E3D 1.42%, #0A9A93 50.39%, #163E3D 100%);
-    height: 55px;
-    position: sticky;
-    z-index: 100;
-    display: flex;
-    width: 100%;
-
-
-}
-
-img.logo{
-    width: 100px;
-    padding: 5px;
-    margin: 0 auto;
-}
-.search-bar {
-    margin-top: 25px;
-    padding:0;
-    height: 50px;
-    transform: translate(-50%,-50%);
-    border: 5px black solid;
-    transition-duration: 0.2s;
-
-}
-.search_container{
-    display: flex;
-}
-.logo_container{
-    display: flex;
-    margin-right: 725px;
-}
-.textbox {
-    width: 0px;
-    padding: 0;
-    margin: 0;
-    border: none;
-    line-height: 40px;
-    font-size: 25px;
-    height:45px;
-    background-color: transparent;
-    outline: none;
-    height: 100%;
-    float: left;
-
-    transition-duration: 0.05s;
-}
-
-.search-btn {
-    background-color: transparent;
-    margin: 0;
-    width: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: right;
-    text-decoration: none;
-    /* border-left: 5px black solid; */
-    height: 100%;
-    transition-duration: 0.2s;
-}
-
-
-.search-btn p {
-    margin: 10px;
-    color: black;
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: 800;
-}
-
-.search-bar:hover > .textbox {
-    padding: 0px 10px 0px 10px;
-    width: 100%;
-    transition-duration: 0.2s;
-}
-
-.search-bar:hover > .search-btn {
-    border-left: 5px black solid;
-    transition-duration: 0.2s;
-}
-
-.search-btn:hover {
-    background-color: black;
-    transition-duration: 0.2s;
-}
-.search-btn:hover > p {
-    color: white;
-    transition-duration: 0.2s;
-}
-
-a{
-    color: black;
-}
 
 .sidebar {
     height: 100%;
@@ -104,6 +10,11 @@ a{
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+}
+.logo{
+    height: 100px;
+    z-index: 100;
+    margin: 5px;
 }
 
 .sidebar a {
@@ -128,7 +39,7 @@ a{
 }
 
 .openbtn {
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     background-color: #111;
     color: white;
@@ -145,30 +56,13 @@ a{
     transition: margin-left .5s;
 }
 
-/* Style the header: fixed position (always stay at the top) */
-.header {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    background-color: #f1f1f1;
-}
 
-/* The progress container (grey background) */
-.progress-container {
-    width: 100%;
-    height: 8px;
-    background: whitesmoke;
-
-}
-
-/* The progress bar (scroll indicator) */
-.progress-bar {
-    height: 8px;
+.nav_bt{
+    height: 56px;
+    z-index: 1000;
     background:linear-gradient(90deg, #163E3D 1.42%, #0A9A93 50.39%, #163E3D 100%);
-    width: 0;
-}
 
+}
 
 /* The Close Button */
 .close {
@@ -178,14 +72,42 @@ a{
     font-weight: bold;
 }
 
+.bt-icon-search:hover {
+    color: white;
+}
+
+.bt-button-search:hover {
+    background: var(--bt-bg-card-light-orange);
+}
+
 .close:hover,
 .close:focus {
     text-decoration: none;
     cursor: pointer;
 }
+.search_icon{
+    padding-top: 20px;
+}
+.user_icon{
+    padding-top: 20px;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
-}
+    .sidebar a {font-size: 18px;}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

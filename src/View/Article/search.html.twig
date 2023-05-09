@@ -1,0 +1,16 @@
+
+{% block content %}
+
+    <form method="GET">
+        <input type="search" name="q" placeholder="Recherche..." />
+        <input type="submit" value="Valider" />
+    </form>
+
+    {% for title in titles %}
+
+        <p>{{title.title }}</p>
+
+    {% endfor %}
+
+
+{% endblock %}

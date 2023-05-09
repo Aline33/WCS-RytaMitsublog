@@ -75,4 +75,18 @@ class ArticleController extends AbstractController
             'article' => $article,
         ]);
     }
+    public function search(): string
+    {
+        $titles = [];
+        $query = [];
+        if (isset($_GET['q']) and !empty($_GET['q'])) {
+            $query = htmlspecialchars($_GET['q']);
+            $articleManager = new ArticleManager();
+            $titles = $articleManager->searchTitle($query);
+        }
+        return $this->twig->render('Article/search.html.twig', [
+            'titles' => $titles,
+            'query' => $query,
+        ]);
+    }
 }

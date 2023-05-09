@@ -52,4 +52,11 @@ class ArticleManager extends AbstractManager
 
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+    public function searchTitle(string $query): array
+    {
+        $sql = 'SELECT title FROM bt_article WHERE title LIKE "%' . $query . '%" '  ;
+        $statement = $this->pdo->query($sql);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }

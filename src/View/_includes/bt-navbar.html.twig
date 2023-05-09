@@ -1,70 +1,56 @@
 {% block navbar %}
-    <nav class="navbar">
+    <div class="nav_bt sticky-top">
+        <div class="row ">
+            <div class="col">
+                <div id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                    <a href="#">About us</a>
+                    <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
+                </div>
 
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-        </div>
+                <div id="main">
+                    <button class="openbtn" onclick="openNav()">☰</button>
+                </div>
+                <script>
+                    function openNav() {
+                        document.getElementById("mySidebar").style.width = "250px";
+                        document.getElementById("main").style.marginLeft = "250px";
+                        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                    }
 
-        <div id="main">
-            <button class="openbtn" onclick="openNav()">☰</button>
-        </div>
+                    function closeNav() {
+                        document.getElementById("mySidebar").style.width = "0";
+                        document.getElementById("main").style.marginLeft= "0";
+                        document.body.style.backgroundColor = "white";
+                    }
+                </script>
+            </div>
 
-        <script>
-            function openNav() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-            }
+            <div class=" logo_resize col d-flex justify-content-center">
 
-            function closeNav() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-                document.body.style.backgroundColor = "white";
-            }
-        </script>
-
-        <div class="logo_container">
-            <div class="search-bar">
-                <input type="text" class="textbox" placeholder="type here..."/>
-                <a class = "search-btn" href="#">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <div class="search_icon">
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="black" class="bi bi-search" viewBox="0 0 16 16">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg></p>
-                </a>
+                        </svg>
+                    </a>
+                </div>
+                <a href="/"><img src="/assets/images/FinishedLogoP2-modified.png" alt ="logo" class="logo "></a>
+
+                <div class="user_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                </div>
             </div>
-            <a href="/"><img src="/assets/images/FinishedLogoP2-modified.png" alt ="logo" class="logo"></a>
-            <div class="user_icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
+
+            <div class="col">
+
             </div>
         </div>
-
-        <div class="header">
-            <div class="progress-container">
-                <div class="progress-bar" id="myBar"></div>
-            </div>
-        </div>
-    </nav>
-
-    <script>// When the user scrolls the page, execute myFunction
-        window.onscroll = function() {myFunction()};
-
-        function myFunction() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
-
-        }
-
-
-    </script>
-
+    </div>
     {% embed '_includes/bt-login-modal.html.twig' %}{% endembed %}
 {% endblock %}
