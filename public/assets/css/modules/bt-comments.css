@@ -5,7 +5,7 @@
 
 .bt-separation-bar-comments {
     width: 80%;
-    height: 0.5px;
+    height: 0.031rem;
     background: black;
     margin: auto;
 }
@@ -31,7 +31,7 @@
 }
 
 .bt-name-creation-date h3 {
-    border-bottom: solid 1px black;
+    border-bottom: solid 0.063rem black;
     margin-right: 1rem;
 }
 
@@ -52,11 +52,11 @@
     margin: auto;
 }
 #bt-edit-comment-total  {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 #bt-edit-comment    {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 @media screen and (max-width: 780px){
