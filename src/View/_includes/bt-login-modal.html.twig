@@ -54,9 +54,9 @@
                 {% endif %}
 
                 {% if user is not empty %}
-                    <a href="/user/show"><button class="bt-button-login bt-button-orange bt-button btn-primary" id="bt-button-to-profile"> Acceder à mon profil </button></a>
+                    <a href="/user/show"><button class="bt-button-login bt-button-profile mb-5" id="bt-button-to-profile"> Mon profil </button></a>
                     <form action="" method="post" class="bt-form">
-                        <button type="submit" name="disconnectSubmit" class="bt-button-login">Se déconnecter</button>
+                        <button type="submit" name="disconnectSubmit" class="bt-button-login bt-button-red">Se déconnecter</button>
                     </form>
                 {% endif %}
             </div>

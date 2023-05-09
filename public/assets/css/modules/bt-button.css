@@ -8,6 +8,10 @@
     border: none;
 }
 
+.bt-button-profile:hover {
+    background: var(--bt-bg-card-light-green);
+}
+
 .bt-button-red {
     background: var(--bt-bg-card-red);
     border: none;
