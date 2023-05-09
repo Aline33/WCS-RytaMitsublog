@@ -27,19 +27,26 @@ class CommentController extends AbstractController
 
     public function editComment($id): ?string
     {
+        $navbarController = new NavbarController();
+        $navbarController->modalLogin();
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /');
+        } else {
             $commentManager = new CommentManager();
             $comment = $commentManager->selectOneById($id);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            $newComment = array_map('trim', $_POST);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // clean $_POST data
+                $newComment = array_map('trim', $_POST);
 
-            $commentManager = new CommentManager();
-            $commentManager->updateComment($newComment);
+                $commentManager = new CommentManager();
+                $commentManager->updateComment($newComment);
 
-            header('Location: /user/show');
-        }
+                header('Location: /user/show');
+            }
             return $this->twig->render('Article/Form-edit-comment.html.twig', ['comment' => $comment]);
+        }
+        return $this->twig->render('Article/Form-edit-comment.html.twig');
     }
 
     public function deleteComment($id)
