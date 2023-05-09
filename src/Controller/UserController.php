@@ -10,7 +10,6 @@ class UserController extends AbstractController
     public function login(): array
     {
         $errors = [];
-        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $userLogin = $this->sanitizeData($_POST, self::FIELDS_LOGIN);
         $errors = $this->validateData($userLogin, self::FIELDS_LOGIN);
         $userManager = new UserManager();
@@ -51,7 +50,6 @@ class UserController extends AbstractController
     {
         session_unset();
         session_destroy();
-        //}
     }
 
     public function show(): string
