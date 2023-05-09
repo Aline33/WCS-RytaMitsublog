@@ -4,13 +4,9 @@ namespace App\Controller;
 
 use App\Model\ArticleManager;
 use App\Model\ArticleSectionManager;
-use App\Model\UserManager;
 
 class HomeController extends AbstractController
 {
-    /**
-     * Display home page
-     */
     public function index(): string
     {
         $articleSectionMgr = new ArticleSectionManager();

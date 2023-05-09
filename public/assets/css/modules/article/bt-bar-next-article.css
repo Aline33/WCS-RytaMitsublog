@@ -1,5 +1,5 @@
 #bt-Article-Prev-Next-bar {
-    font-size: 15px;
+    font-size: 0.938rem;
     background-color: var(--bt-bg-card-light-green);
 }
 
@@ -9,8 +9,8 @@
 }
 
 #bt-Article-Prev-Next-bar img{
-    width: 150px;
-    height: 100px;
+    width: 9.375rem;
+    height: 6.25rem;
 }
 
 #bt-Article-Next-Article a  {
@@ -23,7 +23,7 @@
 }
 
 #bt-Article-Previous-Article h5, #bt-Article-Next-Article h5 {
-    margin: 0 10px;
+    margin: 0 0.625rem;
 }
 @media screen and (max-width: 780px){
     #bt-Article-Prev-Next-bar {

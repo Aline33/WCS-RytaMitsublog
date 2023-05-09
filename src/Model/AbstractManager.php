@@ -5,9 +5,6 @@ namespace App\Model;
 use App\Model\Connection;
 use PDO;
 
-/**
- * Abstract class handling default manager.
- */
 abstract class AbstractManager
 {
     protected PDO $pdo;
@@ -21,12 +18,9 @@ abstract class AbstractManager
         $this->pdo = $connection->getConnection();
     }
 
-    /**
-     * Get all row from database.
-     */
     public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE;
+        $query = 'SELECT * FROM' . static::TABLE;
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
@@ -34,9 +28,6 @@ abstract class AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
-    /**
-     * Get one row from database by ID.
-     */
     public function selectOneById(int $id): array|false
     {
         // prepared request
@@ -50,9 +41,6 @@ abstract class AbstractManager
         return $statement->fetch();
     }
 
-    /**
-     * Delete row form an ID
-     */
     public function delete(int $id): void
     {
         // prepared request
