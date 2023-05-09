@@ -100,7 +100,7 @@ class UserController extends AbstractController
 
                 $userManager = new UserManager();
                 $id = $userManager->update($userEdit);
-                header('Location: /user/edit');
+                header('Location: /user/show');
             }
 
             $this->delete();
