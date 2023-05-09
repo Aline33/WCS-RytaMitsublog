@@ -8,6 +8,10 @@
     border: none;
 }
 
+.bt-button-profile {
+    font-family: var(--bt-main-font);
+}
+
 .bt-button-profile:hover {
     background: var(--bt-bg-card-light-green);
 }
