@@ -1,0 +1,7 @@
+.bt-search-results h2 {
+    margin-bottom: var(--bt-spacing);
+}
+
+.bt-search-results .bt-card-section1 {
+    margin-bottom: var(--bt-spacing);
+}
