@@ -27,6 +27,12 @@ class HomeController extends AbstractController
 
         $navbarController = new NavbarController();
         $navbarController->modalLogin();
+        $results = $navbarController->search();
+        if (!empty($results)) {
+            return $this->twig->render('Article/search.html.twig', [
+                'results' => $results,
+            ]);
+        }
 
         return $this->twig->render('Home/index.html.twig', [
             'articles' => $articles,

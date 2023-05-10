@@ -55,7 +55,8 @@ class CommentManager extends AbstractManager
     public function deleteComment(): bool
     {
         $commentId = $_GET['id'];
-            $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id_comment = :id");
+            $statement = $this->pdo->prepare("
+            DELETE FROM " . self::TABLE . " WHERE id_comment = :id");
             $statement->bindValue('id', $commentId);
 
             return $statement->execute();

@@ -26,6 +26,8 @@
 
 @import "modules/user/edit.css";
 
+@import "modules/bt-search.css";
+
 @font-face {
     font-family: 'Rajdhani';
     src: url('../fonts/Rajdhani/Rajdhani-Regular.ttf');

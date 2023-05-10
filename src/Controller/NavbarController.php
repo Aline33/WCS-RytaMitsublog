@@ -48,4 +48,30 @@ class NavbarController extends AbstractController
             unset($_SESSION['errorsRegister']);
         }
     }
+
+    public function search(): ?array
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['searchSubmit']) && !empty($_GET['querySearch'])) {
+            array_pop($_GET);
+            $querySearch = trim($_GET['querySearch']);
+            $querySearch = htmlspecialchars($querySearch);
+            $querySearch = htmlentities($querySearch);
+
+            //$articleController = new ArticleController();
+            //$articleController->search($querySearch);
+            $articleManager = new ArticleManager();
+            $pictureController = new PictureController();
+            $results = $articleManager->searchTitle($querySearch);
+            $finalResults = [];
+            foreach ($results as $result) {
+                $id = $articleManager->selectOneByTitle($result['title'])['id_article'];
+                $result['pictures'] = $articleManager->getPictures($id);
+                $result['pictures'] = $pictureController->organisePictures($result['pictures']);
+                $result['author'] = $articleManager->getAuthor($id);
+                $finalResults[] = $result;
+            }
+            return $finalResults;
+        }
+        return null;
+    }
 }

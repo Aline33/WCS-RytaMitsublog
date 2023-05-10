@@ -2,13 +2,8 @@
     <nav class="bt-navbar navbar navbar-expand d-flex sticky-top">
         <div class="bt-search">
             <form class="d-flex bt-search-bar" role="search">
-                <input class="bt-search-bar-input form-control me-2" list="datalistOptions" type="search" placeholder="Recherche un article" aria-label="Search">
-                <button class="bt-search-bar-button btn bt-button-orange bt-button-search" type="submit">Chercher</button>
-                <datalist id="datalistOptions">
-                    {% for allArticle in allArticles %}
-                        <option value='{{ allArticle.title }}'>
-                    {% endfor %}
-                </datalist>
+                <input class="bt-search-bar-input form-control me-2" type="search" placeholder="Recherche un article" aria-label="Search" name="querySearch">
+                <button class="bt-search-bar-button btn bt-button-orange bt-button-search" type="submit" name="searchSubmit">Chercher</button>
             </form>
         </div>
         <div class="bt-nav navbar d-flex justify-content-center">

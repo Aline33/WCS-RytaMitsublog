@@ -77,8 +77,6 @@ class ArticleController extends AbstractController
                 // clean $_POST data
                 $article = array_map('trim', $_POST);
 
-                // TODO validations (length, format...)
-
                 $articleManager = new ArticleManager();
                 $id = $articleManager->insert($article);
 
@@ -89,7 +87,6 @@ class ArticleController extends AbstractController
         }
         return $this->twig->render('Article/add.html.twig');
     }
-
 
     public function edit(int $id): string
     {
@@ -123,5 +120,21 @@ class ArticleController extends AbstractController
         $articleManager->deleteArticle($id);
 
         header('Location: /user/show');
+    }
+
+    public function search(string $querySearch): string
+    {
+        $titles = [];
+        //$query = [];
+        //if (isset($_GET['q']) and !empty($_GET['q'])) {
+            $query = htmlspecialchars($querySearch);
+            $articleManager = new ArticleManager();
+            $titles = $articleManager->searchTitle($query);
+
+        //}
+        return $this->twig->render('Article/search.html.twig', [
+            'titles' => $titles,
+            'query' => $query,
+        ]);
     }
 }

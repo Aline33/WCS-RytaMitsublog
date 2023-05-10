@@ -152,4 +152,35 @@ class ArticleManager extends AbstractManager
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function searchTitle(string $query): array
+    {
+        $sql = 'SELECT * FROM bt_article WHERE title LIKE "%' . $query . '%" '  ;
+        $statement = $this->pdo->query($sql);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function selectOneByTitle(string $title): array|false
+    {
+        $statement = $this->pdo->prepare("
+            SELECT * FROM " . static::TABLE . "
+            WHERE title = :title");
+        $statement->bindValue(':title', $title, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function selectOneById(int $id): array|false
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("
+            SELECT *
+            FROM " . static::TABLE . "
+            WHERE " . $this->getPrimaryKeyNameFromTable() . "=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
 }
