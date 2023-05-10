@@ -12,18 +12,18 @@
                 <form method="post" action="" class="bt-form bt-form-user">
                     <div class="row p-auto">
                         <div class="col-md-3">
-                            <label for="firstName" class="pt-4">Prénom : </label>
+                            <label for="lastName" class="pt-4">Nom : </label>
                         </div>
                         <div class="col">
-                            <input type="text" class="pt-3" id="firstName" name="firstName" value="{{ user.first_name }}">
+                            <input type="text" class="pt-3" id="lastName" name="lastName" value="{{ user.last_name }}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="lastName" class="">Nom : </label>
+                            <label for="firstName">Prénom : </label>
                         </div>
                         <div class="col">
-                            <input type="text" class="" id="lastName" name="lastName" value="{{ user.last_name }}">
+                            <input type="text" class="" id="firstName" name="firstName" value="{{ user.first_name }}">
                         </div>
                     </div>
                     <div class="row">
@@ -56,7 +56,9 @@
                     </div>
                 </form>
                 <div class="d-flex justify-content-center">
-                    <a onclick="checkerDelete()" href="/user/delete" type="submit" class="btn btn-primary bt-button bt-button-delete my-3 text-center">Supprimer mon profil</a>
+                    <form action="" method="post">
+                        <button name="deleteUserSubmit"  onclick="checkerDelete()" type="submit" class="btn btn-primary bt-button bt-button-delete my-3 text-center">Supprimer mon profil</button>
+                    </form>
                 </div>
             </div>
         </div>

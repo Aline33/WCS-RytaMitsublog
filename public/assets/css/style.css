@@ -89,7 +89,9 @@ p {
     margin-bottom: var(--bt-spacing);
 }
 
-
+textarea {
+    resize: none;
+}
 
 @media screen and (max-width: 750px) {
     .row {

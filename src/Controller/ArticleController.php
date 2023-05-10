@@ -10,7 +10,7 @@ class ArticleController extends AbstractController
     {
         $navbarController = new NavbarController();
         $navbarController->modalLogin();
-        if (!empty($_SESSION)) {
+        if (!empty($_SESSION['user_id'])) {
             $userId = $_SESSION['user_id'];
         } else {
             $userId = "";

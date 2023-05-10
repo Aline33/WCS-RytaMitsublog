@@ -122,7 +122,7 @@ class UserController extends AbstractController
             $userManager = new UserManager();
             $userManager->delete((int)$id);
 
-            header('Location:/');
+            header('Location: /');
         }
     }
 

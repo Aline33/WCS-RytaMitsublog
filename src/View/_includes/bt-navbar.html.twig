@@ -33,7 +33,7 @@
                 <h3 class="my-auto">Bienvenue dans le Circuit</h3>
             {% endif %}
             {%  if user is not empty %}
-                <h3 class="my-auto">Bienvenue {{ user.user_name }}</h3>
+                <h3 class="my-auto">Bienvenue <span class="bt-user-name">{{ user.user_name }}</span></h3>
             {% endif %}
         </div>
     </nav>

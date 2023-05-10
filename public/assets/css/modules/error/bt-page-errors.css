@@ -2,7 +2,7 @@
 @import url('../variables.css');
 :root {
     --animation-sentence: 'Il faut s\'en aller maintenant';
-    --animation-duration: 20s;
+    --animation-duration: 15s;
 }
 * {
     box-sizing: border-box;
